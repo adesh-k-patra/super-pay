@@ -1,0 +1,81 @@
+12. My Activity
+Purpose: activity feed & audit trail of important account events.
+UI / Layout:
+* Timeline: logins, profile changes, KYC changes, payments, large transfers, failed logins, password changes
+* Filters: security, payments, profile, system messages
+Details:
+* Each event with timestamp, IP/device (mobile/desktop), action, outcome (success/fail)
+* Option to download security logs or export for audit
+Actions:
+* Flag suspicious activity, log out other devices, change password
+Microcopy:
+* “If you don’t recognise an activity — secure your account immediately.”
+
+13. My Rewards
+Purpose: loyalty program, points & tiers.
+UI / Layout:
+* Points balance & tier progress bar
+* Ways to earn (invite, spend, invest), ways to redeem (fee waiver, coupons)
+* Transaction list: earned/redeemed
+Actions:
+* Redeem points (one-click), view tier benefits, set reward preferences
+Backend:
+* Rewards engine, expiry scheduler, partner integration
+Microcopy:
+* “Rewards are subject to terms; points expire on DATE.”
+
+14. My Referrals
+Purpose: invite & track referrals for bonuses.
+UI / Layout:
+* Referral summary: active invites, earned rewards pending, total earned
+* Unique referral link + social share buttons
+* Referred users list & status (joined / KYC / completed first transaction)
+Actions:
+* Copy link, send invite, view referral T&Cs, withdraw referral reward (if cash), auto-apply as wallet balance
+Backend:
+* Referral tracking, fraud detection, reward disbursement
+Microcopy:
+* “Referral reward credited after the referred user completes first transaction.”
+
+15. Coupons & Cashbacks
+Purpose: manage offers, apply to payments, history.
+UI / Layout:
+* Active coupons (cards with CTA “Apply”), expired coupons, cashback pending
+* Filters: category (bills, travel, investments), min spend
+Coupon card data:
+* Offer summary, validity, T&Cs, eligible merchants
+Actions:
+* Apply coupon to upcoming payment, add to wallet, activate auto-apply rules
+Backend:
+* Coupon rules engine, partner APIs, cashback ledger
+Microcopy:
+* “Cashbacks credited within X days.”
+
+16. My Stock Purchase History (detailed)
+Purpose: ledger of buys/sells with P/L and auditing info.
+UI / Layout:
+* Table view + card view. Columns (exportable):
+    * Item (Company name — ticker)
+    * Date (Buy/Sell timestamp)
+    * Type (Buy / Sell / Split / Dividend)
+    * Quantity
+    * Buy Price (avg)
+    * Sell Price (avg)
+    * Brokerage & fees
+    * Profit / Loss (₹)
+    * Net Amount (₹)
+    * Order ID & UPI txn id
+    * Vendor / Broker (if multi-vendor)
+    * Settlement date (T+1 / T+2)
+    * Notes / Tag (taxable short-term / long-term)
+Row expansion shows:
+* Fill-by-fill breakdown (if multiple fills), time of each fill, executed price, partial fill qty
+* Linked documents (invoices, contract notes)
+* Tax classification automatically calculated (STCG / LTCG) with holding period and suggestions for tax harvesting
+Filters & features:
+* Filter by ticker, date range, profit/loss (gainers/losers), long-term/short-term
+* Export CSV -> columns for tax filing, PDF contract note download
+* Bulk tagging for tax year & bookkeeping
+Actions:
+* Raise dispute for mismatch, request contract note, view broker breakdown
+Backend:

@@ -1,0 +1,108 @@
+Profile (top-level)
+Purpose: single hub for everything personal — identity, finance, history, settings. Top layout (mobile-first): header with profile photo + name + verified badges, quick summary cards (Wallet balance, Total investments, Active loans, Today’s spend), tabbed navigation or a scroll list of pages (About / Edit Profile / My Loans / My Investments / My Bills / My Trips / My EMIs / Personal Finance / Pay History / Cards / Bank Accounts / Activity / Rewards / Referrals / Coupons & Cashbacks / Stock Purchase History). Persistent bottom CTA: “Manage Money”.
+
+1. About
+Purpose: show public-facing profile info and important identity data.
+UI / Layout:
+* Profile card: photo, name, verified (KYC) badges, membership tier
+* Short bio / tagline
+* Contact tiles: Phone (verified), Email (verified), VPA(s)
+* KYC status bar (Fully KYC / KYC pending / KYC required) with CTA
+Data & KPIs:
+* Full name, display name
+* Date of birth (age)
+* Gender (optional)
+* Primary phone, secondary phone, email
+* VPA(s) & linked bank(s)
+* KYC level & expiry info (if any)
+* Linked government IDs (masked) — e.g., Aadhar (last 4 digits), PAN (masked)
+* Join date, last active
+Actions:
+* View KYC documents (with masked numbers)
+* Download profile PDF
+* Request KYC upgrade / re-verify
+Backend:
+* User profile service, secure storage of PII (encrypted)
+* KYC provider integration
+Microcopy:
+* “Your identity helps us secure payments — complete KYC to enable deliveries & higher limits.”
+
+2. Edit Profile
+Purpose: allow the user to update editable fields securely.
+UI / Layout:
+* Editable form sections: Personal info, Contact details, Profile picture, Security & Preferences
+Fields & Validations:
+* Name (non-editable vs editable policy), display name, DOB, gender
+* Phone number (OTP verify), secondary phone
+* Email (OTP), address (line1, line2, city, state, PIN)
+* Profile picture upload + cropper
+* Communication preferences (email/SMS/push)
+* Language, currency display preference
+* Account privacy toggles (public profile / private)
+Actions:
+* Save / Cancel, Verify Phone, Verify Email
+* Re-upload KYC docs (if allowed)
+Backend:
+* Audit log for changes, OTP service, image storage (secure), PII encryption
+Microcopy:
+* “Changes to name or government ID require verification — this may take up to 24 hours.”
+
+3. My Loans
+Purpose: consolidated view of all personal loans (bank/partner lending) and UPI-linked microloans.
+UI / Layout:
+* Summary header: Total outstanding, Monthly EMI due, Next due date, Active loans count
+* Loan cards: lender logo, loan type (personal, consumer, buy-now-pay-later), outstanding principal, EMI amount, tenor left, interest rate, status (active/closed/delinquent)
+* Filter: Active / Closed / Overdue / By lender
+Loan detail (per loan):
+* Schedule: amortization table (month-by-month: principal, interest, balance)
+* Next due date with Pay Now button
+* Payment history (dates, amounts, receipts)
+* Prepayment/Foreclosure calculator & button (with penalties shown)
+* Documents: loan agreement, sanction letter
+* Communication log (messages with lender)
+* Switch to Auto-debit (mandate) toggle
+Actions:
+* Pay EMI (UPI / saved card / bank), Set auto-pay mandate, Request statement, Apply for top-up, Raise dispute
+Backend:
+* Lender APIs, mandate (eNACH/UPI Autopay) integration, loan amortization service, notification scheduling
+Microcopy:
+* “Pay early to save interest — prepayment penalty ₹X or Y%.”
+
+4. My Investments
+Purpose: consolidated investments (digital gold, silver, diamonds, stocks, mutual funds, ETFs, bonds, others).
+UI / Layout:
+* Snapshot: Total invested, Current value, Unrealized P/L (₹ & %), Today’s P/L
+* Tabs: All / By asset class / By vendor / SIPs / Watchlist
+* Portfolio allocation donut & time-series chart
+* Holdings list with vendor tags (e.g., Gold — SafeVault)
+Holding card data:
+* Asset name, vendor (if applicable), quantity/units, avg buy price, last price, current value, unrealized P/L
+* Quick actions: Buy more / Sell / Move custody / View history
+Holding detail:
+* Full transaction list (buy/sell/SIP) with order ids & UPI txn ids
+* Vendor details & certificates, delivery/redeem options (for physical)
+* KPI: XIRR, CAGR, Volatility estimate, 52-week high/low
+* Documents: invoices, certificates
+Actions:
+* Instant buy/sell (opens multi-vendor buy flow), set price alert, start SIP, schedule auto-rebalancing (AI-Invest tie-in), export holdings
+Backend:
+* Market data feeds, vendor APIs, portfolio calculation service (XIRR, daily P&L), custody provider integration
+Microcopy:
+* “Vendor rates differ — check vendor tag on each holding.”
+
+5. My Bills
+Purpose: bills & recurring payments (utilities, subscriptions) and bill pay history.
+UI / Layout:
+* Upcoming bills widget (sorted by due date), quick pay button
+* Categories: Utilities / Mobile / DTH / Insurance / Subscriptions
+* Auto-pay toggles & reminders
+Bill detail:
+* Bill amount, due date, provider, biller code, status (paid/unpaid/past due), past bills archive
+* Auto-pay setup: choose payment method, mandate, schedule
+Actions:
+* Pay now, Set Auto Pay (UPI mandate), Snooze reminder, Split bill (send request to contacts), Save bill template
+* Add custom biller (manual)
+Backend:
+* Biller registry, bill fetch APIs (if integrated), UPI collect or debit, notification scheduling
+Microcopy:
+* “Auto-pay reduces late fees — enable for utility bills.”

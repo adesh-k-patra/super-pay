@@ -1,0 +1,135 @@
+
+Complete /Investment page spec — full page list + fields, UI elements, data & flows (vendor-aware, buy/sell popups, AI-Invest, KPIs, backend needs)
+Nice — below is a single, production-ready, page-by-page list for your redesigned /Investment module. Each page includes: purpose → top UI / layout → exact data fields & KPIs to display → primary actions & flows → special vendor/asset rules. Use this to hand to product, design and dev teams.
+
+Quick overview (global design rules)
+* Mobile-first, single top-level hub: /investment with persistent header (search, notifications) and sticky hero summary with From Account / To Account selection for transactions.
+* Primary tabs inside /investment: Explore | My Investments | Orders | Watchlist | AI-Invest | Stats/Rewards
+* Floating CTA: Buy (context-aware: opens buy popup for selected asset)
+* All timestamps in IST with full timestamp: Sep 30, 2025 — 14:32 IST
+* Vendor-aware: commodities/stones show vendor badges (rates differ by vendor). User can compare and choose vendor before checkout.
+* Accessibility: color-coded P&L, text scale, tooltips for financial terms.
+
+Pages (each page listed with details)
+1) /investment — Main hub (landing)
+Purpose: single entry that surfaces Explore + snapshot + shortcuts. Top UI: hero card with Total Portfolio Value | Today P&L (₹ & %) | From Account (selector) | To Account (selector) + Buy shortcut. Blocks under hero (swipeable):
+* Quick Market Ticker (NSE/BSE indices + gold/silver quick cards)
+* Tabs row: Explore / My Investments / Orders / Watchlist / AI-Invest / Stats
+* Recommended (AI cards): 3 cards with suggested trade + CTA
+* Recent activity snapshot (last 3 orders) Data shown: total invested, current value, today P&L, cash balance, unsettled amount. Actions: jump to any tab, quick buy, set price alert.
+
+2) Explore (category discovery + vendor compare)
+Purpose: discover assets across categories and compare vendor offers. Top UI: Search + Filters (Asset type, Vendor, Risk, Min investment, Delivery) Category tiles: Precious Metals (Gold, Silver, Platinum, Bronze), Stones (Diamond), Stocks, Mutual Funds, ETFs, Bonds, Others. Within category (e.g., Gold): list of vendor offers cards: Vendor logo | Price per unit (₹/g) | Spread | Delivery type (Digital/Physical) | Rating | Buy CTA. Compare mode: select up to 3 vendor offers → side-by-side comparison (price, fees, min qty, buyback, vault fee, delivery days, certification). Data: vendor price timestamp, inventory (if applicable), buyback guarantee, storage fee. Actions: View Asset Detail (vendor-scoped), Add to compare, Watch, Quick buy.
+
+3) Asset Detail — vendor-aware (pre-buy)
+Purpose: full info before buy (single screen; vendor tag prominent). Header: Asset name — Vendor (e.g., Gold — SafeVault) | Live price + change + market status. Sections:
+1. Interactive chart (1D / 1W / 1M / 3M / 1Y / Max) + volume, overlay comparison (other vendors/benchmarks).
+2. Vendor Offer Card (price/unit, last updated, min qty, fees line-item, delivery options, buyback terms, certification).
+3. KPIs / Fundamentals
+    * For stocks: Last price, Day change, Market Cap, P/E, EPS, 52W high/low, Avg volume, Dividend yield, Sector.
+    * For mutual funds: NAV, 1D chg, AUM, Expense ratio, Riskometer, Fund manager, Inception date, Trailing returns table.
+    * For gold/silver/platinum: Purity, price/gram, vault fee, insurance, redemption fee.
+    * For diamonds: Carat, cut, clarity, color, certification (GIA/IGI), buyback estimate.
+4. Fees & Fine Print expandable.
+5. Seller profile (rating, verification badges, contact).
+6. Related instruments and “AI says: X% allocation” badge. Actions: Buy (this vendor) / Compare vendors / Add to Watchlist / Set Alert.
+
+4) Buy / Sell Popup (unified modal used across app)
+Purpose: single modal for quick trade across asset types (stocks, grams, units). Appears inline from any page or watchlist. UI Layout: compact modal with tabs for Buy / Sell and asset info at top (name, vendor, live price). Fields & controls (must include):
+* From Account (dropdown: bank or wallet)
+* To Account (for delivery/custody selection: Digital Vault / Physical Delivery / Broker Custody)
+* Mode: Amount (₹) OR Quantity (no. of stocks OR grams) — toggle
+* Quick presets: ₹500, ₹1k, ₹5k, ₹10k or 1g, 5g etc.
+* Order Type (for stocks): Market / Limit / Stop Loss / Stop Limit / IOC / Day / GTC
+* Limit price (if Limit/SL) + Stop price (if SL)
+* Slippage tolerance (for vendor prices, % or absolute)
+* Auto-switch vendor toggle (Allow app to pick cheaper vendor at time of checkout)
+* Preview estimate: calculated Qty, Price/unit, Brokerage, Vendor fee, GST, Other charges, Total payable
+* Payment method: UPI (shows payee VPA), saved card, bank debit — show UPI pay to prominently (merchant VPA)
+* From/To Account confirmation (show masked account + last 4 digits)
+* Risk banner (small): risk level of asset + suggested max allocation Buttons: Preview Order → Confirm & Pay (opens UPI intent) Flow after confirm: UPI flow → Payment success screen with Order ID, executed price (for market orders), timestamp, UPI txn id, buttons: View Order / Go to Portfolio. Sell popup specifics: show holding qty eligible to sell, realized profit estimate (net after fees & taxes), settlement timeline.
+
+5) My Investments (holdings)
+Purpose: consolidated user portfolio with vendor tags and per-asset detail. Top UI: Portfolio snapshot: Total Invested | Current Value | Unrealized P/L (₹ & %) | Today P/L. Allocation donut (by asset class & vendor). Holdings list: each card shows Asset name + Vendor tag, Qty/Units, Avg buy price, Last price, Current Value, Unrealized P/L, % allocation, Quick Sell/Buy buttons. Holding detail: transaction history (buy/sell fills with Order IDs & UPI txn ids), KPI metrics (XIRR, CAGR, Holding period), vendor certificate link, option to request physical delivery (for metals/stones) with fees & KYC checklist. Actions: Sell, Buy more, Move custody, Start SIP (if fund), Set alerts, Export holding to CSV.
+
+6) Orders (all transactional states)
+Purpose: track every buy/sell across vendors & brokers. Tabs: Active / Executed / Cancelled / Partial / Failed / Settlements Order row: Asset + Vendor, Buy/Sell, Qty, Order Type, Price, Status pill, Time. Order detail: timeline with timestamps (Created → Submitted → Matched → Executed), fills (if partial), execution price(s), brokerage & fees breakout, UPI txn id, settlement date, dispute button. Special for vendor marketplace: Include Vendor confirmation step (if vendor must accept) and delivery tracking. Actions: Cancel (if allowed), Retry (for failed), Raise dispute.
+
+7) Watchlist
+Purpose: monitor instruments across vendors. UI: list with small sparkline, current price, today change, vendor tag selector (default vendor shown). Actions: Price alert, Quick buy, Compare vendor prices, Remove.
+
+8) Stock Detail (pre-buy & post-buy views)
+Pre-buy (same as Asset Detail for stocks): interactive candle/OHLC chart, timeframes, order book snapshot (best bid/ask), recent trades list, company fundamentals, news, peer comparison, analyst ratings, buy/sell CTA. Post-buy (position view): shows holdings summary, realised/unrealized P&L, average buy price, positions performance chart, tax classification (short/long), quick sell button with quantity selector. Order entry support: show Market/Limit/SL, default quantity calculation if entering amount, slippage & estimate. Data fields: ticker, exchange, lot size (if applicable), tick size, market hours, settlement cycle (T+1/T+2).
+
+9) Mutual Fund Detail
+Top: NAV, 1D chg, AUM, Expense ratio, Riskometer, Fund manager. Sections: NAV history chart, trailing returns table (1M, 3M, 1Y, 3Y, 5Y, Since inception), top holdings & sector allocation, SIP calculator, buy lumpsum / start SIP / redeem, documents (KIM/SID), ratings (Morningstar etc). Actions: Buy (Lumpsum or SIP with frequency), Pause/modify SIP, Redeem, Switch (for MF houses where allowed), download statement.
+
+10) Commodities & Precious Metals (Gold, Silver, Platinum, Bronze)
+Category specifics: vendor list, purity, unit (gram/oz), vault vs physical delivery options. Asset detail: price/gram, vendor fee, vault/storage fee, min buy, buyback guarantee, certification, insurance. Chart with overlay of other vendor prices. Delivery flows: if physical delivery selected → show shipping fees, estimated delivery days, identity checks, payment hold in escrow until delivery confirmation. Actions: Buy digital (units) → stored in vault; Request delivery (triggers KYC & shipping).
+
+11) Diamonds (marketplace)
+Itemized catalog: each diamond entry with image, certificate, carat/cut/clarity/color, vendor, price, buyback estimate. Detail: certificate PDF, high-res images, 360° view, vendor verification, return policy, escrow for payment, authenticated inspection option. Buy flow: escrow release upon verification or after defined acceptance window.
+
+12) Bonds / Fixed Income / Other instruments
+Detail: coupon rate, maturity date, yield to maturity, minimum lot, credit rating, issuer. Buy/hold/redeem flows and settlement info.
+
+13) AI-Invest (prominent button on main & asset pages)
+Purpose: recommend portfolio mixes and auto-execute (optional). Inputs (UI): Amount to invest now, Monthly contribution, Risk level slider (Conservative / Balanced / Aggressive), Investment duration (years), Restrictions (no crypto, ESG only), Auto-rebalance frequency. Outputs (UI): recommended allocation (asset classes + %), top instrument picks (funds/tickers/vendors), projected returns (Low / Expected / High scenarios) + volatility estimate, estimated taxes & fees, backtested summary (past 3/5/10 yr) with clear disclaimer. Actions: Save plan, Apply (auto-invest — requires mandate), Customize & confirm (shows multi-order preview across vendors/broker), Start SIP. Explainability: one-line rationales per allocation and model metadata (last data update).
+
+14) Stats & Portfolio Analytics
+Charts & KPIs: Net worth over time, Monthly returns, Sharpe estimate, Max drawdown, Allocation by asset & vendor, Best/Worst performing holdings, XIRR since start. Tools: Rebalance suggestions, Goal planner projections, Tax estimates (STCG/LTCG), Download tax-ready report.
+
+15) Rewards / Offers / Leaderboard
+Purpose: show investment rewards, cashback on trades, leaderboard for engagement. Data: reward balance, active coupons for transactions, offers per vendor, reward expiry.
+
+16) Settings / KYC / Delivery preferences
+Includes: KYC status, linked bank/UPI, default From/To accounts, physical delivery address & verification, notification prefs, risk profile questionnaire.
+
+17) Help / Disputes / Order Support
+Pre-populated forms with order id, vendor, txn id for disputes, status tracker for resolution. In-app chat with agent and upload docs.
+
+Standard data fields & KPIs to show everywhere (checklist)
+* Asset name / ticker / vendor tag
+* Last price + timestamp
+* Day change (₹ & %) and sparkline
+* 1W / 1M / 3M returns quick labels
+* Quantity / Units held (if in holdings)
+* Avg buy price, Market price, Current value, Unrealized P/L (₹ & %)
+* Realized gains, Total invested, XIRR / CAGR (where applicable)
+* Fees (brokerage, vendor fee, GST, storage) shown line-by-line before trade
+* For funds: NAV, AUM, Expense ratio, Exit load
+* For stocks: P/E, EPS, 52W high/low, avg vol
+* For metals: purity, vault fee, buyback %
+* Order meta: Order ID, UPI txn id, executed price, fills, settlement date/time
+
+Buy & Sell UX rules (must-have)
+* Always show From account and To account before confirm.
+* Show UPI pay to details (VPA) in checkout.
+* For Market orders show executed price after fill; for Limit show expected execution window.
+* Offer slippage tolerance & auto-cancel on excess slippage.
+* Support partial fills and show fill breakdown.
+* Immediate toast + push notification on execution.
+* Maintain auditable logs (order id → fills → payment txn id).
+
+Vendor marketplace specifics (for gold/diamond/others)
+* Each vendor has profile page with verification badges, reviews, inventory, SLA, buyback terms.
+* Auto-routing engine: pick vendor by Lowest Price / Fastest Delivery / Highest Rating / Best Buyback.
+* Escrow for high-value orders and delivery holds until verification.
+* Inventory & rate updates in real-time (show last updated timestamp and "price may vary" notice).
+
+Stock purchase history (table columns)
+* Item (Company name — ticker) | Type (Buy/Sell) | Date & time | Quantity | Buy price (avg) | Sell price (avg) | Brokerage & fees | Net amount | Profit/Loss (₹) | Holding period | Order ID | UPI txn id | Vendor/Broker | Settlement date
+
+Required backend & integrations (high-level)
+* Real-time market data (OHLCV) & historical APIs (per asset & per vendor price feed)
+* Broker trading API (order placement, status, fills)
+* Mutual fund NAV feed & purchase APIs / AMCs linkage
+* Vendor APIs (quote, lock, execute, delivery)
+* UPI Collect/Intent integration + payment reconciliation
+* Custody/vault provider for metals & certificates for diamonds
+* Escrow service supporting conditional release
+* KYC & AML provider (eKYC, document storage)
+* Portfolio calculation engine (XIRR, daily P&L)
+* Tax engine (STCG/LTCG classification, reports)
+* Notification & email service, audit/logging service, support ticketing
+* AI model backend (portfolio generator, backtest, explainability logs)

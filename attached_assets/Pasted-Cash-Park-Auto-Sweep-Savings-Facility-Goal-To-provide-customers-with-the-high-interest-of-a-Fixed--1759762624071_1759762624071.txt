@@ -1,0 +1,129 @@
+Cash Park: Auto-Sweep Savings Facility
+Goal: To provide customers with the high interest of a Fixed Deposit (FD) coupled with the total liquidity of a standard Savings Account, through a simple, automated mechanism.
+
+Target User: Customers who maintain a high average balance in their savings account but need instant access to their entire corpus for transactions.
+
+I. Core Features and Mechanics
+Feature
+
+Description
+
+Key Benefit
+
+Customizable Sweep Threshold
+
+The user defines the minimum "buffer" balance they want to keep liquid in their primary Savings Account (e.g., $20,000). Funds only sweep out when the account balance exceeds this level.
+
+Complete control over liquidity buffer for monthly expenses.
+
+Automatic Sweep-Out
+
+Any surplus amount above the set threshold is automatically transferred to a linked Cash Park Fixed Deposit (CP-FD).
+
+Maximizes interest earnings on idle money without manual effort.
+
+Smart Increment Creation
+
+CP-FDs are created in small, standardized units (e.g., $1,000 increments). This modularity ensures only the necessary amount is broken during a withdrawal.
+
+Minimizes interest loss; the maximum remaining FD corpus continues to earn high interest.
+
+Zero Premature Withdrawal Penalty
+
+Unlike standard FDs, breaking a CP-FD unit for a sweep-in transaction incurs no financial penalty. The user simply earns the FD interest rate up to the day of the break.
+
+Guarantees full, hassle-free liquidity 24/7.
+
+LIFO Reverse Sweep-In
+
+When a transaction causes the Savings Account balance to fall below the set threshold, the required funds are automatically transferred back from the CP-FD. The system uses a Last-In, First-Out (LIFO) method, breaking the newest (shortest-tenure) FD unit first.
+
+Preserves the oldest FDs, which have accrued the most interest, maximizing overall return.
+
+FD Interest Earning Condition
+
+To be eligible for the higher CP-FD interest rate, the swept funds must remain in the CP-FD for a minimum tenure of 7 days. If broken earlier, they earn the standard Savings Account interest rate for that period.
+
+Aligns with standard banking regulations while ensuring fair interest accrual.
+
+Interest Rate Visibility
+
+The prevailing CP-FD interest rate (typically a short-term FD rate, e.g., 365 days) must be clearly displayed during setup.
+
+Transparency and ease of decision-making for the customer.
+
+II. Page-wise User Experience (UI/UX Blueprint)
+Page 1: Account Summary Dashboard (Primary Screen)
+Element
+
+Purpose
+
+"Cash Park Status" Card
+
+A dedicated, highly visible card showing the current state.
+
+"Total Interest Boost"
+
+Shows the extra interest earned (FD interest vs. Savings interest) since activating Cash Park. This is the main value metric.
+
+Current Sweep Threshold
+
+Displays the user's set threshold (e.g., "$50,000").
+
+"Parked Funds (FDs)" Display
+
+Total amount currently held in CP-FDs (e.g., "$150,000"). Tappable to go to the Details Page (Page 2).
+
+Quick Action Button
+
+"Manage Cash Park" button that takes the user directly to the Settings Page (Page 3).
+
+Page 2: Cash Park Details (Transactional View)
+Element
+
+Purpose
+
+FD List View
+
+Shows a detailed breakdown of all active CP-FD units.
+
+Unit Details
+
+For each unit: Creation Date, Original Amount (e.g., $1,000), Current Value (including accrued interest), and Expected Maturity Date (e.g., 365 days).
+
+Transactional History
+
+A list showing every Sweep-Out and Reverse Sweep-In event, including: Date, Amount, Action ("Auto-Swept Out" or "Reverse Swept-In"), and Source/Destination.
+
+Liquidation Method Indicator
+
+Clearly states: "Reverse sweeps are processed using the LIFO method to protect your oldest FDs."
+
+Page 3: Cash Park Settings & Setup (Configuration)
+Element
+
+Purpose
+
+Activation Toggle
+
+A clear ON/OFF switch labeled "Activate Cash Park."
+
+Threshold Slider/Input
+
+MANDATORY FIELD: A user-friendly slider and input box to set the desired Sweep-Out Threshold. Minimum suggested value: $10,000.
+
+Interest Rate Display
+
+NON-EDITABLE: Clearly states the current CP-FD interest rate (e.g., "Current Annual Rate: 7.25%").
+
+Sweep Increment Preference
+
+DEFAULT $1,000: An option (with strong default) for the user to choose the FD creation increment (e.g., $1,000, $5,000, $10,000).
+
+Tax Information Disclosure
+
+A mandatory link or pop-up confirming that FD interest is taxable as per applicable tax slabs.
+
+Confirmation/Save Button
+
+"Save Settings and Activate." Requires OTP or biometrics for security upon major changes or activation.

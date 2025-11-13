@@ -1,0 +1,134 @@
+Each feature (9 total) can be unlocked with a one-time purchase (single use, not monthly).
+
+OR users can buy a full package subscription (all 9 features) at ₹199/month.
+
+Yearly package option can also be added (₹1,999/year for all features).
+
+Single feature one-time use = ₹15 per feature.
+
+No single-feature subscription — only one-time per feature OR all-features subscription.
+
+After buying a one-time feature, show a cross-sell popup: “Unlock other features now at half-price (₹7 each) — limited-time.”
+
+Here’s a properly distributed pricing plan 👇
+
+📦 Pricing Plan (One-Time Per Feature + Package Subscription)
+🎯 Core Structure
+
+One-Time Purchase (Per Feature)
+
+Price: ₹15 per feature
+
+Lifetime access to that feature (single tool, no recurring).
+
+Immediate unlock.
+
+Monthly Package (All Features)
+
+Price: ₹199/month
+
+Unlimited access to all 9 features.
+
+Cancel anytime.
+
+Yearly Package (All Features)
+
+Price: ₹1,999/year (Save ~16%)
+
+Unlimited access to all 9 features for one year.
+
+💡 Cross-Sell Rule (After Purchase)
+
+If user purchases any one-time feature (₹15):
+
+Show Purchase Success Popup:
+
+Header: ✅ “Feature unlocked!”
+
+Body: “Want to unlock more? Get other features instantly at 50% off (₹7 each) — valid only in this popup.”
+
+Show list of other features with slashed prices.
+
+Buttons: “Unlock at ₹7” OR “Skip for now”.
+
+If user skips, promo ends for that session.
+
+If user buys at least one discounted add-on, they can continue to add more at half-price in the same session.
+
+🏷️ Pricing Distribution Across 9 Features
+
+(All features available either via ₹15 one-time unlock OR inside ₹199/month package)
+
+Find Your Loan — Aggregator, Matcher & Marketplace
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+MyReport — Deep Personalized Financial Roadmap
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+MyPath — Rejection → Roadmap Experience
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+InCredSecure — Instant Fraud Alert Checker
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+InCred Coach — AI Financial Coach
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+Learn with InCred — Creator Recommendation Library
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+Creator Sessions & Courses — Live Workshops & Cohorts
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+Creator 1-on-1 — Premium Advisory Sessions
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+InCredFit — Gamified Fitness + Financial Rewards
+
+One-time: ₹15
+
+Included in monthly/yearly
+
+🛠️ User Flow
+
+Feature Lock Screen → User sees “Unlock this feature for ₹15 OR Get all features for ₹199/month”.
+
+If One-Time Purchase → Payment → Success Popup → Cross-sell (50% off others).
+
+If Package Purchase → Payment → Unlocks all 9 instantly, no popup needed.
+
+📊 Example Pricing UI
+
+Unlock this feature
+
+🔓 One-time access: ₹15
+
+🌐 All features, Monthly: ₹199
+
+🌐 All features, Yearly: ₹1,999
+
+[Buy One-Time] | [Subscribe All]

@@ -1,0 +1,30 @@
+Find all payment Sucess page in this enetire app, find all pages which has payment sucess page, , In that page, I need you to add reward popup, Use can win any of these
+
+Scrach coupon
+Spin
+Digital Slot Machine The user clicks a lever/button to make three virtual reels spin. The reels must land on a match (or a specific combination) to win a prize. 777 = 50% Off, Two matching = Free Shipping, Non-match = Entry to draw. 4 "Pick a Card" / Mystery Box The user is presented with 3-5 identical digital cards or boxes. They must select one to reveal the hidden reward. The uncertainty drives engagement. "You picked the box with a $20 Gift Card!", "Try again next time" (low-value consolation prize). 5 The Coin Flip / High-Low A simple binary game where the user bets on an outcome. For example, they choose Heads or Tails, or guess if the next number will be High or Low. A correct guess doubles their reward or grants a bigger prize. Win = 10% Off, Lose = 5% Off (or standard loyalty points). 6 "Hidden Object" / Fast Tap A quick-reaction game. An object (like a coin or discount icon) briefly appears on the screen. The user must tap/click it before it disappears within a 1-2 second window to claim the prize. A Free Add-on Product, Immediate Upgrade to Premium Shipping. 7 Instant Puzzle Solver A small, simple, quick puzzle appears (e.g., a 4-piece sliding block puzzle or a quick calculation). Solving it within a time limit (e.g., 10 seconds) unlocks the reward. Unlock a "Secret" Item/Bundle, Receive Double Loyalty Points on the next purchase.
+
+I need all these types, in random,
+Also when user gets coupon, In the coupon it should display coupon value out of 10 ( like in coupon mart feature ), Also mention Coupon ( Gold, Silver, Bronze ) based on the value or worth of the copoun
+
+user can close this function, if user has not use has closed it, then this redeem button should be displayed on bottom of this page /bill-detail/muni-001,
+
+Make sure implement these perfeclty
+
+3 hours ago
+
+1 message & 8 actions
+I'll help you add reward popups to all payment success pages. Let me first search the codebase to find all payment success pages.
+Find all payment Sucess page in this enetire app, find all pages which has payment sucess page, , In that page, I need you to add reward popup, Use can win any of these
+
+Scrach coupon
+Spin
+Digital Slot Machine The user clicks a lever/button to make three virtual reels spin. The reels must land on a match (or a specific combination) to win a prize. 777 = 50% Off, Two matching = Free Shipping, Non-match = Entry to draw. 4 "Pick a Card" / Mystery Box The user is presented with 3-5 identical digital cards or boxes. They must select one to reveal the hidden reward. The uncertainty drives engagement. "You picked the box with a $20 Gift Card!", "Try again next time" (low-value consolation prize). 5 The Coin Flip / High-Low A simple binary game where the user bets on an outcome. For example, they choose Heads or Tails, or guess if the next number will be High or Low. A correct guess doubles their reward or grants a bigger prize. Win = 10% Off, Lose = 5% Off (or standard loyalty points). 6 "Hidden Object" / Fast Tap A quick-reaction game. An object (like a coin or discount icon) briefly appears on the screen. The user must tap/click it before it disappears within a 1-2 second window to claim the prize. A Free Add-on Product, Immediate Upgrade to Premium Shipping. 7 Instant Puzzle Solver A small, simple, quick puzzle appears (e.g., a 4-piece sliding block puzzle or a quick calculation). Solving it within a time limit
+
+all these to be like 3d like modern, with animation, Motion, Sharp, interactive types of 3d like
+I need all these types, in random,
+Also when user gets coupon, In the coupon it should display coupon value out of 10 ( like in coupon mart feature ), Also mention Coupon ( Gold, Silver, Bronze ) based on the value or worth of the copoun
+
+user can close this function, if user has not use has closed it, then this redeem button should be displayed on bottom of this page /bill-detail/muni-001,
+
+Make sure implement these perfeclty

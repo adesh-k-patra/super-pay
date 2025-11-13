@@ -1,0 +1,65 @@
+. Entry Points
+The Repayment Simulator will be easily accessible from two primary locations:
+
+Loan Details Page: A prominent "Simulate Repayment" or "Repayment Calculator" button will be placed on each individual loan's details screen.
+
+Main Dashboard: A new card or widget on the main dashboard can show a quick summary of the user's total debt with an "Explore Repayment" call-to-action.
+
+B. The Simulator Screen Flow
+Loan Selection: Upon entering the simulator, the user is presented with a clear list of their active loans. A simple toggle or radio button allows them to select a single loan to simulate. If a user enters from a specific loan page, that loan will be pre-selected.
+
+Input Controls: The top section of the screen will display the key inputs.
+
+Current Loan Summary (Read-Only):
+
+Outstanding Principal
+
+Annual Interest Rate
+
+Current EMI
+
+Interactive Inputs (User Editable):
+
+Monthly Payment Amount: A large, easy-to-tap input field. It will default to the current EMI but can be edited. A visual slider or quick-select buttons (+10%, +25%, Custom) can be used for ease of use.
+
+One-Time Prepayment: An optional, expandable section to input a lump sum amount and the date on which it will be paid.
+
+Real-time Outputs: As the user adjusts the inputs, the outputs below will update in real-time.
+
+Headline Results: Prominent, bold numbers showing the key outcomes.
+
+New Payoff Date: The projected date the loan will be fully paid.
+
+Months Saved: The difference in months between the original and simulated plan.
+
+Total Interest Saved: The financial benefit of the new plan.
+
+Visual Chart: A simple line chart plotting the outstanding principal over time. This provides a powerful visual representation of how the new plan "flattens the curve" of their debt. Hovering over the chart should show the balance at any given month.
+
+Detailed Breakdown: A scrollable list showing the first few months of the new payment schedule, including:
+
+Payment Number
+
+Date
+
+Principal Component
+
+Interest Component
+
+Outstanding Balance After Payment
+
+C. Actions & Call-to-Actions
+"Schedule Payment" Button: A clear call-to-action that allows users to instantly schedule an extra payment via the in-app payment gateway.
+
+"Share Report" Icon: Allows users to export a PDF or image of the repayment schedule.
+
+3. Technical Implementation
+API Integration: The app will need to call a new API endpoint, /loan/simulate-repayment, sending the loan ID, the new monthly payment amount, and any prepayment details. The backend will perform the complex calculations and return the full payment schedule and summary data.
+
+Data Security: All loan data is highly sensitive. The feature must adhere to Incred's strict data security protocols, ensuring all calculations are performed on the server-side with proper authentication.
+
+Edge Cases: The system must handle scenarios such as:
+
+Invalid Inputs: Rejecting non-numeric values or monthly payments less than the accrued monthly interest.
+
+Loan Status: Handling inactive, closed, or foreclosed loans gracefully by not allowing simulation.

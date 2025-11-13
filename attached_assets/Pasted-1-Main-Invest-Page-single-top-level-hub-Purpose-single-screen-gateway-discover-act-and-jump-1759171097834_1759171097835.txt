@@ -1,0 +1,315 @@
+1. Main Invest Page (single top-level hub)
+
+Purpose: single-screen gateway — discover, act, and jump to portfolio/orders/AI. One-tap access to all flows.
+
+Top layout (mobile-first):
+
+Sticky header: Logo | Search (ticker/name) | Notifications icon
+
+Hero summary (card): Total Portfolio Value | Today P&L (₹, %) | Quick CTA buttons: Deposit / Withdraw / Quick Buy
+
+Tab row (primary): Explore | My Investments | Orders | AI-Invest | Rewards
+
+Each tab loads a full page below the hero without navigation change (swipeable).
+
+Global quick-buy floating button (bottom-right) — opens unified Buy sheet.
+
+Bottom sticky mini-player: currently selected asset + quick price + small sparkline (collapsible).
+
+Key components inside Main:
+
+Live market banner: market open/close, major indices change, gold/silver quick prices.
+
+Personalization strip: “Recommended for you” (3 cards from AI).
+
+Shortcuts grid: Buy Gold / Start SIP / Add to Watchlist / Create Price Alert.
+
+Footer quick links: Help, Tax Reports, KYC status.
+
+Interactions:
+
+Tap tab to jump to respective page.
+
+Long-press asset card → quick trade modal (Buy/Sell).
+
+Pull-to-refresh for live prices.
+
+Backend needs:
+
+Aggregated portfolio engine, cache for summary, real-time price feed, notifications microservice.
+
+2. Explore (discover & compare)
+
+Purpose: browse all categories, compare vendor prices, find products/funds/tickers.
+
+Top layout:
+
+Search bar with filters: Asset Type (Gold, Silver, Platinum, Diamond, Stocks, MF, ETFs, Bonds), Vendor, Risk, Returns, Min Investment.
+
+Category carousel (horizontal): Precious Metals / Stones / Stocks / Mutual Funds / ETFs / Bonds / Thematic
+
+Category page (example: Gold category):
+
+Grid of vendor cards — each vendor is an offering (e.g., MMTC-Gold, SafeVault, VendorX)
+
+Vendor card shows: Vendor name/logo | Live vendor rate (₹/gm) | Spread | Delivery option (Digital / Physical) | Rating | CTA: View Offer
+
+Global comparator header: show best price, average price, cheapest vendor, recommended vendor.
+
+Filters: Purity (24K/22K), Min qty, Delivery (digital/physical), Seller rating, Storage (vault), Buyback guaranteed
+
+Multi-select compare: choose up to 3 vendor offers → open compare modal (side-by-side: price, fees, delivery days, storage, insurance, return policy, certification).
+
+Data per vendor offer:
+
+Price per unit + last update time
+
+Fee breakdown: vendor fee, vault fee, shipping, GST
+
+Limitations: min buy, max buy, holding period, buyback %
+
+Seller metadata: KYC verified, business registration, avg delivery time, reviews, certifications.
+
+Interactions:
+
+Tap vendor → Asset Detail (vendor-scoped) with Buy from this seller button
+
+“Auto-route” feature: choose “Best Price” or “Best Seller” to auto-select vendor during buy.
+
+3. My Investments (holdings & performance)
+
+Purpose: complete view of user's holdings and performance with vendor & asset-level granularity.
+
+Top layout:
+
+Portfolio snapshot (Total invested, Current value, Unrealized P/L, Today P/L, Cash balance)
+
+Allocation donut (by asset class & vendor bucket) — tap slices to filter list
+
+Tabs inside: All Holdings | By Asset | By Vendor | SIPs
+
+Holdings list item (single row):
+
+Asset name / vendor tag | Units | Avg buy price | Current price | Current value | Unrealized P/L (₹ & %)
+
+Small tag if vendor-specific (e.g., “Gold — SafeVault”)
+
+Quick actions: Sell | Add more | Move to Vault (for gold) | Redeem
+
+Holding detail (tap):
+
+Full history: buys/sells, timestamps, order IDs, UPI txn IDs, executed price, fees
+
+Vendor details: seller rating, buyback terms, certificate (if stone/gem)
+
+KPIs: XIRR, Since purchase return, Contribution timeline
+
+Delivery/Redemption options (if applicable)
+
+Interactions:
+
+Move holdings between custody types (Digital vault → Physical delivery) — shows fees & KYC requirements
+
+Request buyback (vendor-dependent)
+
+Export holding to CSV / Tax-report
+
+4. Orders (Buy / Sell / Others)
+
+Purpose: single source of truth for every transaction state.
+
+Top layout:
+
+Tabbed header: Active / Executed / Cancelled / Failed / Settlements
+
+Filter & search: by asset, vendor, date, order type
+
+Order row:
+
+Asset + Vendor | Order Type (Buy/Sell) | Qty | Price | Total | Status pill (Pending / Partially Filled / Executed / Cancelled) | Time
+
+Actions: Cancel / Modify / View details
+
+Order details:
+
+Timeline with timestamps (Created → Submitted to vendor/broker → Matched → Executed / Cancelled)
+
+Execution breakdown: fills (qty & price per fill)
+
+Payment info: UPI txn id, settlement instruction, refund status
+
+Fees: brokerage, vendor fee, GST, transaction fee
+
+Dispute button (open support ticket with prepopulated order info)
+
+Special orders:
+
+SIP orders (schedule, next debit date, status)
+
+Recurring or GO (Good Till Cancelled) settings
+
+Conditional orders (Stop Loss, Stop Limit) for stocks
+
+Backend needs:
+
+Order engine integrated with broker APIs, vendor APIs, reconciliation microservice, payment gateway.
+
+5. Asset Detail — Vendor-aware (before buying)
+
+Purpose: show asset info AND vendor-specific offer so user can compare and choose.
+
+Top layout:
+
+Title: Asset — Vendor (e.g., Gold — SafeVault)
+
+Live price + change + “Buy from this vendor” CTA (sticky)
+
+Chart with timeframe + volume + compare vendor price overlay (able to overlay prices of other vendors)
+
+Sections:
+
+Vendor Offer Card (prominent)
+
+Price/unit, min qty, buyback promise, storage type, fees, estimated delivery
+
+Seller rating + verification badges, last updated timestamp
+
+Buttons: Buy (this vendor) / Compare / Contact seller
+
+Universal asset info (below vendor card)
+
+Asset fundamentals (gold purity, for stocks: P/E etc., for MF: NAV + manager)
+
+Historical price table (1D/1W/1M/1Y/Max)
+
+Fees & Fine print (expandable)
+
+Documents & Certificates (images / PDFs)
+
+Related offers (other vendors)
+
+Reviews & Q&A (seller-specific)
+
+Risk section (risk level, volatility, suggested allocation %)
+
+Microcopy examples:
+
+Price freshness note: “Vendor price updated 45s ago — slight variation may occur at payment.”
+
+Risk banner: “High price volatility — consider limiting allocation to X%.”
+
+6. Buy Flow — vendor-aware (detailed)
+
+Flow summary: Asset Detail → Buy (vendor chosen) → Order Configuration → UPI Pay → Confirmation
+
+Order configuration screen:
+
+Mode: Lumpsum / Recurring (SIP) / Quantity
+
+Amount or Quantity input + presets
+
+For stocks: Order type (Market/Limit/SL), validity (Day/GTC)
+
+Seller preference: If user chose “Best Price” earlier, the app will show selected vendor and a toggle: “Allow auto-switch to cheaper vendor at checkout” (with checkbox and limit %
+
+Price guarantee: For digital-gold, instant settlement shows exact units. For vendor offers, show estimated executed price range.
+
+Delivery toggle (if vendor offers physical): Delivery / Vault Storage — shows fee/time
+
+Review fee breakdown (line items): vendor price, vendor fee, storage, shipping, brokerage, GST, total payable
+
+UPI payee: display payee VPA + expected UPI flow notes
+
+Quick risk confirmation for large orders (>₹X): “Confirm you understand market risk.”
+
+Checkout:
+
+“Proceed to Pay” opens UPI intent; show a progress screen with live order updates.
+
+Post payment: Order accepted screen with Order ID, vendor, estimated execution/delivery time.
+
+Push + email confirmations.
+
+Edge cases & protections:
+
+Price slippage tolerance: user can set tolerance % or allow auto-cancel if price moves beyond.
+
+Partial fills: for limited vendor inventory, show partial fill logic and auto-cancel remaining.
+
+Escrow: for physical deliveries or high-value stones, use escrow until delivery/verification.
+
+Backend:
+
+Vendor API handshake (quote → lock-in → payment → execute/deliver), escrow service, reconciliation.
+
+7. Sell Flow — vendor-aware & buyback
+
+Sell flows depend on asset custody & vendor policies.
+
+Key UX points:
+
+Show Eligible quantity (locked quantities excluded)
+
+Show vendor buyback rates if selling back to same vendor (instant buyback vs marketplace sell)
+
+For marketplace sell (to other buyers), show order type, listing fee, expected time to sell
+
+Preview shows expected proceeds after fees & taxes
+
+After sell, show settlement timeline (T+0/T+1 etc.) and UPI payout details
+
+Special: For diamonds / high-value physicals, enable authenticated inspection / escrow / certified courier arrangement.
+
+8. Vendor Marketplace specifics (critical)
+
+Purpose: model multiple vendors per asset with different rates & capabilities.
+
+Design & features:
+
+Vendor profiles: business details, verification badges (KYC, GST, ISO, certification partners), public reviews, dispute resolution SLA.
+
+Vendor tiers: Premium / Verified / Third-party — visual tag + differences in buyback/fees
+
+Vendor comparison UI: side-by-side
+
+Auto-routing engine: choose vendor per priority (Lowest Price / Fastest Delivery / Highest Rating / Best Buyback)
+
+Inventory & limits: show vendor inventory in real-time; if inventory low, grey out buy button or show "Limited stock"
+
+Vendor SLAs & penalties: displayed on vendor page (refund time, dispute resolution)
+
+Escrow & settlement: for higher trust, funds go to escrow and release on delivery/verification
+
+Vendor dashboard (backend): allow vendors to update prices, manage inventory, view orders, KYC checks
+
+Compliance:
+
+Vendor onboarding KYC, contract, periodic audits, certificate verification for gems
+
+9. AI-Invest integration on main & detail pages
+
+Purpose: actionable, explainable automated advice integrated everywhere.
+
+Key placements:
+
+Main: Personalized “Start AI-Invest” card
+
+Explore: “AI says buy” / “AI watchlist” badges on assets
+
+Asset Detail: “AI allocation recommends X% in this asset for your Risk profile”
+
+AI feature UX:
+
+Simple inputs: amount, risk slider, time horizon, restrictions
+
+Output: recommended allocation (asset classes + vendor suggestions) with expected return ranges and rationale bullets
+
+Explainability: show why each asset chosen and confidence %
+
+Action: “Apply portfolio” (one-click create orders across vendors) or “Customize”
+
+Safety: show model version, last data update, disclaimer
+
+Technical:
+
+Portfolio generator service, backtesting engine, explainability logs, audit trail.

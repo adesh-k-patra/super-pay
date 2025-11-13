@@ -1,0 +1,70 @@
+💻 Book Consultant Feature Specification
+This feature allows users to discover, compare, schedule, and pay for on-demand or scheduled consultant services—in-person or virtual—across healthcare, wellness, home services, and professional help.
+
+1. Consultant Taxonomy (Categories)
+The master taxonomy covers a wide range of services, categorized for easier discovery.
+
+Category Type	Top 5 Most Common	Additional Categories (Complete Coverage)
+Core Services	1. Doctor (GP + Specialists)	12. Physiotherapist / Rehab Therapist
+2. Salon / Beauty	13. Psychologist / Counsellor
+3. Driver / Chauffeur	14. Pet Care / Vet visits / Groomer
+4. Chef / Private Cook	15. IT Technician / Tech Support
+5. Nurse / Caregiver	16. Carpenter / Painter / Handyman
+6. Medical Test (Lab Tech)	17. Photographer / Videographer
+Home/On-Demand	7. Electrician	18. Event Planner / Decorator
+8. Plumber	19. Lawyer / Legal Consultant
+9. Home Cleaner / Maid	20. Accountant / Tax Consultant
+10. Tutor (Academic/Skills)	21. Nutritionist / Dietician
+11. Fitness Trainer / Yoga	22. Makeup Artist
+23. Pest Control Specialist
+24. Laundry / Dry-clean Pickup
+25. Driving Instructor
+2. Booking Flows (User Journeys)
+🚀 Standard Flow (In-Person Service)
+Discovery→Provider Profile→Select Service/Slot→Add Address/Instructions→Confirm Price/Extras→Payment→Booking Confirmed→Live Status & Tracking→Service Complete→Rating & Invoice
+📞 Virtual Consult Flow
+Book Slot→Secure Video Link / Phone Call→Reminder→Session Live→Receipt & Follow-up Notes
+🔄 Edge Case Flows
+Multi-stop/Composite: Allows for combined services (e.g., Nurse + Lab Pick-up) in one linked booking.
+Corporate/Bulk: Recurring schedules (e.g., daily nurse, weekly tutor) managed under a single corporate account.
+3. Page-by-Page Requirements
+Page / Component	Key Requirements & Elements	Filters & Sorts
+Home / Discover	- Category Strip: Icons with quick promises (e.g., "Home visit in 60-90 min"). - Search Bar: Provider name, specialty, service. - Saved Searches & Recent Bookings.	Quick Filters: "Nearby," "Top rated," "Available now," "Price range," "Virtual only."
+Search & Filters	- Map/List Toggle for in-person services. - Faceted Filters (left drawer/modal).	Faceted Filters: Category, Sub-specialty, Rating, Price, Availability (ASAP/Today/Later), Language, Gender, Verified Badge, Distance, Insurance Accepted (Doctors). Sort Options: Relevance, Rating, Price, Distance, Next Available Slot.
+Provider Profile	- Photo, Name, Designation, Verified Badges (ID/License). - Experience, Average Rating & Reviews. - Services Offered (packages, duration, price, inclusions, add-ons). - Availability Calendar (real-time slot view, virtual vs. in-person toggle). - Policies (Cancellation, Refund, Safety Notes). - CTAs: "Book now," "Message provider" (chat), "Call" (masked).	
+Booking Page (Critical)	- Slot Selection: ASAP (nearest free slot) or Scheduled (calendar picker). - Address Selector: Home/Office/New (map pin, multi-address option). - Attachments: Prescription upload (doctors), photos of issue (plumber). - Price Breakdown: Base fee, travel fee, taxes, addons, surge, gratuity option. - Payment Options: Prepaid (Card/UPI/Wallet/BNPL) or Pay at Service (with optional refundable deposit). - Promo/Coupon entry.	
+Live Status & Tracking	- In-person: Live map, ETA, masked contact options, cancel/reschedule window. - Virtual: Countdown timer, Secure video link with Join button, pre-call test. - On-Demand (e.g., Plumber): Real-time updates (Diagnosis Started, Parts Required, Extra Quote Required).	
+Service Completion & POD	- Provider marks complete, captures Proof of Delivery (POD) via photo/signature. - Customer confirms or flags issue. - Invoice & final payment settlement (if pay-on-service). - Option to Tip Provider.	
+History & Reorder	- Booking history with Rebook button. - Invoice download, chat transcript, prescriptions/reports attached.	
+Ratings & Feedback	- Star rating + Structured reasons (e.g., arrived late, quality). - Attach photo. - Auto-compensation engine linked to negative flags.	
+4. Operational & Compliance Requirements
+🛡️ Safety, Compliance & Verification
+Verification: Mandatory ID and license verification (Doctors, Nurses, Technicians). Background checks and periodic re-verification for home-health workers.
+SOS: In-app SOS for both provider and customer. Emergency escalation workflows for medical emergencies.
+Medical Data: GDPR/HIPAA-like controls for secure storage of prescriptions and health data; explicit user consent required.
+Age Checks: Ensure ID capture for services requiring age verification (e.g., certain salon products).
+⚙️ Admin & Operations
+Provider Management: Verification dashboard, onboarding queue, quality audits, pricing & commission engine.
+Booking Management: Live booking map, manual assign/reassign, dispute queue, refunds/chargebacks dashboard.
+💳 Payments, Pricing & Commissions
+Pricing Models: Configurable by category (Flat fee + distance, Hourly rate, Appointment fee, Per test price).
+Deposit: Option to capture a refundable deposit for high-value or pay-at-service bookings.
+Commission: Flexible commission split (percent + fixed) configurable by service category.
+B2B: Corporate billing and invoicing capabilities.
+Insurance: Integration for third-party payment/insurance acceptance (doctors/medical tests).
+5. Edge Cases & Business Rules
+Rule	Description
+No-Show / Late	Define auto-refund thresholds and free reschedule windows for both user and provider lateness/no-shows.
+Multi-Provider Dependency	Dependency Management: If Doctor A orders Lab Test B, the system links the bookings (A → B) and prioritizes Lab B slot selection based on Doctor A's availability.
+Extra Quote	Provider can raise an Extra Quote (for parts/repair costs) on-the-fly; user must explicitly accept before work continues.
+Emergencies	Block immediate booking for non-emergency providers during severe health queries and display an Emergency Hotline number.
+Cancellations	Tiered cancellation fees based on time to appointment (e.g., Free within 12 hours, 50% fee within 2 hours).
+Minimums	Enforce minimum booking durations or minimum charges for house calls (e.g., 2-hour minimum for a handyman).
+6. Acceptance Criteria (QA-Ready)
+Check	Success Condition
+Booking Creation	Must return a unique booking_id and confirm the available slot within 5 seconds.
+Verification	Verified badge is only displayed when all required documents are uploaded and manually/systematically approved.
+Slot Conflict	The system must prevent double-booking for the same provider at the exact same time slot.
+Payments	Successful payments create a paid booking and generate an invoice. Failed payments must not create a booking (prevent duplicates).
+Live Updates	Provider arrival/status updates must show live in the user timeline within 15 seconds of the provider action.
+Proof of Delivery	Booking cannot be marked complete without capturing the required POD (photo/signature) for specified categories (e.g., Home Repairs, Nurse, Driver).

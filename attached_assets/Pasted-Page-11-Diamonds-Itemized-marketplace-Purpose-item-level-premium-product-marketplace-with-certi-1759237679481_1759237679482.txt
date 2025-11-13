@@ -1,0 +1,105 @@
+Page 11 — Diamonds (Itemized marketplace)
+Purpose: item-level premium product marketplace with certification & inspection.
+Catalog listing
+* Card per diamond: thumbnail, price, Carat/Cut/Clarity/Color, vendor, certification summary, buyback estimate
+Item detail
+* High-res images + 360° viewer
+* Certificate PDF (GIA/IGI) link
+* Detailed specs table (carat, cut, clarity, color, dimensions)
+* Vendor profile, return policy, escrow/inspection options
+* Optional authenticated inspection: pro-inspector visits or sample check (delayed)
+Buy flow
+* Escrow required for high-value purchases; inspector verification window (e.g., 48–72 hrs)
+* On acceptance or inspection success → funds released to vendor
+* Option: Buy with Buyback (if vendor offers buyback guarantee)
+Backend
+* /api/diamonds/catalog (GET)
+* escrow + inspection orchestration /api/escrow/diamond
+* certificate verification service
+Acceptance criteria
+* Certificates downloadable; escrow prevents fund release until verification or acceptance.
+
+Page 12 — Bonds / Fixed Income / Other instruments
+Purpose: stable instruments with maturity & coupon details.
+Listing
+* Fields: issuer, instrument id, coupon rate, next_coupon_date, maturity_date, YTM, min_lot, credit_rating
+Detail
+* Payment schedule, yield to maturity calculator, prospectus download, liquidity notes, settlement info
+Buy flows
+* If primary market: application + allotment rules
+* If secondary: market order or negotiated deal, OTC flows if needed
+Backend
+* /api/bonds/list (GET)
+* settlement engine integration /api/settlement
+Acceptance criteria
+* YTM calculators match expected outputs; settlement instructions displayed.
+
+Page 13 — AI-Invest (Prominent, model-driven)
+Purpose: recommend portfolio mixes; optionally auto-execute and manage.
+Top UI
+* Simple wizard: Amount now + Monthly contribution + Risk level + Duration + Restrictions
+* Preview: recommended allocation donut + top instrument list with vendor tags
+* Projected returns (Low / Expected / High) + volatility estimate + estimated fees/taxes
+* Explainability: one-line reason per allocation + model metadata (model id/version + last data refresh)
+Actions
+* Customize → edit allocations by asset class & by-instrument
+* Run Simulation → backtest summary (3/5/10 yr)
+* Save Plan → store & schedule
+* Apply (Auto-Invest) → generate multi-order preview & require explicit consent (mandate for auto SIP or auto-rebalance)
+Auto-execution permission
+* Show multi-order summary, vendor routing policy, expected execution schedule, total debit, rebalancing frequency
+* Require e-mandate / signed consent for recurring flows
+* Buttons: Confirm & Authorize (triggers signing) / Cancel
+Backend
+* /api/ai/plan/create (POST) with model metadata
+* backtest engine /api/ai/backtest
+* scheduling engine /api/ai/scheduler (fires orders as per plan)
+* explainability logs stored for compliance
+Acceptance criteria
+* Each plan stores model_id & backtest parameters; multi-order preview identical to execution orders.
+
+Page 14 — Stats & Portfolio Analytics
+Purpose: analytics-driven insights & tax-ready reports.
+Top UI
+* Large area with toggles for timeframe (1M/3M/6M/1Y/All)
+* Charts: Net worth over time, Monthly returns, Rolling returns, Max drawdown, Sharpe estimate
+* Allocation breakdown: by asset class & by vendor
+* Table: Best/Worst performers with quick actions
+Tools
+* Rebalance suggestions (one-click suggested trades & cost estimate)
+* Goal planner (goal name, target amount, timeline, suggested SIP)
+* Tax estimator: STCG/LTCG calculation previews & export for tax filing
+* Download tax-ready report (PDF) and CSV for capital gains
+Backend
+* /api/analytics/portfolio (GET)
+* tax engine /api/tax/estimate
+* rebalance optimizer /api/optimizer/rebalance
+Acceptance criteria
+* Analytics compute within SLA for typical portfolios (e.g., under 2s for 200 holdings); tax exports consistent with holdings data.
+
+Page 15 — Rewards / Offers / Leaderboard
+Purpose: show rewards, cashback, vendor offers, gamified leaderboard.
+UI
+* Reward balance card, list of active coupons, expiry badges
+* Offers per vendor with Use Coupon CTA
+* Leaderboard: gamification (investments, invite counts) — opt-in
+Backend
+* /api/rewards (GET)
+* coupon apply /api/coupons/apply (POST)
+Acceptance criteria
+* Coupon validation runs at preview time and at order placement; rewards ledger auditable.
+
+Page 16 — Settings / KYC / Delivery preferences
+Purpose: user account & regulatory flows.
+Sections
+* KYC status & stepper (Aadhaar e-KYC / PAN verification / address verification)
+* Linked bank & UPI (add/delete/verify)
+* Default From/To accounts
+* Physical delivery address book + verification (OTP + document)
+* Notification preferences (push/email/SMS)
+* Risk profile questionnaire (editable)
+* Vendor preferences & auto-routing defaults
+Flows
+* KYC: eKYC integration with provider; store KYC token & documents (encrypted)
+* UPI: link via bank and save merchant acceptances; show masked VPA
+* Address verification: Aadhar or postal verificatio...

@@ -1,0 +1,109 @@
+5) Contracts page — /my-trips/contracts (you said “Contracts age” — interpreting as Contracts)
+
+Purpose: Manage corporate/longer-term agreements and special fares (B2B/B2C ties).
+
+Features:
+
+List of active contracts (contract name, partner, valid dates, discount % or negotiated rates).
+
+Contract details: scope (routes/services), booking limits, billing cycle, invoicing terms, special SKUs (e.g., corporate cab pool).
+
+Create request flow: Request negotiated rate -> Upload SLA -> Legal sign-off workflow integration (DocuSign/HelloSign).
+
+Contracted bookings filter: show only bookings under a contract (for expense reporting).
+
+Admin controls: approve/reject contract, set rate cards, blackout dates.
+
+Acceptance criteria:
+
+Contracted bookings automatically apply discount and invoice to corporate account.
+
+Document storage and signed copies available in contract detail.
+
+6) Booking management pages
+A) All My Bookings — /my-trips/bookings
+
+Unified list of every booking across verticals (searchable, filterable).
+
+Bulk actions: Export CSV, Download receipts, Bulk cancel (where provider allows), Rebook (duplicate).
+
+“Trips timeline” view to show multiple legs grouped by trip (helpful for multi-modal journeys).
+
+B) Completed — /my-trips/completed
+
+Receipts, travel history, analytics (spend per period).
+
+Re-order / Rebook similar trip suggestions.
+
+Add feedback / report issue / claim refund.
+
+C) Cancel / Modify flow
+
+Show eligibility (full refund/partial/no refund), cancellation fees, ETA for refund.
+
+Self-serve modifications where API supports (seat change/date change).
+
+Cancellation process: preview refund amount -> confirm -> process -> update trip status + notify.
+
+Offer alternatives: date change, voucher, reschedule with fee calculator.
+
+For long refunds, show status tracker and expected timeline.
+
+Acceptance criteria:
+
+Cancellation returns updated booking state and triggers partner cancellation webhook.
+
+Refund status and expected date appear in booking details.
+
+7) Real-time & Live features
+
+Live tracking for cabs: map with ETA, driver photo, plate number, contact.
+
+Live train/bus status: delay notifications and platform info (via partner APIs).
+
+Check-in flow: flight check-in link & boarding pass storage.
+
+Disruption handling: auto-rebook suggestions or hold for representative.
+
+8) Payments, Refunds, Invoicing
+
+Multiple payment methods (cards, UPI, wallets, corporate ledger).
+
+Split payments (e.g., user pays part, company pays rest).
+
+Invoicing: auto-generate invoice PDFs; corporate billing cycles (net 30/45).
+
+Secure PCI compliance badges & tokenization for saved cards.
+
+9) Admin / Partner / Engineering hooks
+
+Webhooks for booking created, updated, cancelled, refund initiated.
+
+Admin dashboard: bookings health, failed transactions, top partners, SLA breaches.
+
+Rate caching strategy: TTL per provider; show freshness indicator.
+
+Retry & compensating transactions for async provider confirmations.
+
+10) Analytics & KPIs to track
+
+Conversion rate per vertical (search → booking)
+
+Time to book (avg flow time)
+
+Abandonment step (which screen loses users)
+
+Refund rate and time to refund
+
+Average revenue per booking & ancillary attach rate
+
+NPS per trip and vertical
+
+11) Accessibility, Localization & Performance
+
+Accessibility: keyboard navigation, screen reader labels, contrast, large tappable targets.
+
+Localization: multi-currency, right-to-left where needed, translations for ticket rules.
+
+Performance: skeleton loading, lazy images, price placeholder if API slow. Use optimistic UI where safe. 
+Purrweb

@@ -1,0 +1,110 @@
+Settle up flows
+Settle per-person or settle the group.
+Option to settle via cash (mark as paid), bank transfer (link), or third-party gateway.
+Auto-match payments to pending debts (with reference code).
+Export settlement receipts for records.
+Reimbursements & refunds
+Add reimbursements; refunds from vendor recorded as negative expense.
+9) Analytics & Reports (group + user)
+Group analytics
+Spend by category (pie), by member (bar), over time (line).
+Per-member share vs actual paid (visual gap).
+Top vendors & average per-expense.
+Heatmap: day-of-week / hour-of-day spend patterns.
+Trip-specific summary: per-person cost, itinerary cost breakdown.
+User analytics (personal dashboard)
+My total owed vs owed-to across all groups.
+Monthly spend summary, per-group contributions.
+Alerts: unusual spending, negative balance thresholds.
+Reports & export
+Export group statement (CSV, PDF) — full transaction list, balances.
+Export per-member invoice (PDF) for reimbursements.
+API endpoints for pulling report data.
+10) Notifications & reminders
+Immediate push/email on:
+New expense affecting user
+Payment requests & settlements
+Recurring expense created
+Member added/removed
+Admin actions (group changes)
+Comments & mentions
+Reminders: scheduled reminders to pay (customizable per group & per member).
+Snooze / Do not disturb per group.
+Digest emails (daily/weekly summary).5) Group view page (what you see when you open a group)
+Top header:
+Group name, icon, active timeframe, total group balance.
+Quick actions: Add expense, Settle up, Invite member, Group settings.
+Main sections:
+Summary / Overview card
+Group total spent (time window toggle: all / week / month / custom).
+Net balance: who owes whom (net owed to user or by user).
+Quick suggestion: “Settle X” button to start settlement.
+Snapshot: # of members, # of unsettled expenses, last settled date.
+People & Balances
+List of members with avatars and net balance (ascending/descending).
+Tap member -> member detail (transactions involving them, IOUs).
+Transaction timeline
+Chronological feed with filters (All / Paid / Owe / Reimbursed), infinite scroll.
+Each item: amount, payer, split summary, category, attachments preview, comment preview, timestamp.
+Actions per transaction: Edit, Split details, Comment, Add receipt, Delete, Mark disputed/resolved.
+Analytics panel (compact on group page; expand to full analytics screen)
+Pie chart: spend by category.
+Bar chart: spend by member.
+Trend (line) — total group spend over time.
+Top spenders and top categories.
+Quick filters (date range, category, member).
+Settlements & History
+Recent settlements (who paid who & how).
+“Suggested settlements” that minimize transactions (detailed below).
+Notes & Group Chat
+Group-level notes (trip itinerary, rent rules).
+Light chat/comment area attached to group/transactions.
+6) Transactions / Expenses
+Create expense
+Fields:
+Title (e.g., “Dinner at Olive”)
+Amount
+Currency (group default suggested)
+Date & time
+Payer (one or split payers)
+Participants (select all, some)
+Split type (see Splits)
+Category (Groceries, Utilities, Rent, Transport, Other)
+Recurring toggle (daily/weekly/monthly/custom)
+Attach receipt (camera/photo/PDF)
+Location (optional)
+Comment/notes
+Tax & tip fields (optional)
+UI: Quick add with “I paid” vs “Add IOU” templates.
+Edit / Delete expense
+Permissions: payer or group admin can edit; track audit log.
+Allow partial refunds, corrections; record history of edits.
+Attachments & OCR
+Upload photo of receipt; OCR to prefill items, total, vendor.
+Option to split receipt by items (itemized split).
+Recurring expenses
+For rent and subscriptions: schedule repeats, auto-skip weekends, set end date.
+Option to auto-create expense and send reminder.
+Expense statuses
+Active, Settled, Disputed, Refunded, Reimbursed.
+7) Split methods (all common + smart options)
+Equal split (default): divide equally among participants.
+Exact amounts: specify exact share per participant.
+Percent split: assign percentages.
+Shares: numeric weight per member (e.g., 2 shares, 1 share).
+Itemized split: split by items from receipt.
+Paid partially by multiple payers (split payer amounts).
+Proportional by income (optional private attribute).
+Round-up / round-down rules.
+Smart split suggestions (based on previous patterns or itemized OCR).
+8) Settlements & Payments
+Settlement strategies
+Netting: show net balance per person (total owed/owed-to).
+Minimize transactions algorithm: compute minimal set of transfers to settle group (greedy / graph optimization).
+Directed settle: user chooses who to pay (one-click suggestions).
+Partial settlements: allow partial payments and update balances.
+Payment integrations
+Payment links via UPI / Paytm / Google Pay (India), PayPal, Venmo, Stripe (web), bank transfer.
+In-app payment (if regulatory + business supports) — collect and distribute funds (optional).
+Support for scan QR to pay.
+Payment status tracking (pending, completed, failed) with confirmation.

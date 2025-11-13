@@ -1,0 +1,89 @@
+This is a detailed request for the structure and functionality of the primary "Trip Now" page (/trip-now) and the subsequent Trip Detail and Booking pages.
+
+Here is a breakdown of the requested screens and their components, ensuring they align with the core concepts of the timeline, family focus, and customizable packages from the original proposal.
+
+1. /trip-now - Landing / Create Trip Page
+This is the main entry point for package selection and creation.
+
+Section	Component	Description
+Header/Search	Quick Search Bar	Prominent search bar. Inputs: Origin, Destination(s) (Multi-City), Travel Dates, Travellers (Adults + Child Ages), Travel Goal (Family/Relaxation/Adventure).
+Navigation	Country/Region Tab Bar	Horizontal scrollable tab list for quickly filtering packages. List: All Packages, UK, France, Italy, US, Asia, etc. (Country names based on package inventory).
+Featured	Trending Trips (Horizontal Cards)	Design: Horizontal scrollable row of large cards.
+Card Details: Package Name (e.g., Family UK Winter), Duration, Price (From), Key Attraction Photo, Travel Goal Badge (e.g., Family).
+Main Content	Other Trips (Vertical Grid)	Design: Two-column grid (vertical scroll) for comprehensive browsing.
+Card Details: Detailed card including: Package Name, Duration (7 Days / 6 Nights), Destinations (e.g., London, Glasgow), Price (Total / Per Person), Rating, Inclusions Icons (e.g., Flight, Hotel, Activity).
+Call to Action	"Build Your Own Trip"	A button/link that initiates the Trip Builder Wizard (3.2) for a fully custom package from scratch.
+
+Export to Sheets
+2. Trip Detail Page (e.g., /trip/uk-winter-family)
+When a user selects a trip card, they land on the detail page, which acts as the review and customization hub before booking.
+
+Page Header & Overview
+Trip Title: E.g., Family UK Winter
+
+Price Summary (Sticky Header): Total Price (From), with a prominent "Book Now" button.
+
+Tab Bar Navigation (Primary Trip Details)
+Overview (Default View)
+
+Timeline
+
+Pricing & Customization
+
+Tab 1: Overview
+Section	Content & Details
+Brief Overview	Short descriptive text of the trip theme, key experiences, and target audience (e.g., "A comfortable, pre-planned trip designed for families with young children...").
+Key Metrics	Time Duration: 8 Days / 7 Nights. Total Destinations: 2 (London, Glasgow). Key Attractions: Warner Bros Studio, Natural History Museum, Edinburgh Castle.
+Available Classes	List of flight/transport options available for this template. List: Economy Standard, Economy Comfortable, Business Class.
+Inclusions	Icon-based list: Flights, 4-Star Hotels, Private Transfers, Breakfast, All Activity Tickets.
+Exclusions	Optional/Add-ons: Travel Insurance, Lounge Access, Custom Meals.
+Family Details	Age Suitability: Suitable for children 3+. Family Bundles: Child Seat, Family Room Guarantee.
+
+Export to Sheets
+Tab 2: Timeline (The Core Feature)
+This is the visual, day-by-day, chronological view from the original concept.
+
+Design: Vertical list of collapsible Date Cards.
+
+Date Card Format: Day 1 (15 Dec) - Departure to London
+
+Time Block	Component Type	Details
+04:00	Transfer (Icon)	Private transfer: Home → DXB Airport
+06:30	Airport Service (Icon)	Web Check-in done. Quick Action: Add Lounge Access (Family)
+08:45	Flight (Icon)	DXB → LHR (direct). Option: Upgrade to Business
+15:00	Hotel (Icon)	Check-in: London, 4★, Family Room
+Evening	Activity (Icon)	Dinner Cruise on the Thames. Quick Action: Swap Activity
+
+Export to Sheets
+Functionality: Each item is a time-block card. Clicking on it should expand to show full details, price breakdown for that component, and the option to Change/Remove.
+
+Tab 3: Pricing & Customization
+This tab allows users to adjust the package's quality and see the real-time effect on price.
+
+Section	Component	Customization Options
+Travel Level Premium	Component Groups	User selects the tier for all relevant components. Selection applies to: Bus, Car/Private Transfer, Flight, Train.
+Tier Selection	Dropdown/Radio buttons for each component: Standard (Economy/Shared Transfer) Premium (Comfort/Private Transfer) Ultra Premium (Business/First Class/Luxury Vehicle) The price adjusts instantly based on the number of travellers.
+Custom Meals	Meal Tier Selection	Selection applies to flights and certain included activities (like the cruise).
+Tier Options	Standard (Included/Basic), Premium (Gourmet/Specific Cuisines), Ultra Premium (High-End Dining/Bespoke Options).
+Add Addendums	Toggle/Selection List	List of all optional add-ons from the data model.
+Options	Lounge Access (Per Trip), Meet & Greet, Baggage Insurance, Child Seat, Stroller Rental, Sim/eSIM.
+Price Summary	Breakdown	Detailed view of the cost: Base Price, Taxes, Fees, Discounts (TravelVIP), Addons, Total Payable.
+
+Export to Sheets
+3. Booking Page (/booking/package/[trip-id])
+When the user clicks "Book Now" from the Trip Detail Page, they are taken to the final booking confirmation flow.
+
+Design Pattern: This page must adhere to the design pattern of the flight booking page (e.g., /booking/flight/2025-10-23-6), ensuring consistency.
+
+Structure (Standard Booking Funnel)
+Section	Content & Purpose
+Step 1: Traveller Details	Form Input: Collect full names, dates of birth, passport details, and contact info for all travellers (Adults and Children).
+Key Feature: Smart validation based on child ages provided in the initial search (e.g., ensure child passport details are required).
+Step 2: Review Itinerary & Customizations	Summary Panel: A compressed, non-editable view of the final selected package: Flight/Transport tiers, Hotel rooms, Activities, and all selected Add-ons.
+Total Price: Final Total Payable based on all selections.
+Step 3: Add-ons & Insurance (Last Chance)	Checklist: A final, highly visible prompt for required and recommended add-ons (e.g., Travel Insurance is highly recommended).
+Step 4: Payment & Confirmation	Flexible Booking Options: Hold Option (24-48 hrs hold for a fee), Split Payment (Deposit + Final installment), Pay Now (Full payment).
+Payment Form: Standard credit card/digital wallet input.
+Final CTA: "Confirm & Pay" or "Place Hold".
+
+Export to Sheets

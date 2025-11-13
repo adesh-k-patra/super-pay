@@ -1,0 +1,55 @@
+1. Medical
+
+Who: Doctor, Nurse / Caregiver, Medical Test, Physiotherapist, Psychologist
+Short description: Clinical & licensed healthcare — diagnosis, treatment, therapy and in-home medical support.
+Subcategories: General Physician, Specialist (cardio, derm, ortho), Home Nursing, Lab & Pathology, Telemedicine, Rehab/Physio, Mental Health.
+Suggested filters/tags: Insurance accepted, Licensed, Background-checked, Home-visit, Teleconsult, Emergency available.
+
+2. Health & Wellness
+
+Who: Fitness Trainer, Nutritionist, Yoga Instructor, Physiotherapist (overlap)
+Short description: Preventive health, fitness coaching, diet & wellness programs (in-person or virtual).
+Subcategories: Personal Trainer (HIIT, strength), Group Classes, Diet Plans, Yoga (Hatha/Vinyasa), Wellness Coaching, Rehab & Mobility.
+Suggested filters/tags: Certified, Online / In-person, Goal-based (weight loss/muscle/rehab), Session packages.
+
+3. Personal Care & Beauty
+
+Who: Salon, Beauty, Makeup Artist, Hair stylist (implied)
+Short description: Grooming, beauty and style services — appointments at salons or home visits.
+Subcategories: Haircut & Styling, Bridal Makeup, Manicure/Pedicure, Skincare, Home-Service Beauty, Beauty Packages.
+Suggested filters/tags: Mobile service, Bridal specialist, Male/Female artist, Portfolio/gallery.
+
+4. Home & Repair Services
+
+Who: Electrician, Plumber, Carpenter, Home Cleaner, Pest Control, Laundry Service
+Short description: On-site household maintenance, repairs and cleaning.
+Subcategories: Emergency Repairs, Renovation/Carpentry, Deep Cleaning, Regular Maid, Pest Treatment (one-time/contract), Dry-clean & Laundry pickup.
+Suggested filters/tags: Emergency (24/7), Certified/insured, Fixed-price estimates, Recurring service.
+
+5. Professional & Business Services
+
+Who: IT Technician, Accountant, Lawyer, Photographer (business shoots), Event Planner (B2B), Lighting (technical crew)
+Short description: Skilled professional services for individuals and businesses — consulting, legal, finance, tech support and creative production.
+Subcategories: Legal Consultation, Bookkeeping & Tax, On-site IT Support, Commercial Photography, Corporate Event Management, AV/Lighting Tech.
+Suggested filters/tags: Hourly / Fixed, Corporate contracts, NDA available, Portfolio, Certified/professional body.
+
+6. Food & Hospitality / Household Chefs
+
+Who: Chef / Cook, Catering (implied)
+Short description: In-home chefs, personal cooks and catering for events or daily meal services.
+Subcategories: Personal Chef (weekly plan), Event Catering, Special diet chefs (keto, vegan, allergy-friendly), Short-term cook hire.
+Suggested filters/tags: Cuisine specialties, Meal plan subscription, Taste-test available, Hygiene certificate.
+
+7. Education, Training & Instruction
+
+Who: Tutor, Driving Instructor
+Short description: Teaching & skill development — academics, vocational and driving lessons.
+Subcategories: School Tutors (by subject & grade), Test Prep, Skill Courses, Driving (beginner/advanced), Certification training.
+Suggested filters/tags: Online/In-person, CRB-checked (for kids), Demo lesson, Hourly packages.
+
+8. Entertainment, Events & Creative
+
+Who: DJ, Music artist, Event Planner (overlap), Lighting, Photographer, Makeup Artist (event/bridal)
+Short description: Live entertainment, performance and event creatives for private & public gatherings.
+Subcategories: DJs (genre-based), Live bands & soloists, Event Production (lighting, sound), Photo & Video Coverage, Stage & AV crew.
+Suggested filters/tags: Genre, Set length, Equipment included, Travel cost, Rider requirements.

@@ -1,0 +1,133 @@
+1. Medical
+
+Clinic Booking
+
+Lab Test Booking / Pathology
+
+Hospital Appointment Booking
+
+General Physician
+
+Specialist (Cardio, Derm, Ortho, ENT, Neuro, etc.)
+
+Home Nursing / Caregiver
+
+Telemedicine / Remote Consult
+
+Rehab / Physiotherapy
+
+Mental Health / Psychologist / Counselor
+
+2. Health & Wellness
+
+Personal Trainer (HIIT, Strength, Cardio)
+
+Group Classes (Bootcamp, Pilates, Zumba)
+
+Nutritionist / Diet Plans
+
+Yoga (Hatha, Vinyasa, Ashtanga, Restorative)
+
+Wellness Coaching / Lifestyle Programs
+
+Rehab & Mobility Programs
+
+3. Personal Care & Beauty
+
+Haircut & Styling
+
+Bridal / Event Makeup
+
+Skincare & Facials
+
+Manicure / Pedicure
+
+Mobile / Home-service Beauty
+
+Beauty Packages (bridal, party, corporate)
+
+4. Home, Repair & Electronics
+
+Emergency Repairs (Electrician / Plumber)
+
+Renovation / Carpentry / Joinery
+
+Deep Cleaning / Recurring Maid Services
+
+Pest Control (One-time / Contract)
+
+Laundry / Dry-clean Pickup & Drop
+
+Appliance Repair (AC, Fridge, Washing Machine, Oven)
+
+Gadget Repair (Phones, Laptops, Tablets)
+
+Electronics Service (TVs, Audio systems, Home appliances)
+
+5. Automotive & Mobility
+
+Scheduled Car Service (Insurance / Major / Minor)
+
+Scheduled Bike Service (2W maintenance)
+
+Mobile Mechanic / On-site Service
+
+Emergency Roadside Assistance / Towing
+
+Vehicle Detailing / Cleaning
+
+Fleet / Commercial Vehicle Service
+
+Driving Lessons / Instructor
+
+6. Professional & Business Services
+
+Legal Consultation / Lawyer Services
+
+Accounting & Bookkeeping / Tax Filing
+
+IT Support / On-site Technician / Network Setup
+
+Corporate Photography / Product Shoots
+
+Corporate Event Management / Planning
+
+AV / Lighting Technical Crew / Stage Setup
+
+7. Food & Hospitality / Household Chefs
+
+Personal Chef (Weekly / Subscription Meal Plans)
+
+Event Catering (Small / Large scale)
+
+Special-diet Chefs (Vegan, Keto, Allergy-friendly)
+
+Short-term Cook Hire (Daily / Weekly)
+
+Meal Tasting / Trial Sessions
+
+8. Education, Training & Instruction
+
+School Tutors (By Subject & Grade)
+
+Test Prep & Exam Coaching (SAT, IIT-JEE, NEET, Boards)
+
+Skill Courses / Vocational Training (coding, design, trades)
+
+Driving Instructor / Driving Lessons
+
+Certification Training (professional certificates)
+
+9. Entertainment, Events & Creative
+
+DJs (Genre-based, Wedding, Club)
+
+Live Bands & Solo Artists (Acoustic, Cover, Original)
+
+Event Production (Lighting, Sound, Stage)
+
+Photo & Video Coverage (Event, Wedding, Corporate)
+
+Stage / AV Crew & Technicians
+
+Makeup Artist (Event / Bridal)

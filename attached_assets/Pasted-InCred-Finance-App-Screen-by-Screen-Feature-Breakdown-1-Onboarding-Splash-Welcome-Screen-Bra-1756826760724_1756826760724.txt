@@ -1,0 +1,99 @@
+InCred Finance App — Screen-by-Screen Feature Breakdown
+1. Onboarding / Splash / Welcome Screen
+
+Brand-centric welcome to load the app (implied by app structure).
+
+2. Home / Dashboard
+
+Quick Eligibility Check: Ability to check loan eligibility in seconds 
+Apple
+Google Play
+.
+
+Overview of loan products and progress on applications.
+
+3. Application / Eligibility Screen
+
+Eligibility Check prominently featured to kick off the loan process 
+Apple
+Google Play
+.
+
+4. Loan Application Flow
+
+100% Online KYC: Complete documentation digitally within the app 
+Apple
+Google Play
+.
+
+Loan Amount & Tenure Selection: Choose loan amount (e.g., ₹10 K to ₹10 L+) and repayment duration (12–60 months), likely with adjustable sliders or input fields 
+Apple
+Google Play
+.
+
+Automatic EMI Deduction via eNACH: Option for auto-debit setup to simplify repayments 
+Apple
+Google Play
+.
+
+5. Real-Time Updates / Application Status
+
+Once applied, users see real-time tracking of the application, along with notifications on approval and disbursal 
+Apple
+Google Play
+.
+
+6. Loan Summary / Details Screen
+
+Displays breakdown of:
+
+Interest Rate (starts from ~13.99% p.a.)
+
+EMI amount, processing fee, net disbursement, APR, and total cost using examples like Mr. Rohan’s loan 
+Apple
+Google Play
+.
+
+7. EMI Schedule & Reminders
+
+A dedicated view for EMI reminders, upcoming payment schedule, and historical payments 
+Apple
+Google Play
+.
+
+8. Support / Relationship Manager Contact
+
+A screen to access dedicated support, connect with relationship managers, and possibly chat or reach out directly via WhatsApp or other means 
+Apple
+Google Play
+.
+
+9. Loan Offers / Alternatives
+
+UI for selecting between different loan types (Personal, Education, Business/MSME) and customizing features like amount and tenure—while not fully detailed, the app likely routes users into the appropriate flow 
+Incred
+.
+
+10. Settings / Profile
+
+Though not explicitly outlined in feature lists, typical apps include:
+
+Profile settings
+
+App updates
+
+Privacy policy and FAQs 
+Apple
+Google Play
+Incred
+.
+
+11. Notifications / Alerts
+
+In-app notification center or integration with OS notifications:
+
+EMI reminders
+
+Status changes
+
+KYC updates — supported by "real-time updates" and "automated reminders" functionality

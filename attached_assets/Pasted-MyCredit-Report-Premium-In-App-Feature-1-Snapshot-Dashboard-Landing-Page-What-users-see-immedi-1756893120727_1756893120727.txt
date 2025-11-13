@@ -1,0 +1,134 @@
+MyCredit Report — Premium In-App Feature
+1. Snapshot Dashboard (Landing Page)
+
+What users see immediately:
+
+Credit Score (with trust badge for authenticity).
+
+Debt Summary (total active loans).
+
+Loan Eligibility Score (% approval chance for new loans).
+
+Quick Buttons:
+
+View Timeline
+
+Check Loans & EMIs
+
+Improve My Score
+
+Download Report
+
+👉 Instant clarity: Users understand their financial standing in one glance.
+
+2. Credit Score Timeline
+
+Interactive graph: past score changes + future projections.
+
+Key reasons explained:
+
+“-30: Missed EMI”
+
+“+15: Cleared Credit Card on Time”
+
+“-20: High Utilization (80%)”
+
+Predictive projection:
+
+“Follow roadmap → Score may reach 780 by Dec 2025.”
+
+Top Menu Options:
+
+Calculator (simulate payoffs/utilization)
+
+Download Report
+
+👉 Transparency: Users see why their score moved and how it can improve.
+
+3. Loan & Debt Dashboard
+
+Loan Overview:
+
+All loans listed with duration, EMI, due dates, repayment history.
+
+Graphs & Stats:
+
+Total Interest Paid.
+
+Remaining Principal.
+
+Total Installments (done vs pending).
+
+Missed Payments (highlighted red).
+
+Personalized Loan Calculators:
+
+Prepayment Impact:
+
+“Pay ₹20,000 now → Save ₹5,200 interest + close loan 4 months earlier.”
+
+Tenure vs EMI Calculator:
+
+“Pay higher EMI → Close 6 months sooner.”
+
+“Lower EMI → Pay longer but manage cash flow.”
+
+👉 Control & clarity: No hidden surprises, full visibility of loans.
+
+4. Actionable Roadmap
+
+Ranked “What to Improve” list (sorted by urgency & score impact).
+
+Example: “Reduce Utilization → +30 points.”
+
+Example: “Clear Overdue Loan → +50 points.”
+
+How to Improve: Step-by-step timeline with estimated dates & outcomes.
+
+Visual Progress Graph:
+
+“Eligibility can rise to 90% by June if steps are followed.”
+
+👉 From advice to action: A practical playbook for credit growth.
+
+5. Scenario Simulator (Calculator Playground)
+
+Test financial choices before acting:
+
+“Repay ₹50,000 on Loan A → Score improves +40.”
+
+“Open new Credit Card → Approval chance drops 10% (short-term).”
+
+Graph updates live with projected outcomes.
+
+👉 Smart decisions: Users learn the impact of choices instantly.
+
+6. MyCoach (AI Assistant)
+
+Floating chatbot across all MyCredit pages.
+
+Functions:
+
+Explains score changes in simple terms.
+
+Suggests next best actions: “Pay EMI this week for +5 points.”
+
+Sets reminders: “Remind me 2 days before EMI due.”
+
+👉 Feels like a personal trainer for credit health.
+
+7. Secure Export & Sharing
+
+Download Options:
+
+Snapshot PDF (summary).
+
+Full Report PDF (detailed version).
+
+CSV (loan breakdown).
+
+Storage: Saved in Secure Vault (encrypted).
+
+Sharing: Secure link (auto-expiry in 24 hours).
+
+👉 Trust & convenience: Users carry their report safely anywhere.

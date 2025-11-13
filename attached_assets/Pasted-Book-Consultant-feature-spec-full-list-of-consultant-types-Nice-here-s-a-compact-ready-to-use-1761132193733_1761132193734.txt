@@ -1,0 +1,138 @@
+Book Consultant — feature spec & full list of consultant types
+Nice — here’s a compact, ready-to-use feature spec for Book Consultant (in-person & virtual bookings) plus a full list of consultant types including the “top 5 most common” you asked for. I treated this like a product-ready feature you can hand to PMs, designers and devs: pages, flows, filters, provider requirements, safety, payments, edge-cases and KPI acceptance criteria.
+1 — What this feature does (one line)
+Allow users to discover, compare, schedule and pay for on-demand or scheduled consultant services — in-person or virtual — across healthcare, wellness, home services and professional help.
+2 — Consultant categories (complete list)
+Core categories you mentioned
+Doctor (general physician + specialists)
+Salon / Beauty (stylist, barber, beautician)
+Driver / Chauffeur (hourly or point-to-point)
+Chef / Private cook (home chef, tiffin services)
+Nurse / Caregiver (medical / elderly care)
+Medical Test (lab technician, sample pickup, home collection)
+Other top 5 most common (added)
+7. Electrician
+8. Plumber
+9. Home Cleaner / Maid
+10. Tutor (academic / language / skills)
+11. Fitness Trainer / Yoga Instructor
+Additional useful categories (complete coverage)
+12. Physiotherapist / Rehab therapist
+13. Psychologist / Therapist / Counsellor (virtual & in-person)
+14. Pet Care / Vet visits / Pet groomer
+15. IT Technician / Tech support (home devices, routers)
+16. Carpenter / Painter / Handyman
+17. Photographer / Videographer (event & studio)
+18. Event Planner / Decorator (small events)
+19. Lawyer / Legal consultant (paid consultations)
+20. Accountant / Tax consultant
+21. Nutritionist / Dietician
+22. Makeup Artist (bridal, events)
+23. Pest Control specialist
+24. Laundry / Dry-clean pickup & drop (pro services)
+25. Driving Instructor
+Use this full list as master taxonomy. You can show top categories on the home screen and a “More” list to expand.
+3 — Booking flows (user journeys)
+Discovery → Provider profile → Select service (package/slot) → Add address & instructions → Confirm price & extras → Payment or pay-at-service → Booking confirmed → Provider enroute / session live → Service complete → Rating & invoice.
+Virtual consult: Book slot → secure video link / phone call → reminder → session → receipt & follow-up notes.
+Multi-stop / multi-provider: e.g., nurse + lab pick-up in one booking (composite booking).
+Corporate / bulk booking: recurring schedules (daily nurse, weekly tutor).
+4 — Page-by-page requirements
+Home / Discover
+Category strip with icons and delivery/visit promises (e.g., “Home visit in 60–90 min”, “Instant virtual consult”).
+Search bar (provider name, specialty, service).
+Quick filters for “Nearby”, “Top rated”, “Available now”, “Price range”, “Virtual only”.
+Saved searches & recent bookings.
+Search & Filters
+Faceted filters (left drawer or modal): category, sub-specialty, rating, price, availability (ASAP / Today / Later), languages, gender preference (for healthcare / salon), verified badge, distance, insurance accepted (for doctors).
+Sort options: Relevance, Rating, Price (low-high), Distance, Next available slot.
+Map/list toggle for in-person services.
+Provider / Consultant Profile
+Photo, name, designation, certifications, verified badges (ID / license), years experience, languages, average rating & reviews.
+Services offered (packages) with duration, price, inclusions, add-ons.
+Availability calendar (real-time slot view), virtual vs in-person toggle.
+Policies: cancellation, refund, reschedule, safety notes.
+Gallery (images), sample documents (certificates), FAQs, sample consultation notes.
+“Book now”, “Message provider” (chat), “Call” (masked number), “Share profile”.
+Service Detail (package)
+Duration, what’s included, preparation required, limits (e.g., max 2 people), equipment needed, payment type, required documents (prescription).
+Add-ons (oxygen monitor, extra time, home collection kit, cleaning supplies).
+Booking page (critical)
+Slot selection: ASAP (nearest free slot) or scheduled (calendar + time picker).
+Address selector: home / office / new (map pin & geocode). Option for multi-address (pick-up/drop).
+Contact details: name, phone, notes, access instructions.
+Attachments: prescription upload (doctors), photos of issue (plumber/electrician), measurements (furniture/photographer).
+Price breakdown: base fee, travel fee, taxes, addons, surge, gratuity option. Show total.
+Payment options: prepaid (card/UPI/wallet/BNPL), pay at service (collect cash / card on delivery). If pay-on-service, capture intent and possible refundable deposit.
+Promo/coupon entry, apply & show savings.
+Confirmation CTA (fixed bottom button), shows estimated provider arrival time.
+Booking confirmation
+Booking ID, ETA/to-be-confirmed, provider assignment status (unassigned / assigned / enroute).
+Option: “Request preferred provider” (if available), share booking, cancel/reschedule CTA with policy.
+Live status & tracking
+For in-person: live map with provider location, ETA, contact provider (masked), cancel/reschedule window until arrival. For driver/chauffeur bookings also show trip status.
+For virtual: countdown timer, video link with join button, pre-call test (mic/camera).
+For on-demand tasks (electrician/plumber), allow real-time updates: diagnosis started, parts required, extra quote required.
+Service completion & POD
+Confirmation of task done: provider marks complete, captures proof (photo/signature), customer confirms or flags issue.
+For recurring services: scheduling next appointment.
+Invoice & payment settlement (if pay-on-service capture final payment). Option to tip provider.
+History & Reorder
+Booking history with rebook button, invoice download, chat transcript, prescriptions and reports (medical tests), prescriptions attached in profile.
+Ratings & Feedback
+Star rating + structured reason (arrived late, quality, behaviour), attach photo. Auto-compensation engine for certain negative flags.
+5 — Provider / vendor app features
+Profile & verification onboarding (ID, license, certificates, police verification if needed).
+Availability toggle & calendar sync (Google / Calendar).
+Accept/decline bookings with short reason codes. Auto-assign rules when offline.
+Navigation (integrated maps), arrival check-in, start/complete actions, capture POD (photos / signatures), collect payment (if COD).
+Earnings dashboard, payout requests, trip history, support chat, shift scheduling.
+For medical staff: prescription writing & secure notes storage (HIPAA-like considerations).
+6 — Admin & operations
+Provider verification dashboard, onboarding queue, quality audits.
+Live booking map, manual assign/reassign, dispute queue, refunds & chargebacks dashboard.
+Pricing & commission engine, promo management, KYC/settlement for payouts.
+Reports: utilization, response time, cancellations, test conversion (medical tests).
+7 — Payments, pricing & commissions
+Pricing models per category: flat fee + distance/travel fee (salon, driver), hourly rate (driver, tutor), appointment fee (doctor), per test price (lab).
+Deposit concept for high value bookings or pay-at-service risk.
+Commission split: percent + fixed, configurable by category.
+Corporate billing & invoices for B2B bookings.
+Insurance & third-party payment (for doctors/medical tests) integration where applicable.
+8 — Safety, compliance & verification (essential)
+ID & license verification for doctors, nurse, technicians. Background checks & periodic re-verification for home-health workers.
+Display verified badges for completed checks.
+In-app SOS for both provider & customer. Emergency escalation workflows (ambulance / authorities) for medical emergencies.
+For medical bookings: secure storage for prescriptions and health data, GDPR/HIPAA-like controls; explicit consent for storing medical data.
+For services requiring age checks (salon with adult-only products), ensure ID capture.
+9 — Filters & search tuning (perfect filter menu)
+Category-specific filters:
+Doctors: specialty, consultation type (virtual/in-person), insurance accepted, gender preference, experience, hospital affiliation.
+Salon: service type (haircut, styling, makeup), gender, price range, home service vs salon, stylist experience.
+Driver: vehicle type, hourly / point-to-point, driver rating, luggage capacity.
+Nurse: qualifications (RN/ANM), languages, shift length (hourly/daily), medical experience.
+Medical test: test type, sample pickup, partner lab, turnaround time.
+Global filters: price, rating, availability (ASAP / next 24 hrs), verified.
+10 — Edge cases & business rules
+No-show & late arrival policies: auto-refund thresholds, free reschedule windows.
+Multi-provider dependency: e.g., doctor orders a lab test — booking links to lab sample pickup with dependency management.
+Parts & extra repair costs (plumber/electrician): provider can raise extra-quote; user must accept before continuing.
+Medical emergencies: block immediate booking for non-emergency providers and display emergency hotline.
+Cancellations: tiered fees based on time to appointment; free cancellation window.
+Minimum booking durations / minimum charges for house calls.
+11 — Data & dummy seed suggestions (quick examples)
+Sample providers (seed data to use in staging):
+Dr. Anjali Mehra — General Physician — ₹400 / 20 min — Verified MBBS — Virtual & Home visit — Rating 4.7 — Insurance accepted.
+StyleHub — Home Salon — Haircut (men) ₹299 — stylist: Riya Singh (5 yrs) — 30 min slot.
+Ravi’s Chauffeur — Driver (Hatchback) — Hourly ₹120/hr — Instant availability.
+Chef Arjun — Home chef — ₹1200 (2 hours cooking for 4) — Speciality: continental.
+Nurse Care — RN Shweta — Post-op care — ₹300/hour — Verified nursing license.
+QuickLabs — Sample Pickup — CBC ₹499 — Turnaround 24 hrs.
+I can generate a 100-row JSON/CSV seed if you want.
+12 — Acceptance criteria (QA-ready)
+Booking creation: returns booking_id and available slot within 5s.
+Verification: verified badge only when docs uploaded & approved.
+Slot conflict: double-book prevention per provider.
+Payments: successful payments create paid booking & generate invoice. Failed payments must not create duplicate bookings.
+Provider arrival updates must show live in user timeline within 15s of provider action.
+POD: booking cannot be marked complete without proof for specified categories (e.g., home repairs, nurse, driver).

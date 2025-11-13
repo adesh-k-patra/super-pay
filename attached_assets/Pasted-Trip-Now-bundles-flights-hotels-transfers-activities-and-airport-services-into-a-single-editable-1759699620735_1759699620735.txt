@@ -1,0 +1,87 @@
+Trip Now bundles flights, hotels, transfers, activities and airport services into a single, editable package and displays it as a timeline (day-by-day + time blocks) so users can see the whole trip at a glance and book everything in one flow.
+1. Purpose & value
+Let users buy an end-to-end trip (transport, stay, transfers, tours, airport services) as one package.
+Present the package as a timeline so families and multi-leg travellers can quickly verify sequence, logistics and kid-friendly details.
+Reduce booking friction and cross-sell TravelVIP benefits (lounges, meet & greet, insurance, priority transfers).
+Make last-minute changes easy (swap activity, add transfer, upgrade seats) with clear effects on cost and timing.
+2. Core concepts & data model (simple)
+Package (Trip)
+id, name, createdBy, travellers (adults/children + ages), dates (start, end), timezone, status (draft/confirmed/paid/cancelled), priceSummary, travelPolicy/tierBenefits
+Components (line items)
+Flight: {id, airline, flightNo, from, to, depTime, arrTime, cabin, fareClass, refundable, price}
+Hotel: {id, name, checkIn, checkOut, star, roomType, breakfastIncluded, pax}
+Transfer: {id, type (private/shared), pickupPoint, dropPoint, vehicle, pax, price, provider}
+Activity/Tour: {id, title, date, startTime, endTime, duration, pickupIncluded, ageSuitability, price}
+Airport Services: {lounge, meetGreet, fastTrack, baggageInsurance, prebookedPorter}
+Addons: {childSeat, stroller, sim/eSIM, loungeAccessPerTrip}
+Timeline item: componentId, componentType, startDateTime, endDateTime, location, notes, bookingStatus
+PriceSummary: basePrice, taxes, fees, discounts (TravelVIP), addons, totalPayable, perTravellerBreakdown
+3. Key user flows & screens
+3.1 Trip Now — Landing / Create
+Quick search: origin, destination(s) (multi-city), travel dates, travellers (adults + child ages), travel goal (family/relaxation/adventure)
+Templates: Family UK Winter, Weekend City Break, Commuter Saver, Adventure + Kids — prefilled sensible defaults (hotels 4★, private transfers, kid-friendly activities)
+3.2 Trip Builder wizard (stepper)
+Overview & Timeline Draft (auto-generated): shows a 1-row horizontal timeline with days; each day contains stacked cards (flight/hotel/activity/transfer/airport service).
+Flights: choose direct/comfort-first options (filter by direct only). Display seat maps/child policies.
+Hotels: choose hotel with breakfast option and family room suggestions. Show check-in/out times on timeline.
+Transfers: auto-add transfers for arrival/departure and inter-city legs (private by default for families).
+Activities: curated kid-friendly list for each destination with an “add to day” drag action. Offer duration & pickup info.
+Airport Services: lounge access, meet & greet, baggage insurance, priority check-in. Suggest per family and per-airport.
+Summary & Pricing: editable (apply TravelVIP tier discounts, coupons).
+Checkout & Confirm: flexible booking (hold option / split payment / pay now).
+3.3 Timeline view (primary UI)
+Visual: horizontal scrollable days (Day 1 ➜ Day N). Each day card lists time-blocks sorted chronologically.
+Time-block card: icon (flight/hotel/activity/transfer/airport-service), title, time, location, provider, price, status badge (booked / pending / suggested).
+Controls: expand item → view details / change / remove / rebook / add notes.
+Quick actions: “Add airport lounge for this flight”, “Make this transfer private”, “Move activity to Day 5”.
+3.4 Package details & family mode
+Show child-friendly indicators (age suitability, stroller accessibility, child ticket rules).
+Family bundle suggestions: child seat in car, kids’ meal, family room, reduced-price child ticket.
+Safety & travel docs checklist (passports, visas, insurance).
+3.5 Change & disruption flow
+If a flight/train is delayed or cancelled, show affected timeline items, recommended actions (auto rebook, switch transfer times, refund option).
+Disruption Concierge button (phone/chat) for paid tiers.
+3.6 Confirmed trip mode
+Single itinerary page with Download / Share / Add to calendar buttons.
+“Pre-departure checklist” and airport day-of timeline (3 days/24 hours/3 hours before departure suggestions).
+4. Example timeline & package (converted from your sample)
+Trip Now — Family UK Winter (sample)
+Travellers: 2 adults, 2 children (3 & 5)
+Dates: 15 Dec → 22 Dec (8 days / 7 nights)
+Trip summary: DXB → LHR → (London 5 nights) → LHR→GLA (2 nights) → GLA→DXB
+Day-by-day timeline (UI-friendly format)
+Day 1 — 15 Dec (Departure)
+04:00 — Private transfer: Home → DXB Airport (prebooked)
+06:30 — Airport: Web-checkin done (auto), add Lounge Access (family entry) — optional
+08:45 — Flight: DXB → LHR (direct), Economy Comfortable seats, baggage included
+Arrival LHR — Private meet & greet & porter service
+15:00 — Hotel check-in (London, 4★, family room, breakfast included)
+Evening — London Dinner Cruise on the Thames (prebooked, family seating)
+Day 2 — 16 Dec (London: studio & museum)
+08:00 — Breakfast at hotel (included)
+09:30 — Transfer: Private coach → Warner Bros. Studio Tour (Harry Potter) (tickets + transport)
+14:30 — Return to city, free time / kid rest
+17:00 — Kid-friendly Natural History Museum private guided tour (short, 60–90 mins)
+Evening — Free / optional West End family show (discounted via TravelVIP)
+Day 3 — 17 Dec (London highlights)
+09:00 — Tower of London, Changing of Guard + London Eye or Cream Tea (booked combo)
+13:30 — Lunch / free time
+15:30 — Madame Tussauds tickets (skip-the-line)
+Evening — Free
+Day 4 — 18 Dec (Windsor/Stonehenge/Bath day trip)
+07:00 — Pickup (private) for full-day Private: Windsor Castle, Stonehenge & Bath (includes child-friendly stops)
+20:00 — Return to London hotel
+Day 5 — 19 Dec (Free day or optional activity)
+Suggestions: kid-friendly theatre, London Zoo half-day, shopping. Option to add local transfer or babysitting service.
+Day 6 — 20 Dec (Transfer to Glasgow)
+06:00 — Hotel check-out (late check-out NOT available)
+08:30 — Flight: LHR → GLA (direct) — private airport transfer booked in London → LHR
+10:15 — Arrival: Glasgow — private transfer to hotel (Glasgow, 4★, family room)
+14:00 — Skip the Line: Hard Rock Cafe Glasgow (family meal included)
+Day 7 — 21 Dec (Highlands day tour)
+07:00 — Pickup for Oban, Glencoe & Highlands small-group day tour (child-friendly options)
+20:00 — Return to Glasgow hotel
+Day 8 — 22 Dec (Departure)
+08:00 — Hotel check-out & private transfer to GLA airport
+11:55 — Flight: GLA → DXB (direct)
+Arrival DXB — private home transfer (end of trip)

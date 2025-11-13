@@ -1,0 +1,722 @@
+1. Find Your Loan — Aggregator, Matcher & Marketplace
+
+Tagline: Search, compare, and apply — the smartest way to find the right loan for your purpose.
+
+What it is (short)
+
+An in-app loan marketplace that aggregates partner offers, ranks them by trust & fit for a user’s profile, and lets users compare, prefill, and apply — while providing lenders with analytics and premium placement.
+
+Why it matters
+
+Highest direct monetization potential (lead-fees, revenue share, API subscriptions).
+
+Increases conversion by surfacing best-fit offers for each user.
+
+Improves retention: users return to compare and track applications.
+
+Builds brand trust with transparent ranking and “InCred-backed” badges.
+
+Primary user flow
+
+Home → Tap “Find Your Loan” → Purpose + Amount + Tenure + Quick Profile (or auto-prefill from MyReport) → Ranked results (Diamond→Bronze) → Compare / Apply → Consent & Pre-filled Application → KYC upload → Submit → Track in Applications hub.
+
+Key screens & UI elements
+
+Landing / Quick Match: Purpose tiles, amount slider, tenure selector, “Use MyReport” toggle, CTA “Find matches”.
+
+Results List: Compact card with badge, APR, EMI, total cost, processing fee, approval speed, “How this fits you” microcopy, CTAs: Compare / Apply / Save.
+
+Compare Modal: Up to 3 lenders side-by-side, differences highlighted (APR, fees, docs), “Best for you” AI callout.
+
+Product Detail: Fee table, amortization, docs required, lender reviews, sponsored disclosure.
+
+Application Flow: Pre-filled form, consent screen, KYC uploader, submit, confirmation.
+
+Applications Hub: Status, lender contact, required next steps, appeals.
+
+Lender Portal: Lead inbox, filters, lead scoring, conversion analytics.
+
+Sub-features / capability list
+
+Trust Badge system (Diamond → Bronze) using composite scores.
+
+Predicted Approval Score personalized per user.
+
+“Best for you” explanation card (one-line reason).
+
+Organic vs Sponsored labeling & toggle.
+
+“InCred-backed” partner badge for negotiated benefits.
+
+EMI & total cost calculator and amortization preview.
+
+Prefill via MyReport & consented bureau data.
+
+Export/share comparison snapshot (PDF / image).
+
+Partner lead webhook & analytics endpoints.
+
+Data & integrations
+
+MyReport (profile + credit data).
+
+Bureau APIs (CIBIL/Experian) for eligibility checks (consent required).
+
+Lender APIs for offers, eligibility checks, and lead intake.
+
+Payment & KYC providers (Aadhaar, PAN, eKYC providers).
+
+Analytics events and attribution tracking.
+
+Monetization paths
+
+Lead fee (CPL) / revenue share on disbursal.
+
+Sponsored placement / CPC (clearly labeled).
+
+Lender subscriptions for analytics & prioritized leads.
+
+“Premium match” for MyReport subscribers (better filters, negotiated rates).
+
+Privacy, compliance & safety
+
+Explicit consent screens before sharing PII.
+
+Data minimization (only required fields to partner).
+
+Audit trail of consents & partner acceptance.
+
+Partner onboarding with compliance checks & periodic audits.
+
+Success metrics (KPIs)
+
+Compare → Apply conversion rate.
+
+Marketplace revenue (CPL / % origination).
+
+Repeat users (month-over-month).
+
+Average session length on marketplace screens.
+
+NPS lift among marketplace users.
+
+Acceptance criteria (examples)
+
+Search and results render with badges and “Best for you” text.
+
+Prefill works from MyReport with explicit consent.
+
+Apply flow sends leads to partner webhook and Application Hub shows status.
+
+Sponsored labeling present and clear.
+
+2. MyReport — Deep Personalized Financial Roadmap (Premium)
+
+Tagline: A weekly-updated, data-driven roadmap that makes your financial goals unavoidable.
+
+What it is (short)
+
+A premium, subscriber-only financial health product that aggregates bureau + bank + in-app data to produce prioritized actions, projected eligibility, scenario simulations, and automated reminders.
+
+Why it matters
+
+Primary subscription revenue driver.
+
+Directly improves users’ eligibility and propensity to convert.
+
+Powers personalization across Find Your Loan, MyPath and Coach.
+
+Primary user flow
+
+Subscribe → Authorize data pulls (bureau + open banking) → MyReport builds and shows Snapshot → Prioritized “What to Improve” list → Scenario simulator & timelineed actions → Weekly updates and reminders → CTA to apply or ask Coach.
+
+Sections & pages
+
+Subscribe / Pricing: benefits, sample pages, FAQs.
+
+Snapshot Dashboard: credit score, debt summary, eligibility score, quick wins.
+
+What to Improve: ranked actionable items (Debt, DTI, Utilization, Account Age, Delinquencies).
+
+How to Improve: step-by-step timeline with estimated score deltas and ETA.
+
+Projected Loan Progression: visual graphs showing eligibility by date based on actions.
+
+Automations & Reminders: scheduled payments, alerts, calendar sync.
+
+Export / Share: secure PDF export & share to advisors (consented).
+
+Core features
+
+Action cards with estimated score impact and confidence band.
+
+Scenario simulator: “If I pay ₹X, score ↑ by Y”.
+
+Auto-reminders & scheduling tools to execute quick wins.
+
+Privacy controls to manage data sources and sharing.
+
+Algorithm & modeling notes
+
+Use historical bureau models + heuristics for estimated score deltas.
+
+Confidence bands (low/medium/high) shown for each estimate.
+
+Simulation engine considers payment schedules, utilization changes, and time decay.
+
+Data & integrations
+
+Bureau pulls (CIBIL/Experian) with consent.
+
+Open-banking account data for debt & income checks.
+
+In-app events & payment history.
+
+Find Your Loan signals for lender-fit models.
+
+Monetization & tiers
+
+Basic subscriber tier: snapshot + weekly PDF.
+
+Pro tier: full timeline, scenario simulator, priority Coach messages, advanced analytics.
+
+Partner APIs for anonymized market insights sold to lenders.
+
+Privacy & compliance
+
+Explicit opt-in for each data source.
+
+End-to-end encryption for stored bureau & bank data.
+
+Granular revoke access controls for users.
+
+KPIs
+
+Subscriber conversion rate from free users.
+
+MRR & ARPU.
+
+Churn rate for MyReport subscribers.
+
+Conversion rate from MyReport → Find Your Loan applications.
+
+Acceptance criteria (examples)
+
+MyReport shows snapshot + 5 ranked actions with estimated impacts.
+
+Scenario simulator updates score estimate when user changes input.
+
+Exports produce downloadable PDF with user’s consent metadata.
+
+3. MyPath — Rejection → Roadmap Experience
+
+Tagline: Rejection is the start of a plan, not the end of the road.
+
+What it is (short)
+
+A contextual roadmap triggered after a loan rejection that explains the reasons, prioritizes fixes, and provides clear, clickable next steps with products and learning linked.
+
+Why it matters
+
+Converts a negative moment into retention & upsell.
+
+Improves re-application quality and reduces churn.
+
+Drives uptake of MyReport, Coach and credit-builder products.
+
+Primary user flow
+
+Application → Rejected → Full-screen modal invites user to open MyPath → MyPath dashboard shows rejection reasons, eligibility score, prioritized fixes → Simulate impact & quick actions (pay/settle/credit-builder) → Track progress and reapply when readiness threshold is met.
+
+Key pages & elements
+
+Rejection Modal: short empathetic copy with CTA “View MyPath”.
+
+MyPath Dashboard: top banner with score and eligibility, multi-cause reason cards.
+
+Simulate Impact: slider or inputs to show predicted score changes.
+
+Quick Actions: direct links to credit-builder loans, EMI restructuring, settlement offers.
+
+Progress Tracker: milestones, reminders, badges for achievements.
+
+Share & Ask: share plan or book Creator 1-on-1 advisor.
+
+Sub-features
+
+Rejection reason extractor (lender-supplied + rule engine).
+
+Quick wins vs time-behavior classing.
+
+Re-application guardrails (recommend wait or prerequisites).
+
+Auto-suggestions to convert to MyReport subscriber.
+
+Data & integrations
+
+Lender rejection codes & messages (structured or parsed).
+
+MyReport & bureau data for impact simulation.
+
+Product links for credit-builder and settlement APIs.
+
+Privacy & compliance
+
+Store rejection reasons only with user consent.
+
+No blocking of re-application unless lender policy requires.
+
+KPIs
+
+Re-application conversion rate after MyPath.
+
+Uptake of cross-sell products from MyPath.
+
+NPS change among previously rejected users.
+
+Reduction in immediate churn after rejection.
+
+Acceptance criteria (examples)
+
+Rejection modal appears with single-tap access to MyPath.
+
+MyPath shows at least 3 prioritized fixes with simulation.
+
+Quick-action flows launch product landing pages with tracking.
+
+4. InCredSecure — Instant Fraud Alert Checker
+
+Tagline: Trust before you transact — scan any link, message or screenshot in seconds.
+
+What it is (short)
+
+An AI + rules-based scanner that inspects pasted links, uploaded screenshots, or suspicious messages and returns an Authenticity Score (0–10), evidence, and clear remediation steps.
+
+Why it matters
+
+Protects users from phishing and fraud.
+
+Lowers fraud-linked support costs and brand risk.
+
+Creates viral “share-to-warn” flows and trust signals.
+
+Inputs & detection vectors
+
+Paste URL / paste message / upload screenshot (OCR).
+
+Resolve redirect chains, expand shorteners, check SSL certs, WHOIS age, blacklist checks, typosquat detection, UPI/pay link heuristics, suspicious query parameters.
+
+Score & outputs
+
+9–10: Highly Safe (green)
+
+5–8: Proceed with Caution (amber)
+
+<5: Scam Detected (red)
+Each result shows evidence items, risk tags, confidence %, recommended action (Block / Report / Validate / Open in Sandbox), and an “Explain” view.
+
+Primary user flow
+
+Home → Tap InCredSecure → Paste link / paste message / upload screenshot → Scanner runs → Result page with score, evidence, remediation CTA (Block / Report / Share / Open). User can save scan history and share warning cards.
+
+Key screens & UI elements
+
+Scanner Input: URL, plaintext, or screenshot upload UI with examples.
+
+Result Page: prominent score dial, color-coded action card, collapsible evidence list, share and report buttons.
+
+History: saved scans, user reports, moderation status.
+
+Trust Ops Dashboard: aggregated signals, trending threats, appeals queue.
+
+Technology & capabilities
+
+Redirect resolver & URL expansion engine.
+
+SSL/TLS verification and certificate mismatch detection.
+
+WHOIS & domain age lookups.
+
+Typosquat fuzzy matching and brand list.
+
+OCR for screenshots + NLP classifier for message semantics.
+
+Threat intelligence & blacklist integrations.
+
+Sandbox webview for safe previewing.
+
+Actions & remediation
+
+Local blocking (in-app warning).
+
+Report to InCred Trust Ops and optionally to national CERT / payment networks.
+
+Share-to-contact or social with templated warning cards.
+
+Open in an isolated sandbox for advanced users.
+
+Privacy & compliance
+
+Redact sensitive data in screenshot logs unless user consents.
+
+Opt-out for telemetry.
+
+Appeal / whitelist flow for false positives.
+
+KPIs
+
+Reduction in fraud incidents among users who use the tool.
+
+Number of share-to-warn actions (virality signal).
+
+Precision/recall metrics of classifier.
+
+Reduction in fraud-related support tickets.
+
+Acceptance criteria (examples)
+
+Scanner returns score and evidence for URLs and screenshots.
+
+Users can block/report directly from result page.
+
+History of scans is available and shareable.
+
+5. InCred Coach — AI Financial Coach (Context-Aware Q&A)
+
+Tagline: Your financial coach, built from your data — clear, contextual, and instantly actionable.
+
+What it is (short)
+
+An AI chat assistant that uses the user’s MyReport and in-app data to answer personalized finance questions, provide action steps, and link to relevant products and learning.
+
+Why it matters
+
+Scales human-quality advice and reduces support load.
+
+Drives engagement and nudges users into paid products.
+
+Improves conversion via contextual guidance (e.g., “which lenders to try next”).
+
+Where it appears
+
+Inline in MyReport (chat icon).
+
+Embedded inside MyPath and Find Your Loan (contextual queries).
+
+Dedicated Coach tab for exploratory Q&A.
+
+Example interactions
+
+“Why is my utilization high?” → breakdown of card balances, utilization % per card, actionable next steps (increase limit, pay ₹X).
+
+“How much do I need to settle to raise my score by 10 points?” → simulator + playbook + product link.
+
+“Which lenders will likely approve me after this change?” → links to Find Your Loan matches.
+
+Architecture & safety
+
+Retrieval-augmented generation (RAG) using MyReport vectors, product docs, and FAQs.
+
+Source attribution for factual claims (e.g., “Estimate based on X model; confidence: medium”).
+
+Hallucination guardrails and legal/regulatory disclaimers for sensitive queries.
+
+Fine-tuned on anonymized advisor scripts.
+
+UI features
+
+Contextual answer cards with “Next step” CTAs.
+
+Inline CTA: Apply / Schedule / Book 1-on-1.
+
+Save answers to user’s Plan or Tasks (MyPath).
+
+Escalate to human advisor (Creator 1-on-1) with one tap.
+
+Privacy & compliance
+
+Coach uses only consented data; sensitive advice includes disclaimers.
+
+Logs anonymized for improvement; user can opt out.
+
+KPIs
+
+Chat deflection (support ticket reduction).
+
+Engagement minutes with Coach.
+
+Conversion from Coach suggestions → product actions.
+
+Acceptance criteria (examples)
+
+Coach returns actionable answers with at least one CTA in-context.
+
+Answers show source attribution and confidence level.
+
+Users can save advice to MyPath tasks.
+
+6. Learn with InCred — Creator Recommendation Library
+
+Tagline: Bite-sized, Indian-context content that converts knowledge into action.
+
+What it is (short)
+
+A personalized feed of short videos and articles from vetted creators focused on practical finance topics for Indian users, with embedded CTAs to convert learning into action.
+
+Why it matters
+
+Low-cost top-of-funnel acquisition and trust-building.
+
+Educates users, improving conversion quality and product uptake.
+
+Enables creator partnerships and commerce.
+
+Primary user flow
+
+Learn tab → Personalized feed (videos/articles) → Watch/read → Embedded CTA (Get personalized roadmap / Apply now / Book advisor).
+
+Key screens & UI elements
+
+Feed: cards with thumbnail, creator, length, tags, CTA.
+
+Player: native video/article view, micro-CTAs to MyReport/MyPath/Find Your Loan.
+
+Creator Profile: bio, credentials, ratings, courses.
+
+Playlist / Series: thematic content (Credit Building, Student Loans).
+
+Community: comments, ratings, Q&A.
+
+Personalization & signals
+
+Use MyReport and declared goals to surface relevant content.
+
+Cold-start: uses declared goals and basic profile.
+
+Signals: engagement, creator rating, topical recency.
+
+Creator & content operations
+
+Creator onboarding & vetting.
+
+Content moderation and rating.
+
+Revenue share options for paid content.
+
+Monetization
+
+Sponsored playlists & native sponsorships.
+
+Creator revenue share for paid courses or sessions.
+
+Promote MyReport & premium features via embedded CTAs.
+
+Privacy & compliance
+
+Creator verification and disclosure for sponsored content.
+
+Data use limited to personalization and delivery.
+
+KPIs
+
+Video completion and engagement.
+
+Click-through to product CTAs.
+
+Creator retention and revenue share performance.
+
+Acceptance criteria (examples)
+
+Personalized feed shows at least 10 content items relevant to top user segments.
+
+Content player embeds actionable CTAs linking to product flows.
+
+7. Creator Sessions & Courses — Live Workshops & Cohorts
+
+Tagline: From one-off videos to habit-forming learning — live workshops that convert learners into subscribers.
+
+What it is (short)
+
+Premium live workshops, cohort-based courses, and scheduled Q&As run by vetted creators designed to build skills and drive subscription conversions.
+
+Why it matters
+
+Creates urgency, FOMO, and recurrent revenue.
+
+Deepens engagement and reduces churn.
+
+Cross-sells MyReport, Creator 1-on-1, and premium tiers.
+
+Primary user flow
+
+Learn tab → Courses & upcoming sessions → Tap to view details → Buy/Subscribe → Join live session → Access cohort chat & resources → Complete course → Receive badge/certificate.
+
+Core pages & UX elements
+
+Course listing: filter by topic, level, price.
+
+Course detail: syllabus, instructor credentials, schedule, price, CTA.
+
+Session player: native streaming with chat, Q&A, polls.
+
+Cohort room: group chat, attachments, assignments.
+
+Completion: badge, certificate, next-step CTA (MyReport/MyPath).
+
+Monetization
+
+Course price / subscription access.
+
+Sponsored sessions & brand tie-ins.
+
+Upsells: recorded sessions, 1-on-1 consultations.
+
+Creator ops & quality control
+
+Vetting & quality standards.
+
+Session moderation & post-session resources.
+
+Refund & dispute flows.
+
+KPIs
+
+Course completion rate.
+
+Conversion to subscription post-session.
+
+Cohort retention & engagement metrics.
+
+Acceptance criteria (examples)
+
+Sessions deliver live streaming with chat and recording.
+
+Course detail pages include syllabus and instructor credibility signals.
+
+8. Creator 1-on-1 — Premium Advisory Sessions (Add-on)
+
+Tagline: Live, personalized advice from certified creators & advisors — when you need a human.
+
+What it is (short)
+
+Book 30-minute video sessions with vetted creators/advisors inside the app. Sessions are pay-per-use or included in premium tiers and integrate with MyReport and MyPath.
+
+Why it matters
+
+High-margin upsell and trust signal.
+
+Drives deeper paid usage and anchors users to the platform.
+
+Primary user flow
+
+From Learn/MyReport → Tap “Book advisor” → Select advisor & slot → Pay or redeem credits → In-app video call → Receive session notes & action plan (auto-added to MyPath).
+
+Pages & elements
+
+Advisor directory: filters by specialty, rating, price.
+
+Advisor profile: credentials, reviews, sample topics.
+
+Booking UI: calendar, price, redeem options.
+
+In-app call: record (consent), notes, resource share.
+
+Post-session: rating, notes, actions saved to MyPath.
+
+Provider ops
+
+Vetting & certification process.
+
+Payout & revenue split.
+
+Rating & dispute resolution.
+
+Privacy & compliance
+
+Recording requires explicit consent.
+
+Advisors must comply with advisory disclosure and legal limits.
+
+KPIs
+
+ARPU uplift from sessions.
+
+Conversion rate from MyReport/Learn to bookings.
+
+Advisor NPS and retention.
+
+Acceptance criteria (examples)
+
+Booking flow allows selection, payment, and confirmation.
+
+In-app call works with recording consent and saves notes.
+
+9. InCredFit — Gamified Fitness + Financial Rewards (Cultfit partnership)
+
+Tagline: Run for your credit — earn health and financial perks.
+
+What it is (short)
+
+Integrate activity tracking (Google Fit / Apple Health) into the app to power gamified fitness challenges that award InCred Points, redeemable for perks (discounts, boosted eligibility windows, campaign prizes like Cultfit subscriptions).
+
+Why it matters
+
+PR & partnership marketing hook.
+
+Habit-forming feature that increases daily engagement.
+
+Cross-audience acquisition from fitness communities.
+
+Primary user flow
+
+Challenges tab → Select a challenge (e.g., 10K steps/day × 30) → Connect fitness app/device → Sync activity → Earn points → Redeem for perks or enter leaderboard campaigns.
+
+Key screens & components
+
+Challenges listing: descriptions, rewards, difficulty.
+
+Challenge detail: connect device CTA, terms, progress bar.
+
+Points ledger: earned points, history, expiration.
+
+Redeem page: rewards catalog, partner offers (e.g., Cultfit weeks).
+
+Leaderboard & campaign page: weekly winners, special prizes.
+
+Anti-fraud & integrity controls
+
+Device verification & sensor heuristics.
+
+Minimum activity-duration rules and anomaly detection.
+
+Manual review for high-value prize claims.
+
+Partnerships & monetization
+
+Co-branded campaigns with fitness partners (Cultfit).
+
+Sponsored challenges & partner vouchers.
+
+Points marketplace for small premium features.
+
+Privacy & compliance
+
+Explicit consent required to read fitness data.
+
+Option to disconnect and delete fitness data.
+
+KPIs
+
+Challenge activation & completion rates.
+
+Points redeemed and partner activation rate.
+
+Re-engagement uplift (DAU/MAU).
+
+Acceptance criteria (examples)
+
+Device connect works for both Google Fit and Apple Health.
+
+Points ledger shows transactions and redemption options.
+
+Leaderboard updates and campaign winners can be selected/validated.

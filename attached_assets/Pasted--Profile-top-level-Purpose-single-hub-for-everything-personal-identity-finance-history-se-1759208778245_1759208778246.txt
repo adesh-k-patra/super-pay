@@ -1,0 +1,285 @@
+
+
+
+
+Profile (top-level)
+Purpose: single hub for everything personal — identity, finance, history, settings. Top layout (mobile-first): header with profile photo + name + verified badges, quick summary cards (Wallet balance, Total investments, Active loans, Today’s spend), tabbed navigation or a scroll list of pages (About / Edit Profile / My Loans / My Investments / My Bills / My Trips / My EMIs / Personal Finance / Pay History / Cards / Bank Accounts / Activity / Rewards / Referrals / Coupons & Cashbacks / Stock Purchase History). Persistent bottom CTA: “Manage Money”.
+
+1. About
+Purpose: show public-facing profile info and important identity data.
+UI / Layout:
+* Profile card: photo, name, verified (KYC) badges, membership tier
+* Short bio / tagline
+* Contact tiles: Phone (verified), Email (verified), VPA(s)
+* KYC status bar (Fully KYC / KYC pending / KYC required) with CTA
+Data & KPIs:
+* Full name, display name
+* Date of birth (age)
+* Gender (optional)
+* Primary phone, secondary phone, email
+* VPA(s) & linked bank(s)
+* KYC level & expiry info (if any)
+* Linked government IDs (masked) — e.g., Aadhar (last 4 digits), PAN (masked)
+* Join date, last active
+Actions:
+* View KYC documents (with masked numbers)
+* Download profile PDF
+* Request KYC upgrade / re-verify
+Backend:
+* User profile service, secure storage of PII (encrypted)
+* KYC provider integration
+Microcopy:
+* “Your identity helps us secure payments — complete KYC to enable deliveries & higher limits.”
+
+2. Edit Profile
+Purpose: allow the user to update editable fields securely.
+UI / Layout:
+* Editable form sections: Personal info, Contact details, Profile picture, Security & Preferences
+Fields & Validations:
+* Name (non-editable vs editable policy), display name, DOB, gender
+* Phone number (OTP verify), secondary phone
+* Email (OTP), address (line1, line2, city, state, PIN)
+* Profile picture upload + cropper
+* Communication preferences (email/SMS/push)
+* Language, currency display preference
+* Account privacy toggles (public profile / private)
+Actions:
+* Save / Cancel, Verify Phone, Verify Email
+* Re-upload KYC docs (if allowed)
+Backend:
+* Audit log for changes, OTP service, image storage (secure), PII encryption
+Microcopy:
+* “Changes to name or government ID require verification — this may take up to 24 hours.”
+
+3. My Loans
+Purpose: consolidated view of all personal loans (bank/partner lending) and UPI-linked microloans.
+UI / Layout:
+* Summary header: Total outstanding, Monthly EMI due, Next due date, Active loans count
+* Loan cards: lender logo, loan type (personal, consumer, buy-now-pay-later), outstanding principal, EMI amount, tenor left, interest rate, status (active/closed/delinquent)
+* Filter: Active / Closed / Overdue / By lender
+Loan detail (per loan):
+* Schedule: amortization table (month-by-month: principal, interest, balance)
+* Next due date with Pay Now button
+* Payment history (dates, amounts, receipts)
+* Prepayment/Foreclosure calculator & button (with penalties shown)
+* Documents: loan agreement, sanction letter
+* Communication log (messages with lender)
+* Switch to Auto-debit (mandate) toggle
+Actions:
+* Pay EMI (UPI / saved card / bank), Set auto-pay mandate, Request statement, Apply for top-up, Raise dispute
+Backend:
+* Lender APIs, mandate (eNACH/UPI Autopay) integration, loan amortization service, notification scheduling
+Microcopy:
+* “Pay early to save interest — prepayment penalty ₹X or Y%.”
+
+4. My Investments
+Purpose: consolidated investments (digital gold, silver, diamonds, stocks, mutual funds, ETFs, bonds, others).
+UI / Layout:
+* Snapshot: Total invested, Current value, Unrealized P/L (₹ & %), Today’s P/L
+* Tabs: All / By asset class / By vendor / SIPs / Watchlist
+* Portfolio allocation donut & time-series chart
+* Holdings list with vendor tags (e.g., Gold — SafeVault)
+Holding card data:
+* Asset name, vendor (if applicable), quantity/units, avg buy price, last price, current value, unrealized P/L
+* Quick actions: Buy more / Sell / Move custody / View history
+Holding detail:
+* Full transaction list (buy/sell/SIP) with order ids & UPI txn ids
+* Vendor details & certificates, delivery/redeem options (for physical)
+* KPI: XIRR, CAGR, Volatility estimate, 52-week high/low
+* Documents: invoices, certificates
+Actions:
+* Instant buy/sell (opens multi-vendor buy flow), set price alert, start SIP, schedule auto-rebalancing (AI-Invest tie-in), export holdings
+Backend:
+* Market data feeds, vendor APIs, portfolio calculation service (XIRR, daily P&L), custody provider integration
+Microcopy:
+* “Vendor rates differ — check vendor tag on each holding.”
+
+5. My Bills
+Purpose: bills & recurring payments (utilities, subscriptions) and bill pay history.
+UI / Layout:
+* Upcoming bills widget (sorted by due date), quick pay button
+* Categories: Utilities / Mobile / DTH / Insurance / Subscriptions
+* Auto-pay toggles & reminders
+Bill detail:
+* Bill amount, due date, provider, biller code, status (paid/unpaid/past due), past bills archive
+* Auto-pay setup: choose payment method, mandate, schedule
+Actions:
+* Pay now, Set Auto Pay (UPI mandate), Snooze reminder, Split bill (send request to contacts), Save bill template
+* Add custom biller (manual)
+Backend:
+* Biller registry, bill fetch APIs (if integrated), UPI collect or debit, notification scheduling
+Microcopy:
+* “Auto-pay reduces late fees — enable for utility bills.”
+
+6. My Trips
+Purpose: travel history/payments (bookings, cab, flights) and trip-related finance tracking.
+UI / Layout:
+* Upcoming trips & trip history (card list)
+* Trip card: destination, dates, total spend, bookings summary (hotel/flight/cab), trip ID
+* Spend breakdown per trip (accommodation, transport, food)
+Trip detail:
+* Booking receipts, refund status, cancellation policy, travel insurance details
+* Trip-level budgets & actual spend, expense split with contacts
+Actions:
+* Add trip receipts manually, export trip expense report, set travel alerts (flight price changes), file travel refund claim
+Backend:
+* Booking API integrations, invoice storage, receipts OCR (optional), travel partners
+Microcopy:
+* “Attach receipts to automatically categorize trip expenses.”
+
+7. My EMIs
+Purpose: EMI dashboard aggregated across loans & card EMIs.
+UI / Layout:
+* Summary: Total EMI outflow/month, Next EMI date, Upcoming EMIs list
+* Tabs: Active / Upcoming / Paid / By lender
+EMI item:
+* Source (loan/card), EMI amount, due date, remaining installments, interest rate, outstanding principal
+Actions:
+* Pay EMI, change payment date (if supported), switch to auto-debit, prepay
+Backend:
+* EMI scheduler, lender APIs, bank/UPI debit integration
+Microcopy:
+* “Change EMI date may affect interest due — check with lender.”
+
+8. Personal Finance (Detailed Dashboard)
+Purpose: the master financial cockpit — budgets, cashflow, net worth, goals.
+UI / Layout:
+* Top KPIs: Net worth (assets - liabilities), Monthly cashflow (income vs spend), Savings rate, Emergency fund coverage (months)
+* Time series: Net worth chart, Monthly income & expense bars
+* Widgets: Budgets (by category), Goals (target amount, progress), Alerts (overspend), Recurring subscriptions list
+* Tax summary snippet: estimated tax on capital gains/interest
+Detailed sections:
+* Income stream breakdown (salary, interest, dividends)
+* Expense categories (visual pie + list)
+* Budget manager: set monthly budgets, get alerts, auto-categorize transactions
+* Goals: save for an emergency fund, wedding, home down payment — each with suggested investment allocation and X months to goal
+* Scenario planner: “If you increase SIP ₹X/month, you’ll reach goal by DATE”
+Actions:
+* Connect bank for auto-sync, create goal & link investments, generate tax report, run scenario projections, export CSV/PDF
+Backend:
+* Aggregation service (bank transactions), categorization engine (ML/NLP), budgeting engine, tax estimation module
+Microcopy:
+* “This dashboard updates nightly. For real-time holdings, visit My Investments.”
+
+9. My Pay History
+Purpose: transactional ledger for P2P, UPI, bill pays, top-ups, refunds.
+UI / Layout:
+* Chronological feed with filters (type: UPI send/receive, bill pay, merchant pay, refunds)
+* Each row: Date/time, Counterparty (name/VPA), Type, Amount, Status, Balance after txn
+* Expanded row shows order id, UPI txn id, note, invoiced attachments
+Actions:
+* Download statement (custom date range), dispute transaction (pre-filled form), share receipt
+Backend:
+* Payments ledger, reconciliation, UPI callbacks, export service
+Microcopy:
+* “Statements are available for last 24 months.”
+
+10. My Cards
+Purpose: card management = saved debit/credit cards + card features.
+UI / Layout:
+* Saved cards carousel (masked number, expiry, cardholder)
+* Add new card CTA (scan or manual)
+* Card detail: card type, limit (if credit), rewards rate, default for payments toggle
+Card actions:
+* Set default card, remove card (with OTP), freeze/unfreeze, set spending limit per merchant or per day, view masked CVV on OTP authentication, schedule EMI from card purchases
+* View transactions per card, disputes, statement download
+Security:
+* PCI-DSS tokenized card storage, 2FA for sensitive actions
+Microcopy:
+* “For security, add card via OTP & 3DS.”
+
+11. My Bank Accounts
+Purpose: manage linked bank accounts & UPI VPAs.
+UI / Layout:
+* Linked accounts list: bank name, last 4 digits, UPI status (linked/unlinked), balance snapshot (if read access)
+* Add bank CTA: Link account (with bank auth or UPI collect)
+Account detail:
+* Recent transactions, auto-debit mandates, UPI VPA(s), remove account, set preferred account for large payouts
+Actions:
+* Initiate bank KYC (for higher limits), view account statement, unlink (with cool-off & OTP)
+Backend:
+* NPCI/UPI integration, bank aggregation APIs (if using), secure token storage
+Microcopy:
+* “Unlinking account will cancel pending mandates.”
+
+12. My Activity
+Purpose: activity feed & audit trail of important account events.
+UI / Layout:
+* Timeline: logins, profile changes, KYC changes, payments, large transfers, failed logins, password changes
+* Filters: security, payments, profile, system messages
+Details:
+* Each event with timestamp, IP/device (mobile/desktop), action, outcome (success/fail)
+* Option to download security logs or export for audit
+Actions:
+* Flag suspicious activity, log out other devices, change password
+Microcopy:
+* “If you don’t recognise an activity — secure your account immediately.”
+
+13. My Rewards
+Purpose: loyalty program, points & tiers.
+UI / Layout:
+* Points balance & tier progress bar
+* Ways to earn (invite, spend, invest), ways to redeem (fee waiver, coupons)
+* Transaction list: earned/redeemed
+Actions:
+* Redeem points (one-click), view tier benefits, set reward preferences
+Backend:
+* Rewards engine, expiry scheduler, partner integration
+Microcopy:
+* “Rewards are subject to terms; points expire on DATE.”
+
+14. My Referrals
+Purpose: invite & track referrals for bonuses.
+UI / Layout:
+* Referral summary: active invites, earned rewards pending, total earned
+* Unique referral link + social share buttons
+* Referred users list & status (joined / KYC / completed first transaction)
+Actions:
+* Copy link, send invite, view referral T&Cs, withdraw referral reward (if cash), auto-apply as wallet balance
+Backend:
+* Referral tracking, fraud detection, reward disbursement
+Microcopy:
+* “Referral reward credited after the referred user completes first transaction.”
+
+15. Coupons & Cashbacks
+Purpose: manage offers, apply to payments, history.
+UI / Layout:
+* Active coupons (cards with CTA “Apply”), expired coupons, cashback pending
+* Filters: category (bills, travel, investments), min spend
+Coupon card data:
+* Offer summary, validity, T&Cs, eligible merchants
+Actions:
+* Apply coupon to upcoming payment, add to wallet, activate auto-apply rules
+Backend:
+* Coupon rules engine, partner APIs, cashback ledger
+Microcopy:
+* “Cashbacks credited within X days.”
+
+16. My Stock Purchase History (detailed)
+Purpose: ledger of buys/sells with P/L and auditing info.
+UI / Layout:
+* Table view + card view. Columns (exportable):
+    * Item (Company name — ticker)
+    * Date (Buy/Sell timestamp)
+    * Type (Buy / Sell / Split / Dividend)
+    * Quantity
+    * Buy Price (avg)
+    * Sell Price (avg)
+    * Brokerage & fees
+    * Profit / Loss (₹)
+    * Net Amount (₹)
+    * Order ID & UPI txn id
+    * Vendor / Broker (if multi-vendor)
+    * Settlement date (T+1 / T+2)
+    * Notes / Tag (taxable short-term / long-term)
+Row expansion shows:
+* Fill-by-fill breakdown (if multiple fills), time of each fill, executed price, partial fill qty
+* Linked documents (invoices, contract notes)
+* Tax classification automatically calculated (STCG / LTCG) with holding period and suggestions for tax harvesting
+Filters & features:
+* Filter by ticker, date range, profit/loss (gainers/losers), long-term/short-term
+* Export CSV -> columns for tax filing, PDF contract note download
+* Bulk tagging for tax year & bookkeeping
+Actions:
+* Raise dispute for mismatch, request contract note, view broker breakdown
+Backend:

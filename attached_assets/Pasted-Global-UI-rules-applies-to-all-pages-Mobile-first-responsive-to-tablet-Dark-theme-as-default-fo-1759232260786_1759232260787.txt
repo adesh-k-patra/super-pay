@@ -1,0 +1,368 @@
+Global UI rules (applies to all pages)
+
+Mobile-first, responsive to tablet. Dark theme as default for /funds and optional dark mode globally.
+
+All timestamps in IST, full format: Sep 30, 2025 — 14:32 IST.
+
+Accessibility: ARIA labels, large-tap targets, color-blind safe palette (P&L green/red + pattern indicators), text scaling.
+
+Live updates: market and vendor prices should update on the UI every 1 second in dev/demo using a simulation stream; production uses real market feeds with throttling.
+
+Vendor-aware: vendor logo + verification badge displayed whenever vendor-specific pricing applies.
+
+Persistence: sticky hero on top of /investment with From / To account selectors and right-side actions (Add funds + AI-Invest button).
+
+All important actions must show confirmations and final permission flows before executing money-moving operations.
+
+Hero / Top of /investment (updated)
+
+Left: Total Portfolio Value (₹)
+Subline: Total Invested ₹X | Cash ₹Y | Unsettled ₹Z
+
+Middle: Today P&L (₹ & %) + 1s-updating sparkline
+
+Right (stacked vertically):
+
+Add Funds (primary)
+
+AI-Invest (new button) — placed directly below Add Funds on the right side of the hero; opens /investment-predictions.
+
+From Account selector (bank / wallet) and To Account (custody: Vault / Broker / Physical Delivery) visible beneath values.
+
+Microcopy: Last sync: Sep 30, 2025 — 14:32 IST and Auto-route: Lowest price (editable)
+
+Browse by Category — horizontal cards
+
+Place these below the hero as a horizontally scrollable row (left-to-right swipe). Each card shows the category icon, label, and item counts.
+
+Cards (order & copy you requested):
+
+Stocks — 500+ options (subline: Top indices + quick “Top movers” count)
+
+Mutual Funds — 150+ options
+
+Gold — 10+ options
+
+Bonds — 75+ options
+
+Silver — 8+ options
+
+Diamond — 25+ options
+
+Card interactions:
+
+Tap category → opens category listing (stocks grid / vendor list for metals/diamonds / fund list for MFs).
+
+Long-press (mobile) or right-click (web) → quick actions: Filter, Sort, Add to Watchlist.
+
+Stocks — PRIMARY page & list (exact fields & UI)
+
+Purpose: list all available stocks (500+) with live price, small chart, and percent change. Designed for fast scanning and quick buy.
+
+Layout (mobile-first):
+
+Top: Search / ticker typeahead + Filter (Sector / Exchange / Price range / Market cap / Risk)
+
+Sort selector: Top movers / Price asc/desc / % change / Volume
+
+Main list: vertical list with each row card containing:
+
+Row fields (every row updates every 1s):
+
+Ticker + Company name (left) — e.g., INFY • Infosys
+
+Exchange Badge — NSE / BSE
+
+Last price (₹) — large
+
+Day % change (±%) — colored (green/red) with small arrow
+
+Mini sparkline (small inline 1D graph) — updates real-time
+
+Volume / Avg vol (small)
+
+Quick buttons (right side): Buy (floating), Watch (star), More (three-dot menu)
+
+Row interaction:
+
+Tap row → Stock Detail (pre-buy or post-buy view)
+
+Buy opens Buy modal with default From/To accounts filled
+
+Stock detail (pre-buy) includes:
+
+Full interactive chart (timeframes 1D/1W/1M/3M/1Y/Max)
+
+Live price + Last trade timestamp
+
+Order book snapshot (top 5 bid/ask)
+
+Quick trade panel (Buy/Sell Market/Limit/Stop)
+
+Fundamentals: Market Cap, P/E, EPS, Dividend yield, 52W high/low, Avg volume
+
+Related news feed + peer comparison
+
+Post-purchase, the detail also shows position performance & tax classification.
+
+Precious Metals & Diamonds — vendor-aware listing + detail
+
+When user selects Gold/Silver/Diamond card, show a vendor marketplace listing rather than a single asset list.
+
+Category listing (Gold example):
+
+Filter at top: Digital / Physical / Vendor / Purity / Min quantity
+
+List of Vendor Offer Cards (one per vendor-asset pair). Each card shows:
+
+Vendor logo + verification badge + vendor rating (stars)
+
+Price per unit (₹/g or ₹/unit) and timestamp: Updated: Sep 30, 2025 — 14:32 IST
+
+Spread (vendor markup) and Min qty
+
+Delivery options: Digital vault | Physical delivery
+
+Vault/storage fee (annually) + buyback guarantee %
+
+CTA: View (asset detail, vendor-scoped) and Buy (quick)
+
+Vendor Offer Card interactions:
+
+Compare checkbox to add to side-by-side compare tray (max 3 selections)
+
+Watch button for price alerts
+
+Small sparkline overlay comparing vendor price vs benchmark (LBMA or global)
+
+Asset Detail (vendor-scoped) — must be available for every vendor listing:
+
+Header: Asset name — Vendor (e.g., Gold — SafeVault)
+
+Live price & 1s-updating change
+
+Interactive chart with toggle: show other vendor prices overlay for comparison
+
+Vendor Offer Card expanded: Last updated, Min qty, Fees detailed line-by-line (vault, insurance, handling, GST), buyback terms, delivery SLA, certifications
+
+Vendor profile block: vendor full name, verification badges, reviews, inventory status, contact support CTA
+
+Delivery flow options and estimated total cost for physical delivery (shipping, KYC, holder checks)
+
+CTA: Buy from this vendor / Compare with others / Request certificate / Add to watchlist
+
+Diamond specifics:
+
+Each diamond is itemized: image gallery (360°), certificate (GIA/IGI), Carat / Cut / Clarity / Color fields shown prominently, price, buyback estimate, escrow option.
+
+Inspect option that triggers authenticated inspection (delayed flow).
+
+Buy / Sell modal (unified, used across Stocks / Metals / Diamonds)
+
+Top: Asset + Vendor tag + live price
+
+Tabs: Buy / Sell
+
+Fields (unified):
+
+From Account (dropdown)
+
+To Account (custody / delivery)
+
+Mode toggle: Amount (₹) OR Quantity (units/grams)
+
+Quick presets: ₹500 / ₹1k / ₹5k / 1g / 5g
+
+Order type (stocks): Market / Limit / Stop / IOC / Day / GTC
+
+Limit price / Stop price fields (shown conditionally)
+
+Slippage tolerance slider (0.1%–5% or absolute ₹)
+
+Auto-switch vendor toggle (Allow app to pick cheaper vendor during checkout)
+
+Preview estimate: Qty, Price/unit, Brokerage, Vendor fee, GST, Shipping (if physical), Total payable
+
+Buttons: Preview Order → Confirm & Pay (UPI / saved payment)
+
+Post-confirm flow: UPI intent → payment success → confirmation screen (Order ID, executed price, UPI txn id)
+
+For Sell: show available holdings, realized profit estimate (net after fees & taxes), settlement timeline.
+
+Important: Always show From/To account and merchant VPA (UPI payee) before final pay.
+
+/investment-predictions — redesigned AI-Invest page (new)
+
+Purpose: let the user ask AI to create & (optionally) auto-execute an allocation across assets (stocks, gold, funds, etc).
+
+Top UI:
+
+Short header: AI-Invest — Create a smart allocation
+
+Simple form panels stacked vertically.
+
+Inputs (left column mobile-first):
+
+Amount to invest now (₹) + optional Monthly SIP amount (₹)
+
+Risk slider (Conservative — Balanced — Aggressive) — visually shown as 3 anchors with continuous slider
+
+Return expectation (Low / Expected / High) — informational only, not input (reflects model's scenarios)
+
+Duration slider (Months / Years) — progress bar style with ticks (1Y, 3Y, 5Y, 10Y)
+
+Restrictions toggles: No crypto, ESG only, Vendor preference, Exclude specific tickers
+
+Auto-Rebalance frequency selector: Monthly / Quarterly / Yearly / None
+
+Right side (or expanded bottom on mobile) — realtime preview:
+
+Recommended allocation donut: Asset classes + % (stocks, gold, mf, bonds, diamonds)
+
+Top 6 instrument picks (with vendor badge if relevant): each pick shows suggested weight, reason (one-line), expected return band, liquidity note
+
+Projected returns panel: Low / Expected / High scenarios (with volatility estimate and worst-case drawdown)
+
+Fees & tax estimate (aggregated)
+
+Primary actions:
+
+Customize — open allocation editor allowing user to tweak % per class and per instrument
+
+Run Simulation — run backtest & show a short backtest summary (3/5/10 yr if available)
+
+Save Plan — store as draft
+
+Apply (Auto-Invest) — opens final permission popup (MANDATORY)
+
+Final permission popup before executing:
+
+Show: Full multi-order preview (list of orders across vendors/brokers with qty, vendor, price estimate, fees, total), expected schedule (instant vs staged), total debit amount, rebalancing mandate, withdrawal/cancel rules.
+
+Buttons: Confirm & Authorize Auto-invest (requires e-mandate / saved mandate if auto SIP) OR Cancel
+
+Flows:
+
+After confirm: transactional preview → user signs mandate (if required) → system performs staged orders (or one-shot if market/liquid)
+
+On success: show Success/Congrats card and add created plan to My Investments → AI Plans.
+
+Audit & Explainability:
+
+One-line rationale for each allocation item + model metadata (model version, last data refresh timestamp)
+
+Save the model metadata and backtest configuration to the plan record.
+
+/funds — complete dark theme design & structure (new)
+
+Purpose: dedicated area for Mutual Funds, SIPs, Lumpsum, fund research, and fund flows.
+
+Top UI (dark theme):
+
+Dark gradient background, cards with soft shadows and rounded corners.
+
+Top CTA row: Start SIP (primary) | Buy Lumpsum | SIP Calculator (quick)
+
+Search + Filter: Fund house / Fund type (Equity / Debt / Hybrid) / Riskometer
+
+Fund list card (per fund):
+
+Fund name + AMC logo
+
+NAV (₹) + 1D change (%)
+
+AUM, Expense Ratio (small)
+
+Trailing returns badges: 1Y / 3Y / 5Y
+
+Quick actions: Start SIP | Buy | Add to Watchlist | Compare
+
+Fund detail page:
+
+Top: NAV chart (timeframes) + small fund summary
+
+Trailing returns table (1M/3M/1Y/3Y/5Y/Since inception)
+
+Top holdings & sector allocation (pie)
+
+Fund documents: KIM / SID / Fact sheet (download)
+
+Actions: Buy Lumpsum | Start SIP | Switch (if supported) | Redeem
+
+SIP features (core):
+
+SIP creation flow: Amount, Frequency (Daily/Weekly/Monthly/Quarterly), Start date, End condition (X years or Until cancelled), Auto-debit mandate (e-mandate / UPI auto-debit), First debit preview
+
+SIP dashboard: shows active SIPs with next debit date, total invested to date, returns to date, CAGR, pause/modify/cancel actions
+
+SIP detail page: history of debits, sip XIRR, change schedule button, stop/pause button, escalation for failed payments
+
+SIP detail page (individual SIP):
+
+SIP summary card: Fund name, SIP amount, frequency, started on, total invested, current value, XIRR
+
+Recent transaction list (last 12)
+
+Edit buttons: Pause, Modify Amount, Change Frequency, Cancel, Redeem partial
+
+Option: Convert to Auto-Rebalance (uses AI-Invest plan)
+
+Post-purchase Congratulation page (unified for Buy & Sell)
+
+Purpose: celebratory, transactional confirmation UI after every buy OR sell (stocks, funds, metals, diamonds).
+
+Trigger: shown after every successful purchase or sale (immediate settlement or executed fill).
+
+Layout & content:
+
+Big header: 🎉 Congrats! Order executed (or Sold successfully) — green for buy success, blue for sell
+
+Key details (clearly shown):
+
+Asset name & vendor
+
+Action: Bought / Sold
+
+Quantity / Units / Grams
+
+Executed Price (₹) per unit
+
+Total Amount (₹)
+
+Order ID
+
+Payment: UPI txn id (masked)
+
+Timestamp: Sep 30, 2025 — 14:32 IST
+
+If Sell: show Profit/Loss (₹ & %) and tax note (STCG/LTCG suggestion)
+
+Buttons:
+
+View order (goes to Orders → detail)
+
+Go to portfolio (show updated holding)
+
+Share (create short summary image or shareable text)
+
+Download receipt (PDF)
+
+Microcopy: We’ll notify you on settlement / delivery status and if physical delivery: Track delivery button (when vendor supports)
+
+For failed payments: show Retry and Contact support buttons.
+
+Orders & Watchlist (quick)
+
+Orders page as before: Active / Executed / Cancelled / Partial tabs, each order row with status timeline and action buttons (Cancel/Retry/Dispute).
+
+Watchlist: shows chosen instruments across vendors with small sparkline and Compare vendor prices quick action. Quick buy available.
+
+Live dummy data & 1-second updates (how-to implement for dev/test)
+
+Goal: make UI feel realistic with data changing every 1 second for demo mode.
+
+Recommended approach:
+
+Demo-backend stream: a lightweight websocket endpoint /ws/demo-prices that emits JSON ticks every 1 second for all visible instruments (stocks + vendor prices). In production, this would be replaced with real market feed + throttling.
+
+Front-end fallback: if websocket unavailable, front-end runs a timer setInterval(1000ms) to update UI using small pseudo-random fluctuations around last price (e.g., ±0.1% per tick) and drives sparklines.

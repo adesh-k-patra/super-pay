@@ -1,0 +1,125 @@
+1) /my-trips — Hub (Landing)
+
+Purpose: Quick overview + entry to each vertical + upcoming trips + action center.
+
+Elements:
+
+Header with back button (as requested), account avatar, quick search (from/to + date), and CTA “New booking”.
+
+Tabs: All | Upcoming | Ongoing (active trips) | Completed | Cancelled | Contracts.
+
+Compact “Upcoming trip” carousel (cards) showing next 3 trips with single-tap actions: View, Change, Check-in (if flight), Track (if cab/ride).
+
+Global filter bar: vertical selector (icons), date range, price, refundable only toggle, only company bookings, sort (recommended: earliest, price, duration).
+
+Alert strip: delays, travel advisories, important documents.
+
+Empty state: friendly guide + primary CTA “Book now” and sample offers.
+
+Load-bearing UX rules: prominent CTA, high contrast for primary actions, minimize cognitive load. 
+Medium
+
+2) List pages (vertical-specific) — e.g., /my-trips/flights, /my-trips/trains, etc.
+
+Purpose: Show search results / saved trips with robust filtering.
+
+Common layout:
+
+Left: persistent filter panel (collapsible on mobile). Right/main: results list or map/list split.
+
+Card grid/list with density toggle (compact / detailed).
+
+Filters (core set for all):
+
+Date/time, Price range, Refundability, Operators (airlines/train operators/bus operators), Stops (non-stop/1-stop), Duration, Seats/class, Luggage allowance (flights), Amenities (wifi, AC), Pickup/Drop zones (cabs/rentals).
+
+Sort options: Best match, Price low→high, Duration, Departure time.
+
+Card design (card fundamentals & elements):
+
+Visual: operator logo + route pair (e.g., DEL → BOM) or pickup/drop + map thumbnail.
+
+Key line: departure time — arrival time — duration.
+
+Secondary line: price (prominent), travel class, seat availability badge, cancellation policy short tag (Refundable/Non-refundable), number of stops for flights.
+
+Actions: “View details” (primary) + lightweight quick action (e.g., Book now / Track / Cancel).
+
+Micro-interactions: hover/press reveals add-ons and fare breakdown preview.
+
+Card design guidance: Use card UI design fundamentals (clear visual hierarchy, callouts for price and CTA).
+
+Acceptance criteria:
+
+Filter state persists across verticals and deep links.
+
+Loading placeholders & skeletons for API latency.
+
+Cards are keyboard accessible + screen reader labels.
+
+3) Detail page (per result) — e.g., /my-trips/flights/{tripId}
+
+Purpose: Give full information, upsells, fare rules, and the booking/modify actions.
+
+Sections:
+
+Top summary (route, times, operator, price, booking reference)
+
+Fare breakdown (fare, taxes, fees, discounts) — must show exact refund rules and change fees. 
+thesigma.co
+
+Timeline & leg details (aircraft/train type, seat map link, coach/class)
+
+Add-ons & upsells (extra baggage, meals, insurance, priority boarding, seat selection)
+
+Cancellation & change policy (clear, with examples: refund amount per scenario)
+
+Passenger details & documents area (passport/ID upload)
+
+Trip extras: airport transfer (integrated cab add-on), lounge access, hotel offers
+
+CTA area: Book / Reserve / Hold (if supported) + price lock timing if applicable
+
+Acceptance criteria:
+
+Fare breakdown matches payment request & invoice.
+
+Seat map interactive if supported (show live seat availability).
+
+“Why trust?” microcopy with partner logos and secure payment badge.
+
+4) Booking flow (unified pattern but vertical-specific screens)
+
+Goal: Streamlined, predictable flow. Target: 3–5 screens from details → payment → confirmation.
+
+Steps:
+
+Review (pre-populated passenger/profile) — allow editing, saved travelers.
+
+Add-ons (baggage, meals, insurance) — clearly priced.
+
+Payment & review — show final price, taxes, fees, applied vouchers; support one-tap wallets, saved cards, UPI, and corporate billing.
+
+2FA / OTP if required by payment provider.
+
+Confirmation & PNR / e-ticket screen — show options: Add to Wallet, Download PDF, Share, Add to Calendar.
+
+Post-booking page: trip timeline, check-in CTA, live chat support / helpline.
+
+Key features:
+
+Save & reuse passenger profiles.
+
+Promo & loyalty handling.
+
+Seat selection modal inline during flow (flights/trains).
+
+Option to “Hold for X minutes” with countdown (for partner API that supports hold).
+
+Transactional emails & push notifications.
+
+Acceptance criteria:
+
+Payment success returns booking reference and updates /my-trips.
+
+If payment fails, show clear error + retry options + save draft.

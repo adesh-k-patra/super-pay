@@ -1,0 +1,182 @@
+MyPath — Rejection → Roadmap Experience
+
+Tagline: Rejection is the start of a plan, not the end of the road.
+
+What it is (short)
+
+A contextual roadmap that activates after a loan rejection, explaining the reasons in plain language, prioritizing fixes, and showing clickable next steps. MyPath transforms rejection into a clear action plan with simulated impact, quick product links, and progress tracking — turning failure into a guided roadmap toward approval.
+
+Why it matters
+
+Converts rejection into retention + cross-sell opportunity.
+
+Reduces churn by offering clarity and hope.
+
+Improves future approval odds with guided actions.
+
+Upsells MyReport, Coach, and credit-builder products.
+
+Access & Pricing
+
+Available for all rejected loans.
+
+Triggered via Rejection Modal.
+
+Unlock MyPath dashboard with a ₹25 one-time purchase (per rejection event).
+
+After purchase → dashboard is unlocked permanently for that rejection case.
+
+Primary User Flow
+
+Loan Application → Rejected
+
+Rejection Modal (empathetic copy + CTA “View MyPath for ₹25”)
+
+Payment screen → complete one-time unlock.
+
+MyPath Dashboard → rejection reasons, score snapshot, prioritized fixes.
+
+Recommendation Cards → each shows reason, fix, predicted impact.
+
+Simulate Impact → sliders / inputs to test “what if” scenarios.
+
+Quick Actions → apply for credit-builder loan, settle dues, restructure EMI.
+
+Progress Tracker → milestones, reminders, readiness bar to reapply.
+
+Conversion Hooks → upsell MyReport or Coach for deeper guidance.
+
+Key Pages & Elements
+1. Rejection Modal
+
+Message: empathetic tone → “This rejection isn’t the end. Let’s make a roadmap together.”
+
+CTA → “Unlock MyPath for ₹25”.
+
+2. MyPath Dashboard
+
+Top banner: user’s score + eligibility %.
+
+Multi-cause rejection cards (bureau + lender).
+
+Prioritized list of fixes with predicted score impact.
+
+3. Recommendation Cards (customized per user)
+
+Each card contains:
+
+Reason (e.g., “Missed EMI on Loan A, June 5th”)
+
+Action (e.g., “Clear overdue of ₹4,500”)
+
+Impact (e.g., Estimated score +12, eligibility ↑ 8%)
+
+Timeline (ETA for score change)
+
+Confidence Band (low/med/high certainty)
+
+CTA: Pay now, Settle, Apply for credit-builder, Restructure EMI.
+
+Examples of elements to include on cards:
+
+Due Payments: “Missed EMI on Loan A (05 June) → settle now for +10–15 points.”
+
+Loan Cancellations: “Too many open applications. Cancel old requests for +5 points.”
+
+Credit Utilization: “Card X utilization 78%. Reduce to 30% for +18 points.”
+
+DTI Ratio: “High EMI/income ratio (52%). Pay off Loan Y for +12 points.”
+
+Delinquencies: “1 overdue >90 days. Dispute or settle for +25 points.”
+
+Account Age: “Thin file (avg. age 6m). Open secured card → +8 points.”
+
+Inquiries: “5 hard pulls last 3 months. Avoid new apps for 6m → +7 points.”
+
+4. Simulate Impact
+
+Interactive slider: “If I pay ₹X on Loan Y → Projected score ↑ by Y”.
+
+Graph: eligibility % progression across weeks.
+
+Allow stacking scenarios (settle + reduce utilization + add secured loan).
+
+5. Quick Actions
+
+Direct CTAs to:
+
+Credit-builder loan offers
+
+EMI restructuring tools
+
+Settlement APIs
+
+Coach sessions
+
+6. Progress Tracker
+
+Visual milestones: “2 of 5 actions completed”.
+
+Badges & streaks for motivation.
+
+Readiness meter: “You’re 78% ready to reapply”.
+
+7. Share & Ask
+
+Export roadmap as secure PDF.
+
+Share with advisor.
+
+Book Creator 1-on-1 for personalized coaching.
+
+Sub-Features
+
+Rejection reason extractor: parses lender codes + adds bureau insights.
+
+Quick wins vs long-term fixes: class fixes by ETA & impact.
+
+Re-application guardrails: system warns if user reapplies too soon.
+
+Auto-suggestions to MyReport: prompt upgrade if user wants weekly roadmap.
+
+Data & Integrations
+
+Lender rejection codes/messages (structured or parsed text).
+
+Bureau + open banking data (from MyReport).
+
+Product APIs: credit-builder, settlement, restructuring.
+
+Privacy & Compliance
+
+Store rejection reasons only if user consents.
+
+Allow deletion from settings.
+
+No hard blocking of re-application (advisory only).
+
+KPIs
+
+Re-application conversion rate after MyPath.
+
+Uptake of cross-sell products from MyPath.
+
+Churn reduction (immediate drop-off post-rejection).
+
+NPS improvement among rejected users.
+
+Acceptance Criteria
+
+Rejection modal always appears post-loan rejection.
+
+Modal contains single-tap unlock (₹25 purchase).
+
+Dashboard must show at least 3 prioritized fixes with predicted impacts.
+
+Each fix has score impact estimate + CTA.
+
+Simulator works with at least 2 variables.
+
+Progress tracker reflects completed vs pending actions.
+
+⚡ In short: MyPath converts every rejection into a paid, personalized roadmap. For just ₹25, the user gets a clear list of reasons, fixes, simulated impacts, progress tracking, and direct product links — while also driving retention and upsells.

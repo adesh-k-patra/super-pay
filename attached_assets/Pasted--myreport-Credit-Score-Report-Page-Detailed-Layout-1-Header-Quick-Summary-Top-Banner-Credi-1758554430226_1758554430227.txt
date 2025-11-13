@@ -1,0 +1,110 @@
+/myreport – Credit Score Report Page (Detailed Layout)
+1. Header / Quick Summary (Top Banner)
+
+Credit Score: 750 – Excellent (Large bold number, green gradient bar)
+
+Health Score: 85% (Circular progress bar, multi-color: green–yellow–red)
+
+This Month’s Change: +12 Points (Arrow ↑ in green)
+
+Score Range: 300 – 900 (mini-gauge bar below)
+
+Last Updated: Jan 20, 2025 – Refreshed (PDF download button)
+
+2. Score Trend (6-Month Chart)
+
+Line graph (multi-color line: green = upward, orange = flat, red = dip).
+
+Aug: 720 → Sep: 735 → Oct: 742 → Nov: 750 → Dec: 748 → Jan: 750
+
+Tooltip: show monthly events (loan approved, EMI paid, inquiry, etc.)
+
+3. Active Loan Summary (Card View)
+
+At a glance (small horizontal cards):
+
+Active Loans: 3
+
+Total Outstanding: ₹28.7L
+
+Monthly EMI: ₹52K
+
+Avg. Interest Rate: 9.8%
+
+Missed EMIs: 0
+
+Upcoming EMI Due: ₹23,000 (Today)
+
+4. Loan Portfolio (Detailed Section)
+
+👉 Each loan has a collapsible detailed card with:
+
+Loan Header (Overview)
+
+Bank Logo + Loan Type (Home / Personal / Vehicle)
+
+Outstanding Balance, Progress Bar (% completed)
+
+Next EMI Due Date & Amount
+
+Status: "On-Time", "Due Today", "Missed"
+
+Loan Details (Expanded)
+
+Principal Sanctioned
+
+Current Outstanding
+
+Tenure (Start–End date with calendar)
+
+Interest Rate (with floating/fixed tag)
+
+EMI Amount & Frequency
+
+Total Paid till Date
+
+Missed EMIs (if any)
+
+Fine/Late Fee (if applicable)
+
+Amortization Schedule link (full EMI breakup)
+
+Calendar View – upcoming EMI dates (month view with highlights)
+
+Statement Download button
+
+Example: HDFC Home Loan
+
+Principal: ₹25.0L | Outstanding: ₹21.0L
+
+Progress: 16.0% completed
+
+Tenure: 20 years (Ends 15/03/2041)
+
+EMI: ₹23,000 | Rate: 8.5% p.a. (Fixed)
+
+Total Paid: ₹1.8L | Missed EMIs: 0
+
+Next Payment: 15/01/2024 – ₹23,000
+
+Statement | Amortization | Pay Now
+
+5. Credit Profile Metrics (Fitness-style Cards)
+
+Credit Utilization: 28% (₹135K of ₹480K) → Gauge bar (green if <30%, yellow if 30–50%, red if >50%)
+
+Payment History: 98% On-time → Small tick badges for last 12 months
+
+Hard Inquiries: 2 in last 12 months → Show banks that pulled
+
+Credit Age: 4 years 2 months → Timeline bar (oldest account vs new)
+
+Account Mix: Home, Personal, Vehicle, Credit Card (with pie chart)
+
+6. Alerts & Notifications
+
+Upcoming EMI Reminder: ICICI Loan – ₹14,000 due in 3 days
+
+Credit Card Usage Alert: At 60% of one card limit (reduce usage)
+
+Inquiry Alert: New credit inquiry detected (ICICI Bank, Dec 2023)

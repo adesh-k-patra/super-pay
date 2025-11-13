@@ -1,0 +1,84 @@
+Create a global UI component architecture for the codebase. List every reusable, modify easily, global and local changes on component and variant (buttons, icons, cards, dropdowns, popups/modals, calendars, etc.), design tokens (colors, fonts, spacing), and implementation guidelines so engineers can build a maintainable, testable, and easily extensible system
+
+Button (Primary, Secondary, Ghost, Link, Icon-only, FAB, Toggle, Loading, Disabled, Danger) Icon Text (Heading, Subheading, Body, Caption, Overline) Input controls: TextInput, TextArea, NumberInput, PasswordInput, SearchInput, Autocomplete Selects & Pickers: Select (single/multi), AsyncSelect, ComboBox Checkbox, Radio, ToggleSwitch Label, HelperText, FieldError Form field wrappers (FormRow / FormGroup) Molecules & Patterns Card (Info, Product, Transaction, Compact, Expandable) Avatar (image, initials, status badge) Badge / Pill / Chip Tooltip Tag / Category label Skeleton loaders Spinner / Progress (linear / circular) Badge / Notification dot Organisms Headers / AppBar (with search, notifications, profile menu) Footer Sidebar / Drawer (collapsible) Tabs (horizontal/vertical), TabPane / Collapsible Table (with sorting, filtering, virtualization hooks) List / ListItem (actionable, selectable) Pagination Breadcrumbs Timeline / Steps / Wizard FileUploader / Drag & Drop Calendar / DatePicker / DateRangePicker TimePicker Carousel / Slider
+
+/src
+/components
+/atoms
+Button/
+Button.tsx
+Button.stories.tsx
+Button.test.tsx
+Button.types.ts
+Icon/
+Input/
+/molecules
+Card/
+Avatar/
+Dropdown/
+/organisms
+Header/
+Sidebar/
+DataTable
+/overlays
+Modal
+Toast/
+/finance
+LoanCalculator
+PaymentCard
+/hooks
+useModal.ts
+useToast.ts
+/styles
+tokens.css (or tokens.ts)
+tailwind.config.js
+/utils
+formatCurrency.ts
+validators.ts
+/stories
+/tests
+
+I need you to do for entire app, dont miss any
+
+1 minute ago
+Create a global UI component architecture for the codebase. List every reusable, modify easily, global and local changes on component and variant (buttons, icons, cards, dropdowns, popups/modals, calendars, etc.), design tokens (colors, fonts, spacing), and implementation guidelines so engineers can build a maintainable, testable, and easily extensible system
+
+Button (Primary, Secondary, Ghost, Link, Icon-only, FAB, Toggle, Loading, Disabled, Danger) Icon Text (Heading, Subheading, Body, Caption, Overline) Input controls: TextInput, TextArea, NumberInput, PasswordInput, SearchInput, Autocomplete Selects & Pickers: Select (single/multi), AsyncSelect, ComboBox Checkbox, Radio, ToggleSwitch Label, HelperText, FieldError Form field wrappers (FormRow / FormGroup) Molecules & Patterns Card (Info, Product, Transaction, Compact, Expandable) Avatar (image, initials, status badge) Badge / Pill / Chip Tooltip Tag / Category label Skeleton loaders Spinner / Progress (linear / circular) Badge / Notification dot Organisms Headers / AppBar (with search, notifications, profile menu) Footer Sidebar / Drawer (collapsible) Tabs (horizontal/vertical), TabPane / Collapsible Table (with sorting, filtering, virtualization hooks) List / ListItem (actionable, selectable) Pagination Breadcrumbs Timeline / Steps / Wizard FileUploader / Drag & Drop Calendar / DatePicker / DateRangePicker TimePicker Carousel / Slider
+
+/src
+/components
+/atoms
+Button/
+Button.tsx
+Button.stories.tsx
+Button.test.tsx
+Button.types.ts
+Icon/
+Input/
+/molecules
+Card/
+Avatar/
+Dropdown/
+/organisms
+Header/
+Sidebar/
+DataTable
+/overlays
+Modal
+Toast/
+/finance
+LoanCalculator
+PaymentCard
+/hooks
+useModal.ts
+useToast.ts
+/styles
+tokens.css (or tokens.ts)
+tailwind.config.js
+/utils
+formatCurrency.ts
+validators.ts
+/stories
+/tests
+
+I need you to do for entire app, dont miss any, create in worlds best way from worlds best engineers coders do.

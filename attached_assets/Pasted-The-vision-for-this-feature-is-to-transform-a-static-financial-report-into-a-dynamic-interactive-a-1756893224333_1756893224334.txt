@@ -1,0 +1,52 @@
+The vision for this feature is to transform a static financial report into a dynamic, interactive, and personalized financial cockpit. The goal is to make a premium, interactive tool that not only shows a user where they are, but also provides a clear, actionable roadmap to their future financial goals. This is a primary subscription revenue driver that directly improves user eligibility and conversion.
+
+Prompt for Feature and Page Creation
+Please design a comprehensive "MyCredit Report" feature and its associated pages. The goal is to deliver a premium, interactive financial report that provides a holistic overview, predictive analytics, and a clear, personalized roadmap for financial improvement.
+
+The user experience should be intuitive, with modern dashboards, dynamic visualizations, and direct links between data and actionable advice.
+
+Core Components & Pages
+
+Snapshot Dashboard: A visually-rich main page that provides a holistic, at-a-glance overview.
+
+Credit Score: Current score prominently displayed with a trend graph.
+
+Eligibility Score: A simple rating indicating their readiness for a loan.
+
+Debt Summary: Total outstanding debt and debt-to-income (DTI) ratio.
+
+Quick Wins: The top three most impactful, actionable items for immediate improvement.
+
+Dynamic Credit Score Timeline:
+
+An interactive graph that shows the user's credit score history.
+
+Key Event Annotations: Highlight and explain the specific reasons for past score changes, both positive and negative (e.g., "Paid off car loan," "Missed EMI payment," "New credit card opened"). This turns historical data into a learning tool.
+
+Predictive Projection: Use modeling to project the user's future credit score based on their upcoming financial roadmap.
+
+Unified Debt & Loan Dashboard:
+
+A centralized, detailed dashboard for all loans.
+
+Loan Timeline: A graphical timeline of all loans, showing their duration, payment history, and "due on" markings with visual indicators for upcoming payments.
+
+Loan Stats: A detailed, at-a-glance summary of all loans, including the total number of loans taken, total interest paid to date, total installments, and a count of any missed installments.
+
+Personalized Prepayment Calculator: An embedded calculator where users can input an extra payment amount to instantly see the impact on their loan's tenure and the total interest saved.
+
+Actionable Roadmap & Simulator:
+
+What to Improve: A ranked list of actionable items (e.g., Debt, DTI, Utilization) with estimated score impact and confidence bands.
+
+How to Improve: A step-by-step timeline with a clear ETA for each action.
+
+Advanced Scenario Simulator: An interactive tool to test complex "what-if" scenarios (e.g., consolidating debt, taking a new loan, or making a partial payment) to see the estimated impact on their credit score and loan eligibility.
+
+Automations & Tools:
+
+Auto-Reminders: Tools for setting up scheduled payments, alerts for due dates, and calendar synchronization.
+
+Future Financial Calculator: A personalized calculator that uses current data to help users plan for the future. Users can input future income or debt changes to see a projected financial snapshot months or years from now.
+
+Secure Export & Sharing: A feature that allows users to securely export their entire report as an encrypted PDF. The user must provide explicit consent for sharing the document with a financial advisor or a lender.

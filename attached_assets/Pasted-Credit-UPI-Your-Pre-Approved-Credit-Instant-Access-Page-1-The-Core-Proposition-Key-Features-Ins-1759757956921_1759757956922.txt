@@ -1,0 +1,144 @@
+Credit UPI: Your Pre-Approved Credit, Instant Access
+Page 1: The Core Proposition & Key Features
+Instapay, in partnership with Innovate Bank, brings you Instapay Credit UPI—a digital-first line of credit seamlessly integrated into your UPI app. Forget waiting for card deliveries or complicated paperwork. Get instant access to pre-sanctioned funds and use them instantly at millions of merchants via any UPI QR code.
+
+🌟 Key Features of Instapay Credit UPI
+Feature
+
+Description
+
+Benefit to You
+
+Instant Access
+
+Credit limit is linked directly to your Instapay UPI ID.
+
+Use it the moment you need it, 24/7, with zero waiting time.
+
+Use Anywhere
+
+Works with any Person-to-Merchant (P2M) UPI QR or online merchant.
+
+Pay for groceries, fuel, shopping, or e-commerce purchases instantly.
+
+Pay Only for Use
+
+Interest is charged only on the amount utilized and the duration for which it is outstanding.
+
+No annual fees or interest if you don't use your line of credit.
+
+Dedicated UPI PIN
+
+Set a unique 6-digit UPI PIN specifically for Credit UPI transactions.
+
+Enhanced security and clear differentiation from your regular bank account debits.
+
+Flexible Repayment
+
+Choose to repay the outstanding amount in full monthly or convert larger spends into easy, affordable EMIs.
+
+Tailor repayment to your cash flow without stressing your monthly budget.
+
+Page 2: Eligibility & The 4-Step Onboarding Flow
+✅ Basic Eligibility Criteria
+To qualify for a pre-approved limit on Instapay Credit UPI, you must meet the following general criteria:
+
+Citizenship: Indian Citizen
+
+Age: 18 years or older
+
+Credit Profile: Minimum CIBIL Score of 730 is highly recommended. (Applicants with limited or no credit history may still be considered based on UPI transaction history and Instapay relationship score).
+
+KYC: Valid PAN and Aadhaar linked to your registered mobile number.
+
+Bank Account: An active UPI-linked bank account with any partner bank (required for linking the credit line).
+
+🚀 Instant Onboarding in 4 Simple Steps
+The entire application process is 100% digital and takes less than 3 minutes for pre-approved users.
+
+Check Offer: Open the Instapay app and navigate to the "Credit UPI" section. View your pre-approved limit offered by Innovate Bank.
+
+Verify & Consent: Review the Key Fact Statement (KFS) including interest rates and fees. Complete Aadhaar-based OTP verification for e-KYC and digitally sign the Credit Agreement.
+
+Link Account: The Innovate Bank Credit Line Account will be automatically linked to your Instapay UPI ID.
+
+Set PIN: Set a dedicated, unique 6-digit UPI PIN for all Instapay Credit UPI transactions. Your credit line is now active!
+
+Page 3: Usage, Repayment, & Mandatory Conditions
+💳 How to Use Your Credit Line
+Using Instapay Credit UPI is just like making a normal UPI payment, with one key difference: you select the funding source.
+
+Scan: Scan any merchant UPI QR code (e.g., at a grocery store, petrol pump, or online checkout).
+
+Enter Amount: Input the amount you need to pay.
+
+Select Source: On the payment confirmation screen, change the default debit account to "Innovate Bank Credit UPI (Limit: ₹X,XXX)".
+
+Authenticate: Enter your dedicated Instapay Credit UPI PIN to complete the transaction.
+
+🛑 Usage Restrictions (Mandatory Conditions)
+As mandated by regulatory guidelines, the Instapay Credit UPI can ONLY be used for:
+
+P2M (Person-to-Merchant) Transactions: Payments to registered commercial merchants (online or offline).
+
+Restricted Transactions: P2P (Person-to-Person) transfers, payments to other lending platforms, cash withdrawals (ATM or merchant), or investments (like Mutual Funds/IPOs) are STRICTLY PROHIBITED.
+
+🗓 Repayment Cycle & Grace Period
+Billing Date: Your statement will be generated on the 1st of every month.
+
+Due Date: You have a 15-day grace period to repay the full outstanding amount. The due date is the 16th of the month.
+
+Interest-Free Period: All utilized funds are interest-free if repaid in full by the due date. Interest begins accruing only after the due date or from the date of withdrawal if the payment is subsequently converted into an EMI.
+
+Page 4: Financial Conditions & Fees Disclosure
+The following financial conditions are determined by our lending partner, Innovate Bank, and must be adhered to to maintain a positive credit standing.
+
+Fee/Condition
+
+Description
+
+Rate/Charge
+
+Credit Limit
+
+Pre-sanctioned limit. May be reviewed and increased/decreased monthly based on repayment behavior.
+
+₹2,000 to ₹1,00,000
+
+Annual Fee
+
+Charged yearly to maintain the credit facility. Waived on usage above a certain threshold.
+
+₹499 (Waived if annual spending > ₹25,000)
+
+Processing Fee
+
+One-time charge levied upon activation or upon conversion of a large transaction into an EMI.
+
+1.5% of the sanctioned limit (or 2% of the EMI conversion amount)
+
+Interest Rate (APR)
+
+Annual Percentage Rate, applicable only on the utilized amount if not repaid by the due date.
+
+18% to 36% p.a. (Varies based on credit score)
+
+Late Payment Penalty
+
+Charged if the minimum payment/full payment is not received by the due date.
+
+3% of the outstanding due amount (Min. ₹200)
+
+Credit Score Impact
+
+All usage and repayment behavior is reported monthly to all major Credit Bureaus (CIBIL, Experian).
+
+Timely repayment improves score; Missed payments negatively impact score.
+
+EMI Conversion
+
+Available for single transactions above ₹5,000. Choose tenure from 3, 6, 9, or 12 months.
+
+Interest rate is typically lower than the full outstanding APR.
+
+Important Note: The user is fully responsible for monitoring their utilized limit and ensuring timely repayment. Failure to comply with the repayment conditions will result in penal charges and a negative impact on the individual's credit score.

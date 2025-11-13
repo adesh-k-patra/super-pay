@@ -1,0 +1,20 @@
+Leaderboard page page in /fitness. In this  I need to see top 30 perfomaers, also my perfomance  in the table, just like standing table in sports. i need to see position, name, steps, and streak. Dont use cards, stick it to screen.  also redesign reward, and challenges section page better and professoional and top notch well structured pro desgign.
+
+ remove ( Community Rankings Stay Motivated Every step counts toward your fitness goals! Daily Steps Consistency Rewards ) these
+
+ in my-loans page, remove ( Loan Overview Active ₹0 Active Amount 0 loans currently active 0% remaining ₹0 Outstanding Amount left to repay ₹0 Monthly EMI Due in 3 days ₹0 Completed Value 0 loans finished ₹12,450 Savings Interest saved 0% Payment Rate On-time payment history 0 Total Applications All loan applications submitted ) and replace overview with history, this should contain same contents as Recent Activity, list where displaying all payemnets, and other loan acvitivities
+ 
+/creators/, /creators/creator-1 this page need a better design and clean neat modern design, dont use too much of cards, just mention details wihtout carrds.
+
+
+all these pages needed to be resposnsive and well algihgned, well positioned inside the cards.
+ 
+
+/myreport, We can download as text, we should produce a single, professional pdf document that opens with brand headers (Kotak logo and the **Kcredit** name), a masked customer identifier and unique **Report ID / timestamp**, and a short confidentiality/disclaimer; next include a one-page executive summary showing **overall performance** and top KPIs (current credit score and trend, outstanding principal, total monthly EMI, number of active loans, average tenor, weighted interest rate, utilization ratio, on-time payment %, debt-to-income ratio, and projected savings/opportunity score), followed by detailed sections for **each loan** (loan type, lender, origination date, tenor/duration, outstanding principal, interest rate, amortization table, next payment & due dates, historical EMI payment status and delinquencies), a **credit-score history** timeline with drivers annotated, a consolidated **cash-flow / EMI calendar** and amortization charts, an analytic section with automated **recommendations** (refinance/refund/prepay scenarios with estimated interest saved, priority paydown plan, and impact on score), a comparisons/benefits table (how switching or consolidating could save money or shorten tenor), visually clear charts and a loan-timeline roadmap, an appendix with raw data and calculation assumptions, legal disclosures and contact/help details, and visible printed items for compliance and traceability (generation timestamp, report version, page numbers, data source notes, and an authorized signature or QR code linking to the live account). Include subtle brand styling so the Kotak logo and Kcredit name
+
+
+In this /fitness page, Leaderboard  page, I need better deisgn like profile page, Also no need of cards ,I need professional structred design, I need you to remove points and mention steps,. and streak . I Need red theem there.  InInCredpage InCredFit. name is there, replace that with Kcredit Fit,, 
+
+also check entire app for InCred text, Replace it with Kcredit  
+
+/creators/creator-1 -  this page is not working fix it.

@@ -1,0 +1,135 @@
+Global UI Rules (applies to entire module)
+* Mobile-first; responsive to tablet & web.
+* Dark theme optional; /funds defaults to dark in product text.
+* Accessibility: ARIA labels, high-contrast mode, 44px tap targets, semantic color-coded P&L with patterns for color-blind users.
+* Live updates: prefer streaming (websocket) for market ticks; fallback to 2–5s polling. Demo mode: 1s tick stream.
+* Auditability: every trade & change generates immutable audit record (order_id, trace_id, user_id, vendor_id, timestamp).
+* Security: payment flows always present masked account info and require display of merchant VPA for UPI.
+* Error & retry: show immediate toast on failures; support Retry, Contact Support, and Raise Dispute actions.
+* Logging & metrics: capture events for every CTA (clicks, confirmations), latencies, and API error rates.
+
+Shared UI Components / Patterns (re-usable)
+* Hero summary (persistent): Total portfolio value, Today P&L (₹, %), From Account selector, To Account selector, Add Funds, AI-Invest button.
+* Asset List Row: Left: name/ticker + vendor tag. Center: last price + day change. Right: sparkline + quick actions (Buy, Watch).
+* Vendor Offer Card: vendor logo, price/unit, last updated, delivery type, min qty, CTA Buy.
+* Unified Buy/Sell Modal (re-used across all asset types).
+* Order Timeline: Created → Submitted → Matched → Executed → Settled (with timestamps & UPI txn id).
+* Risk Banner: small bar under monetary actions summarizing risk & suggested allocation cap.
+* Compare tray: persistent bottom tray to compare up to 3 vendor offers.
+
+Page 1 — /investment (Main hub / landing)
+Purpose: single entry that surfaces discovery, portfolio snapshot, quick access to core tabs.
+Top UI / layout
+* Persistent header: Search (typeahead), Notifications bell, Profile.
+* Sticky Hero card (left → right):
+    * Total Portfolio Value (₹) — large
+    * Today P&L (₹ & %) + 1s-updating sparkline
+    * From Account selector (dropdown with masked last 4)
+    * To Account selector (Vault / Broker / Physical)
+    * Buttons: Add Funds (primary) | AI-Invest (secondary)
+* Tabs row: Explore | My Investments | Orders | Watchlist | AI-Invest | Stats
+* Below hero: horizontally-scrollable cards:
+    * Quick Market Ticker (NSE/BSE + commodity quick cards)
+    * AI-recommendations (3 cards) with Apply and Save
+    * Recent activity (last 3 orders)
+Data & KPIs
+* total_invested, current_value, unrealized_pnl (₹ & %), today_pnl, cash_balance, unsettled_amount, XIRR_since_first_trade
+Primary actions
+* Tap tab → corresponding page
+* Quick Buy from hero → unified Buy modal
+* Set price alert → opens alert creation flow
+Backend / Integrations
+* /api/portfolio/summary (GET)
+* Websocket /ws/portfolio/updates
+* AI recommendations /api/ai/recommendations
+Acceptance criteria
+* Hero updates within 2s of relevant data change; toggling From Account updates checkout defaults.
+
+Page 2 — Explore (category discovery + vendor compare)
+Purpose: discover assets and compare vendor offers.
+Top UI
+* Search (global) + Filters bar: Category, Vendor, Risk, Min investment, Delivery type, Sort
+* Category tiles (grid/horizontal): Precious Metals | Stones | Stocks | Mutual Funds | ETFs | Bonds | Others
+Within category (e.g., Gold)
+* Vendor Offer Cards list:
+    * vendor_logo + verified_badge
+    * price_per_unit (₹/g), spread, last_updated (Sep 30, 2025 — 14:32 IST)
+    * delivery_type (Digital/Physical), min_qty, rating
+    * CTAs: View | Buy | Compare checkbox
+* Compare mode:
+    * up to 3 vendor offers side-by-side
+    * columns: price, fees, min_qty, buyback_terms, vault_fee, delivery_days, certification
+    * actions: Select & Buy / Auto-route
+Data fields
+* Offer timestamp, inventory_count, buyback_percent, vault_fee_annual, insurance_included_bool
+Primary actions & flows
+* View → Asset Detail (vendor-scoped)
+* Compare → Compare modal
+* Buy → opens Buy modal prefilled with vendor & defaults
+Backend
+* /api/vendor/offers?asset=gold (GET)
+* /api/vendor/compare (POST)
+* price feed ingestion & caching /ingest/vendorprice
+Acceptance criteria
+* Filters respond under 300ms for typical response sets; compare modal shows all fees computed for 3 vendors.
+
+Page 3 — Asset Detail (vendor-aware pre-buy)
+Purpose: single-pane of truth for asset + vendor before buy.
+Top UI
+* Header: Asset name — Vendor + live price + 24h change + market status badge
+* Vendor Offer Card (expanded): price/unit, last_updated, min_qty, fees (line items), delivery options, buyback_terms, certifications
+* Interactive chart: 1D/1W/1M/3M/1Y/Max; overlay other vendor prices or benchmark
+* KPI row (varies by asset class):
+    * Stocks: Last price, Day change, Market Cap, P/E, EPS, 52W high/low, Avg vol, Dividend yield, Sector
+    * Mutual Funds: NAV, 1D chg, AUM, Expense ratio, Riskometer, Fund manager, Inception date, trailing returns table
+    * Metals: Purity, price/gram, vault_fee, insurance, redemption_fee
+    * Diamonds: Carat, cut, clarity, color, certificate (GIA/IGI), buyback_estimate
+* Seller profile: rating, verification badges, SLA, contact
+* Related instruments & AI says X% allocation badge
+Buttons
+* Buy (this vendor) (primary) | Compare vendors | Add to Watchlist | Set Alert | Share
+Flows
+* Buy opens unified Buy modal with vendor preselected
+* Compare vendors launches compare tray
+* Set Alert → alert creation flow (price / % change / spread)
+Backend
+* /api/asset/{asset_id}/detail?vendor={vendor_id} (GET)
+* /api/chart/ohlcv?asset=...&range=1M (GET)
+* vendor profile /api/vendor/{vendor_id} (GET)
+Acceptance criteria
+* Chart loads within 500ms for 1M timeframe; vendor fees are visible and calculable.
+
+Page 4 — Buy / Sell Popup (Unified Modal)
+Purpose: single modal to execute Buy or Sell across assets.
+Modal Layout
+* Header: Asset name + vendor tag + live price + small Δ
+* Tabs: Buy | Sell (Sell visible only if user holds asset or for direct sell markets)
+* Top Info Row: From Account selector / To Account selector / Custody selection
+* Left side (mobile stacked): Amount (₹) OR Quantity toggle + quick presets (₹500, ₹1k, ₹5k / 1g, 5g)
+* Conditional controls for stocks: Order Type selector (Market / Limit / SL / Stop Limit / IOC / GTC)
+* Limit & Stop fields shown only when relevant
+* Slippage tolerance control (0.1%–5% or absolute ₹)
+* Auto-switch vendor toggle with explanation: “Allow app to auto-route to lowest cost at checkout”
+* Preview estimate block (line-items): Qty, Price/unit, Brokerage, Vendor fee, GST, Shipping (if any), Total payable
+* Payment method: UPI (show payee VPA + Pay button), Saved Card, Netbanking
+* Buttons: Preview Order (go to preview screen) → Confirm & Pay (initiates UPI or saved payment)
+Preview Screen (required before money moves)
+* Show full order breakdown + Risk Banner + Confirm button
+* Show masked From Account & To Account
+* Confirm & Pay triggers UPI intent (or in-app saved payment)
+* After payment: show Payment Success → Order Success overlay with Order ID, executed price (if market), UPI txn id, timestamp, View Order / Go to Portfolio
+Sell specifics
+* Show Available to sell qty, realized P/L estimate after fees & taxes, earliest settlement date, tax suggestion
+* For diamonds/metals with custody: include Request physical release checkbox (KYC & shipping fees)
+Edge cases & UX
+* Partial fills: preview shows tolerance & partial fill policy, post-execution shows fill breakdown
+* Slippage exceeds threshold: auto-cancel & inform user
+* Vendor out-of-inventory: fallback path — Offer lock failed → suggest alternate vendor
+Backend
+* /api/order/preview (POST) → returns estimated fees, qty, expiry
+* /api/order/place (POST) → returns payment_intent and order_id
+* Payment integration: UPI Collect/Intent gateway (handle vpa, callback)
+* Webhook for order updates /webhook/order/update
+Acceptance criteria
+* Preview displays guaranteed fees for 60s (or vendor TTL) and shows merchant VPA.
+* Confirm & Pay transitions to payment without more than 3s delay.

@@ -1,0 +1,33 @@
+1. /rental-booking,/metro-booking in these 2 pages i need a new dark black and white theme modern design similar to other pages,  I need cardless design where all data is put on the background instead of cards. 
+
+2. In /metro-booking page, On top I need Location select drop down, also i need to display the Possible metro options as per all user input, In bottom of the page,I need fixed button called ( Pay $22 ) ( The amount will be changed as per the user input, the pay button will only work if the user has Selected the metro which is selected after all inputs )
+
+3. /rental-booking in this page, I need better stucutre, better view and better display of the input fileds.  I need the search buttons to be fixed on the bottom of the page, Show options of all vehicle as per mentioned parameters, also on top saerch, with filter mentu, filter poup,and functions 
+
+
+4. ⁠I need home page to redeisgn in better stucture,  in this order in well stuctured dessign, 
+
+Pay Now
+ Scan & Pay, Pay UPI ID, Pay Bills,  Bank Transfer, Mobile Recharge, Self Transfer, Fast Tag
+
+
+Bills and Repayment  
+Mobile Recharge,  DTH Recharge,  Water Bill,  Electricity Bill, Gas Bill, FASTag Recharge,  Broadband Bill,  Municipal Tax
+⁠
+
+Display this stats ( Today's Holdings  ₹2,450 +23.4% todays profit ₹1,56,000 +8.7% ) 
+
+Features on the each section should be viewed in horizontal view, 
+I need " Invest Now "  section ( All types of Investments ( Stock Invest, Crypto Invest, Gold Invest, Silver Invest, Diamond Invest, Mutual Funds, FD, SIP, SWP, STP ), I need "Book Now " Section ( Hotel Booking, Metro Booking, Movie Booking, Event Booking, Train Booking, Flight Booking, Cab & Auto Booking, Rental Booking, )
+
+Display this stat card ( My Loans personal loan View All Next EMI ₹11,250 Overdue by 596 days Outstanding ₹1,82,500 personal ) 
+My Fin 
+My Loans MY Investments My Bills My Trips My EMIs
+ My Pay History My Transactions My Cards My Bank Accounts My Rewards My Referrals
+
+Insurance & Loans 
+Loan Market Place, Bike Insurance, Car Insurance, Health Insurance, Home Insurance
+
+Other tools ( CreditPro Report  Perfect Finance  Repayment Calculator FinAdvisor  Loan Spam Detector  Avoid fraud & scams  Learn Karo  Creator Connect  Expert consultations  FitFinance )
+
+I need these ( Total Balance 2,850 pts ₹2,45,600 +8.2% This month ₹85,000 Income ₹52,000 Expenses ₹33,000 Savings ) as it is on the current ui on top, 

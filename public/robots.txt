@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Important pages for financial services
+Allow: /home
+Allow: /loan-application
+Allow: /eligibility-check
+Allow: /emi-calculator
+Allow: /learn
+
+# Authenticated pages - restricted
+Disallow: /my-loans
+Disallow: /myreport
+Disallow: /profile
+Disallow: /notifications
+Disallow: /coach
+
+# API endpoints - restricted
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://kcredit.joshua.app/sitemap.xml

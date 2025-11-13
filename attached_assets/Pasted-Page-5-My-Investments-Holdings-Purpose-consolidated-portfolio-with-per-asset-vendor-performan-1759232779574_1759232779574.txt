@@ -1,0 +1,135 @@
+Page 5 — My Investments (Holdings)
+Purpose: consolidated portfolio with per-asset vendor & performance detail.
+Top UI
+* Portfolio snapshot: Total Invested | Current Value | Unrealized P/L (₹, %) | Today P/L
+* Allocation donut / bar: by asset class & vendor (tap segments to filter holdings)
+* Tabs: All holdings | By Asset Class | By Vendor
+Holding row
+* Asset name + vendor chip
+* Qty/Units | Avg buy price | Last price | Current value | Unrealized P/L (₹ & %)
+* % allocation of portfolio
+* Quick actions: Buy | Sell | Move custody | More (three-dot)
+Holding detail (tap)
+* Transaction history: chronological buys/sells with Order ID & UPI txn id
+* KPIs: XIRR, CAGR, Holding period, Weighted avg buy price
+* Vendor certificate & link to verify
+* Options: Request physical delivery (metals/diamond) — open flow with KYC checklist + shipping estimate + fees
+* Buttons: Sell | Buy more | Move custody | Export CSV | Set alerts | Lock for tax-report
+Special features
+* Move custody flow: transfer between vault / broker custody / physical (requires API to custody provider)
+* Start SIP available for funds only (button visible)
+* Holding-level notes (user can add custom note)
+Backend
+* /api/portfolio/holdings (GET)
+* /api/transactions?asset_id=... (GET)
+* custody transfer /api/custody/transfer (POST)
+Acceptance criteria
+* Holding detail shows XIRR computed consistently with portfolio engine; export CSV works for heavy portfolios up to 10k rows.
+
+Page 6 — Orders (All transactional states)
+Purpose: track all buy/sell & vendor interactions.
+Top UI
+* Tabs: Active | Executed | Cancelled | Partial | Failed | Settlements
+* Global search + filter by asset/vendor/date/status
+Order row
+* Asset + Vendor | Buy/Sell | Qty | Order Type | Price | Status pill (color coded) | Timestamp
+* Quick actions on row: Cancel (if cancellable) | Retry (failed) | Dispute (failed or delivered incorrectly)
+Order detail
+* Timeline: Created → Submitted → Vendor Confirmed → Matched → Fills (if partial, list each fill) → Executed → Settled
+* Execution details: executed_price(s), execution_qty(s), brokerage & fees breakdown, taxes, UPI txn id, settlement_date/time
+* Vendor-specific steps (if marketplace): vendor confirmation time, delivery tracking or vault lock id
+* Buttons: Cancel order (if allowed) | Raise dispute | Download receipt (PDF)
+Flows
+* Auto-notify user if vendor needs to accept; show Vendor confirmation required modal
+* For failed orders: provide Retry and Manual payment reconciliation options
+Backend
+* /api/orders (GET) with params
+* /api/orders/{order_id}/timeline (GET)
+* cancellation endpoint /api/orders/{id}/cancel (POST)
+Acceptance criteria
+* Order timeline is consistent and filled with accurate timestamps and UPI txn id when applicable.
+
+Page 7 — Watchlist
+Purpose: monitor instruments across vendors with alerts & quick buy.
+Top UI
+* Search + Create new watchlist (user can have multiple lists)
+* Each list: reorder items, share list
+Item row
+* Asset name + vendor chip (default vendor)
+* Current price + day % + small sparkline
+* Buttons: Buy | Set alert | Compare vendors | Remove
+Alerts
+* Price alert creation inline (price point / % change / time-bound)
+* Alerts are push + email + in-app
+Compare vendor
+* opens vendor compare tray for that symbol
+Backend
+* /api/watchlist (GET/POST/DELETE)
+* alert creation /api/alerts (POST)
+Acceptance criteria
+* Alerts deliver within 60s of trigger; watchlist CRUD in under 500ms.
+
+Page 8 — Stock Detail (Pre-buy & Post-buy views)
+Purpose: full stock research + trading surface.
+Pre-buy
+* Header: Company name + ticker + exchange + vendor/broker badge
+* Live price + change + timestamp
+* Chart: candle/OHLC with timeframes (1D/1W/1M/3M/1Y/Max)
+* Order book snapshot (top N bids/asks)
+* Trade ticket panel (inline): Market/Limit/SL with fast quantity presets & disable/enable advanced orders
+* Fundamentals section: Market Cap, P/E, EPS, 52W high/low, Avg vol, Dividend yield
+* Related news, company filings & peer comparison, analyst ratings
+Post-buy (Position view)
+* Holding summary: quantity, avg buy price, market price, unrealized/realized P/L, position chart, tax classification (short/long)
+* Quick Sell panel with quantity slider
+* Order history & fills for that ticker
+Buttons
+* Buy | Sell | Set stop-loss | Add to watchlist
+Backend
+* trading API /api/trade/stock (POST)
+* market data /api/market/stock/{ticker} (GET)
+* news aggregator /api/news?ticker=...
+Acceptance criteria
+* Order entry pre-calculates fees & shows slippage estimate; order book snapshot updates every X seconds.
+
+Page 9 — Mutual Fund Detail
+Purpose: research, buy (Lumpsum/ SIP), manage SIPs.
+Top UI
+* NAV, 1D change, AUM, Expense ratio, Riskometer, Fund manager
+* NAV history chart (timeframes)
+* Trailing returns table: 1M / 3M / 1Y / 3Y / 5Y / Since inception
+* Top holdings list + sector allocation chart (interactive)
+* SIP calculator (inputs: SIP amount, frequency, duration) with projected returns
+Actions
+* Buy Lumpsum | Start SIP | Pause/Modify SIP | Redeem | Download KIM/SID | Compare funds
+SIP flow
+* Fields: Amount, Frequency, Start Date, End (date or Until cancelled), Auto-debit method (e-mandate / UPI)
+* Mandate step (redirect to e-mandate or UPI auto-debit flow)
+* Confirmation screen with first debit date & statement of expected tax treatment
+Backend
+* AMC/NAV feed /api/mf/nav/{fund_id}
+* SIP endpoints /api/mf/sip/create (POST), /api/mf/sip/{id} (PATCH/DELETE)
+* KIM/SID docs endpoint
+Acceptance criteria
+* NAV updating within provider SLA; SIP created with correct mandate capture.
+
+Page 10 — Commodities & Precious Metals (Gold, Silver, Platinum, Bronze)
+Purpose: vendor marketplace for metals — buy digital or request physical.
+Category listing
+* Vendor Offer Cards with price/gram, purity, vault/storage fee, min buy, buyback guarantee, delivery options
+Asset Detail
+* Purity, price/gram, last updated timestamp, vault fee, insurance, redeem fee, min qty
+* Chart overlay: LBMA or global benchmark vs vendor prices
+* Delivery choices: Buy Digital (Vault) or Request Physical Delivery — each shows fees & timeline
+Buy flows
+* Digital: buy → stored in vault → view in Portfolio under custody Vault
+* Physical: buy → triggers escrow hold until delivery confirmation → KYC & shipping flow
+Delivery flow
+* User requests delivery → show KYC checklist, address verification, shipping charges, ETA, allow pickup at vendor store (if supported)
+* On delivery, vendor updates status to Dispatched → user can confirm & release escrow
+Backend
+* vault provider API /api/vault (lock/unlock/listings)
+* escrow /api/escrow (POST)
+* vendor inventory & lock /api/vendor/lock
+Acceptance criteria
+* Digital buys reflect in vault within 2–10 minutes depending on vendor; physical request starts KYC flow immediately with clear fees.

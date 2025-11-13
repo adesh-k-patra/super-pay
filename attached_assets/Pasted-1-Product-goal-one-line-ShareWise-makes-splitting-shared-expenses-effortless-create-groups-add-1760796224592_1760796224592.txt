@@ -1,0 +1,101 @@
+1) Product goal (one line)
+ShareWise makes splitting shared expenses effortless — create groups, add expenses, see who owes what, and settle with minimal transactions, plus powerful analytics and healthy group money-management.
+2) Core concepts / entities
+User — profile, email/phone, avatar, currency, settings.
+Group — collection of members; can be Trip, Housemates, Couple, Event, Business.
+Expense / Transaction — single cost with payer, participants, split method, attachments.
+Balance — running per-user net balance (what they owe / are owed).
+Settlement — payments / reconciliations between users.
+Invitation — join flow via link / email / SMS.
+Receipt / Attachment — photo/PDF of bill.
+3) Global features (app-level)
+Sign up / login (email, phone+OTP, Google/Apple).
+Multi-currency support and automatic conversion (with selectable base currency per group).
+User profile with preferred currency & payment handles (UPI, PayPal, bank, Venmo).
+Push notifications, email notifications, in-app notifications.
+Offline support (queue changes; sync on reconnect).
+GDPR/Privacy settings, export & delete account.
+Search everywhere (groups, members, transactions).
+Dark mode & accessibility options (large text, screen reader labels).
+Localisation (languages + locale-specific currency formats).
+4) Groups — list & management
+Groups list (home screen)
+Show all groups user is a member of: group name, icon, quick balance (net owed/owing), last activity timestamp, group type tag (Trip / Rent / Couple).
+Filters & sort: active, archived, most recent, owes-me-first.
+Quick CTA: + Create Group, Quick Add Expense (select group).
+Create group flow
+Inputs: name, group type (Trip/Rent/Event/Other), currency, timezone, start/end dates (optional), description, group icon/emoji, default split method.
+Privacy: Open (invite link) / Private (invite only).
+Add members: by phone/email/link/QR code or import from contacts.
+Set admin(s)/owner.
+Option: auto-categorize expenses (rent, groceries, transport).
+Group settings
+Edit group info, change currency, change default split method.
+Member management: add, remove, promote/demote admin, transfer ownership.
+Archive / Delete group (soft delete with undo; hard delete after X days).
+Merge groups (optional).
+Leave group.
+Group-specific notifications & reminders settings.
+5) Group view page (what you see when you open a group)
+Top header:
+Group name, icon, active timeframe, total group balance.
+Quick actions: Add expense, Settle up, Invite member, Group settings.
+Main sections:
+Summary / Overview card
+Group total spent (time window toggle: all / week / month / custom).
+Net balance: who owes whom (net owed to user or by user).
+Quick suggestion: “Settle X” button to start settlement.
+Snapshot: # of members, # of unsettled expenses, last settled date.
+People & Balances
+List of members with avatars and net balance (ascending/descending).
+Tap member -> member detail (transactions involving them, IOUs).
+Transaction timeline
+Chronological feed with filters (All / Paid / Owe / Reimbursed), infinite scroll.
+Each item: amount, payer, split summary, category, attachments preview, comment preview, timestamp.
+Actions per transaction: Edit, Split details, Comment, Add receipt, Delete, Mark disputed/resolved.
+Analytics panel (compact on group page; expand to full analytics screen)
+Pie chart: spend by category.
+Bar chart: spend by member.
+Trend (line) — total group spend over time.
+Top spenders and top categories.
+Quick filters (date range, category, member).
+Settlements & History
+Recent settlements (who paid who & how).
+“Suggested settlements” that minimize transactions (detailed below).
+Notes & Group Chat
+Group-level notes (trip itinerary, rent rules).
+Light chat/comment area attached to group/transactions.
+6) Transactions / Expenses
+Create expense
+Fields:
+Title (e.g., “Dinner at Olive”)
+Amount
+Currency (group default suggested)
+Date & time
+Payer (one or split payers)
+Participants (select all, some)
+Split type (see Splits)
+Category (Groceries, Utilities, Rent, Transport, Other)
+Recurring toggle (daily/weekly/monthly/custom)
+Attach receipt (camera/photo/PDF)
+Location (optional)
+Comment/notes
+Tax & tip fields (optional)
+UI: Quick add with “I paid” vs “Add IOU” templates.
+Edit / Delete expense
+Permissions: payer or group admin can edit; track audit log.
+Allow partial refunds, corrections; record history of edits.
+Attachments & OCR
+Upload photo of receipt; OCR to prefill items, total, vendor.
+Option to split receipt by items (itemized split).
+Recurring expenses
+For rent and subscriptions: schedule repeats, auto-skip weekends, set end date.
+Option to auto-create expense and send reminder.
+Expense statuses
+Active, Settled, Disputed, Refunded, Reimbursed.
+7) Split methods (all common + smart options)
+Equal split (default): divide equally among participants.
+Exact amounts: specify exact share per participant.
+Percent split: assign percentages.
+Shares: numeric weight per member (e.g., 2 shares, 1 share).
+Itemized split: split by ite...

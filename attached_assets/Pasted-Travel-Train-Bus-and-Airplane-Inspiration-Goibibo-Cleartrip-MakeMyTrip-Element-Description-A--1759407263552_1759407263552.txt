@@ -1,0 +1,17 @@
+Travel: Train, Bus, and Airplane
+
+Inspiration: Goibibo, Cleartrip, MakeMyTrip
+Element	Description
+A. Section Overview	Goal: A single, transparent platform for multimodal travel booking. Key Differentiators: Integrated fare-comparison across all modes, PNR/Live Status tracking (especially for Train).
+B. Core Feature Set	1. Unified Search: Single search bar for City/Airport/Station (e.g., Delhi → Mumbai). 2. Real-Time Data Feeds: Live seat/ticket inventory from GDS/IRCTC/Bus operators. 3. Manage Booking: Self-service modification, cancellation, and rebooking.
+C. Functional Details	Features
+Search/Filter	Mode Toggle
+	Advanced Filters
+	Price Alert
+Booking Flow	Seat Selection
+	Fare Transparency
+	Ancillary Sales
+Post-Booking	Live Status
+	E-Ticket/Boarding Pass
+D. Page-Wise Blueprint	Search Page: One-way/Round trip toggle, Date Picker, Class/Passenger dropdown. Results Page: Tabbed view for Flight/Train/Bus, Price/Duration sort options, Promo banner. Passenger Details Page: Traveler info entry, Loyalty/GST input. Manage Booking Page: List of upcoming/past trips, dedicated action buttons (Modify/Cancel/Check-in).
+Feature CategoryFeatureFunction/Sub-FeaturePage-Wise BlueprintDiscoveryUnified SearchSingle input for Station/Airport/CitySearch Page: One-way/Round-trip, Multi-city (Flight only), Date picker, Passenger selector.Mode ToggleSeamless switch between Flight / Train / BusResults Page: Tabbed display for each travel mode, detailed price breakdown, Price Alert subscription.Booking FlowReal-Time InventoryLive seat/ticket availability from GDS/IRCTC/OperatorsPassenger Details Page: Saved traveler selection, loyalty input (Frequent Flyer/Rail), Ancillary selection (Baggage, Meal).Seat/Berth MapGraphical selection of preferred seat/berthSeat Selection Page: Interactive map with color codes for availability and pricing (e.g., lower/upper berth).Post-BookingLive Status TrackingFlight Status, Train PNR/Running StatusManage Booking Page: Live updates on delays, cancellation, and current location (for train/bus).Self-Service ActionsModification, Cancellation, Web Check-inManage Booking Page: Dedicated buttons for self-service changes based on airline/operator policy.  

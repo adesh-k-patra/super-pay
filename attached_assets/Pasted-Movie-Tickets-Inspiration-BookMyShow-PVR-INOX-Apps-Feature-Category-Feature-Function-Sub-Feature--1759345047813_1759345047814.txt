@@ -1,0 +1,18 @@
+Movie Tickets
+
+Inspiration: BookMyShow, PVR/INOX Apps
+Feature Category	Feature	Function/Sub-Feature	Page-Wise Blueprint
+Discovery	Location Selector	Auto-detect / Manual City Input	Home/Landing Page: City selector (top left); Featured Movies, filters by Language/Genre.
+	Content Deep Dive	Trailer Link, Ratings, Cast & Crew	Movie Detail Page: Synopsis, reviews (external integration like IMDB), Showtimes button.
+Booking Flow	Showtime Selector	Date Slider, Theater Grouping	Showtime Selection Page: Calendar view, list of theaters grouped by proximity/time.
+	Interactive Seat Map	Color-coded Availability, Premium Zones	Seat Selection Page: Real-time seat status, price tiers, booking limit enforcement.
+	F&B Pre-booking	Combo Offers, Snack Customization	F&B/Add-ons Page: Menu display, quantity selector, Skip button.
+Post-Booking	M-ticket/QR Code	Secure Digital Ticket, Offline Access	Confirmation Page: Success message, QR/Barcode display, directions to the theater.
+Page Name	Key Components & Content	Actions/Functions
+Home/Landing Page	Top Banner: Promoted movies. Movie List: Posters, Language tags, Genre. Navigation Bar: Dedicated section for Movies, Events, etc. City Selector (Top left).	Tap on Movie → Movie Detail Page. Change City → City Selection Page.
+Movie Detail Page	Synopsis, Cast & Crew, Rating (e.g., from IMDB). Showtime Button: "Book Tickets" prominent. Reviews/Gallery.	Book Tickets → Showtime Selection Page. Share Movie Details.
+Showtime Selection Page	Date Slider (Calendar view). Theater List (Grouped by time/proximity). Format/Language Filter (e.g., Hindi 2D, English 3D).	Select Theater & Time → Seat Selection Page.
+Seat Selection Page	Interactive Seat Map (A-Z rows, 1-N columns). Legend (Available, Booked, Premium). Seat Picker (Limit selection). Price Display.	Select Seats → Add-ons/F&B Page (Optional) → Checkout Page.
+F&B/Add-ons Page	Theater Menu: Combos, A la carte items. Quantity Selector. Skip button.	Add to Order → Checkout Page.
+Checkout Page	Order Summary: Seats, F&B, Convenience Fee. Payment Options (Saved Cards, UPI, Wallets, Offers). Cancellation Policy visible.	Pay Now → Confirmation Page. Apply Coupon Code.
+Confirmation Page	Booking Success message. M-ticket/QR Code display. View Order Details, Get Directions (to theater).	Download Ticket. Share Confirmation. View History.

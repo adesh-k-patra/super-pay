@@ -1,0 +1,102 @@
+I needed to cereate a new feature called repayment calaulator for each user based on their loan / credits taken, a tool whjich can help users to find all taken loans, where each loans have different intrest rate, period, loan amount, loan type, duration
+
+User watned to calculate the completion of total loan amount, Where Montly if user able to to pay amount, total installaments, duration will appear, Also amount pedning 
+
+- Make this feature in proper structure, 
+ChatGPT said:
+Thought for 5s
+Repayment Calculator — Feature Spec (per-user, per-loan)
+
+A clear, usable Repayment Calculator that lives inside /myreport (or Loan Details) and helps each user answer: “If I pay ₹X per month (or a one-time lump sum), how many months until I finish this loan? How much interest will I pay? What will the outstanding balance look like over time?” — for a single loan or for all loans together.
+
+This spec covers UI, UX, data model, algorithms (including formulas), API, acceptance criteria, KPIs, edge cases and a worked numeric example so engineers and designers can implement fast.
+
+1 — User stories
+
+As a borrower I want to pick one of my loans and enter a monthly payment amount so I can see how many months remain, total interest paid, and outstanding balance over time.
+
+As a borrower I want to run the calculator across all my loans (aggregate view) to plan monthly cashflow or consolidation.
+
+As a borrower I want to include one-time extra payments and see impact on tenure and interest.
+
+As a borrower I want easy optional strategies (Snowball / Avalanche) and one-tap actions (schedule extra payment, export report).
+
+2 — UX & UI (simple, mobile-first)
+
+Entry points
+
+Loan detail page: “Repayment Calculator” button.
+
+/myreport main page: global “Repayment Calculator” widget (shows aggregate snapshot).
+
+Calculator layout
+
+Top selector
+
+Loan picker (dropdown with checkboxes for single or multiple loans)
+
+Toggle: Single-loan / Multi-loan (aggregate)
+
+Inputs (left column / top mobile)
+
+Current outstanding principal (auto-filled per loan) — read-only
+
+Annual Interest Rate (auto) — read-only (editable for hypothetical scenarios)
+
+Current EMI (auto)
+
+Monthly Payment (input) — user enters amount they can/will pay
+
+One-time Prepayment (optional input)
+
+Payment frequency (Monthly default — support Weekly/Biweekly optionally)
+
+Start date (defaults to next EMI date)
+
+Checkbox: Include scheduled future charges/fees? (y/n)
+
+Quick presets
+
+Buttons: “Pay minimum EMI”, “Pay +10%”, “Pay +25%”, “Pay custom”
+
+Outputs (right column / below on mobile)
+
+Months to repay (integer months + leftover days)
+
+Total installments (months)
+
+Total interest to be paid (₹)
+
+Total amount paid (principal + interest)
+
+Outstanding balance schedule preview (first 6 months)
+
+Final payoff date (calendar)
+
+“Amount pending now” (outstanding principal after this month)
+
+Charts
+
+Line chart: outstanding balance vs time (monthly)
+
+Bar chart: monthly principal vs interest components
+
+Pie/donut: composition of total payments (principal vs interest)
+
+Actions
+
+Schedule this extra payment (integrate with payment gateway / mandate)
+
+Export report (PDF/CSV)
+
+Simulate alternate strategies (Snowball / Avalanche) link
+
+Design notes
+
+Glassmorphic cards for each loan result; clean typographic hierarchy; KPI number first.
+
+Use small tooltips on any financial term (EMI, APR, principal).
+
+Keep input controls large, mobile-friendly; instant validation (₹ only).
+
+Provide inline warnings: If your payment ≤ monthly interest, loan will not amortize.

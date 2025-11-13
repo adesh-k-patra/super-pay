@@ -1,0 +1,90 @@
+6. My Trips
+Purpose: travel history/payments (bookings, cab, flights) and trip-related finance tracking.
+UI / Layout:
+* Upcoming trips & trip history (card list)
+* Trip card: destination, dates, total spend, bookings summary (hotel/flight/cab), trip ID
+* Spend breakdown per trip (accommodation, transport, food)
+Trip detail:
+* Booking receipts, refund status, cancellation policy, travel insurance details
+* Trip-level budgets & actual spend, expense split with contacts
+Actions:
+* Add trip receipts manually, export trip expense report, set travel alerts (flight price changes), file travel refund claim
+Backend:
+* Booking API integrations, invoice storage, receipts OCR (optional), travel partners
+Microcopy:
+* “Attach receipts to automatically categorize trip expenses.”
+
+7. My EMIs
+Purpose: EMI dashboard aggregated across loans & card EMIs.
+UI / Layout:
+* Summary: Total EMI outflow/month, Next EMI date, Upcoming EMIs list
+* Tabs: Active / Upcoming / Paid / By lender
+EMI item:
+* Source (loan/card), EMI amount, due date, remaining installments, interest rate, outstanding principal
+Actions:
+* Pay EMI, change payment date (if supported), switch to auto-debit, prepay
+Backend:
+* EMI scheduler, lender APIs, bank/UPI debit integration
+Microcopy:
+* “Change EMI date may affect interest due — check with lender.”
+
+8. Personal Finance (Detailed Dashboard)
+Purpose: the master financial cockpit — budgets, cashflow, net worth, goals.
+UI / Layout:
+* Top KPIs: Net worth (assets - liabilities), Monthly cashflow (income vs spend), Savings rate, Emergency fund coverage (months)
+* Time series: Net worth chart, Monthly income & expense bars
+* Widgets: Budgets (by category), Goals (target amount, progress), Alerts (overspend), Recurring subscriptions list
+* Tax summary snippet: estimated tax on capital gains/interest
+Detailed sections:
+* Income stream breakdown (salary, interest, dividends)
+* Expense categories (visual pie + list)
+* Budget manager: set monthly budgets, get alerts, auto-categorize transactions
+* Goals: save for an emergency fund, wedding, home down payment — each with suggested investment allocation and X months to goal
+* Scenario planner: “If you increase SIP ₹X/month, you’ll reach goal by DATE”
+Actions:
+* Connect bank for auto-sync, create goal & link investments, generate tax report, run scenario projections, export CSV/PDF
+Backend:
+* Aggregation service (bank transactions), categorization engine (ML/NLP), budgeting engine, tax estimation module
+Microcopy:
+* “This dashboard updates nightly. For real-time holdings, visit My Investments.”
+
+9. My Pay History
+Purpose: transactional ledger for P2P, UPI, bill pays, top-ups, refunds.
+UI / Layout:
+* Chronological feed with filters (type: UPI send/receive, bill pay, merchant pay, refunds)
+* Each row: Date/time, Counterparty (name/VPA), Type, Amount, Status, Balance after txn
+* Expanded row shows order id, UPI txn id, note, invoiced attachments
+Actions:
+* Download statement (custom date range), dispute transaction (pre-filled form), share receipt
+Backend:
+* Payments ledger, reconciliation, UPI callbacks, export service
+Microcopy:
+* “Statements are available for last 24 months.”
+
+10. My Cards
+Purpose: card management = saved debit/credit cards + card features.
+UI / Layout:
+* Saved cards carousel (masked number, expiry, cardholder)
+* Add new card CTA (scan or manual)
+* Card detail: card type, limit (if credit), rewards rate, default for payments toggle
+Card actions:
+* Set default card, remove card (with OTP), freeze/unfreeze, set spending limit per merchant or per day, view masked CVV on OTP authentication, schedule EMI from card purchases
+* View transactions per card, disputes, statement download
+Security:
+* PCI-DSS tokenized card storage, 2FA for sensitive actions
+Microcopy:
+* “For security, add card via OTP & 3DS.”
+
+11. My Bank Accounts
+Purpose: manage linked bank accounts & UPI VPAs.
+UI / Layout:
+* Linked accounts list: bank name, last 4 digits, UPI status (linked/unlinked), balance snapshot (if read access)
+* Add bank CTA: Link account (with bank auth or UPI collect)
+Account detail:
+* Recent transactions, auto-debit mandates, UPI VPA(s), remove account, set preferred account for large payouts
+Actions:
+* Initiate bank KYC (for higher limits), view account statement, unlink (with cool-off & OTP)
+Backend:
+* NPCI/UPI integration, bank aggregation APIs (if using), secure token storage
+Microcopy:
+* “Unlinking account will cancel pending mandates.”

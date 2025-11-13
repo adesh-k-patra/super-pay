@@ -1,0 +1,1266 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InCred Personal Loans - Mobile App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+          colors: {
+            background: "var(--background)",
+            foreground: "var(--foreground)",
+            card: {
+              DEFAULT: "var(--card)",
+              foreground: "var(--card-foreground)",
+            },
+            popover: {
+              DEFAULT: "var(--popover)",
+              foreground: "var(--popover-foreground)",
+            },
+            primary: {
+              DEFAULT: "var(--primary)",
+              foreground: "var(--primary-foreground)",
+            },
+            secondary: {
+              DEFAULT: "var(--secondary)",
+              foreground: "var(--secondary-foreground)",
+            },
+            muted: {
+              DEFAULT: "var(--muted)",
+              foreground: "var(--muted-foreground)",
+            },
+            accent: {
+              DEFAULT: "var(--accent)",
+              foreground: "var(--accent-foreground)",
+            },
+            destructive: {
+              DEFAULT: "var(--destructive)",
+              foreground: "var(--destructive-foreground)",
+            },
+            border: "var(--border)",
+            input: "var(--input)",
+            ring: "var(--ring)",
+            chart: {
+              "1": "var(--chart-1)",
+              "2": "var(--chart-2)",
+              "3": "var(--chart-3)",
+              "4": "var(--chart-4)",
+              "5": "var(--chart-5)",
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-in-out',
+            'slide-up': 'slideUp 0.3s ease-out',
+            'bounce-subtle': 'bounceSubtle 0.6s ease-in-out',
+          }
+        },
+      }
+    };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --background: hsl(0 0% 100%);
+        --foreground: hsl(224 71% 4%);
+        --card: hsl(0 0% 100%);
+        --card-foreground: hsl(224 71% 4%);
+        --popover: hsl(0 0% 100%);
+        --popover-foreground: hsl(224 71% 4%);
+        --primary: hsl(18 100% 60%);
+        --primary-foreground: hsl(0 0% 100%);
+        --secondary: hsl(220 14% 96%);
+        --secondary-foreground: hsl(220 9% 46%);
+        --muted: hsl(220 14% 96%);
+        --muted-foreground: hsl(220 9% 46%);
+        --accent: hsl(220 14% 96%);
+        --accent-foreground: hsl(220 9% 46%);
+        --destructive: hsl(0 84% 60%);
+        --destructive-foreground: hsl(0 0% 98%);
+        --border: hsl(220 13% 91%);
+        --input: hsl(220 13% 91%);
+        --ring: hsl(18 100% 60%);
+        --radius: 8px;
+      }
+
+      .glassmorphic {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .glassmorphic-orange {
+        background: rgba(255, 107, 53, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 107, 53, 0.2);
+      }
+
+      .btn-3d {
+        box-shadow: 0 4px 14px 0 rgba(255, 107, 53, 0.3);
+        transform: translateY(0);
+        transition: all 0.2s ease;
+      }
+
+      .btn-3d:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px 0 rgba(255, 107, 53, 0.4);
+      }
+
+      .btn-3d:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px 0 rgba(255, 107, 53, 0.3);
+      }
+
+      .card-3d {
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+
+      .card-3d:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      @keyframes bounceSubtle {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-4px); }
+        60% { transform: translateY(-2px); }
+      }
+
+      .mobile-container {
+        max-width: 375px;
+        margin: 0 auto;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .page {
+        display: none;
+        animation: fade-in 0.3s ease-in-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      .otp-input {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .otp-input:focus {
+        border-color: hsl(18 100% 60%);
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        outline: none;
+      }
+
+      .progress-bar {
+        background: linear-gradient(90deg, #10B981 0%, #10B981 var(--progress, 0%), #e5e7eb var(--progress, 0%), #e5e7eb 100%);
+        height: 4px;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 375px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        z-index: 50;
+      }
+
+      .nav-item {
+        transition: all 0.2s ease;
+        position: relative;
+      }
+
+      .nav-item.active {
+        color: hsl(18 100% 60%);
+      }
+
+      .nav-item.active::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 24px;
+        height: 2px;
+        background: hsl(18 100% 60%);
+        border-radius: 1px;
+      }
+
+      .loan-card {
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 107, 53, 0.2);
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+  <div class="mobile-container bg-white">
+    
+    <!-- OTP Login Page -->
+    <div id="login-page" class="page active min-h-screen bg-gradient-to-br from-blue-600 to-blue-800 flex flex-col">
+      <!-- @COMPONENT: LoginHeader -->
+      <div class="flex-1 flex flex-col justify-center px-6 py-8">
+        <div class="text-center mb-8">
+          <div class="inline-flex items-center gap-2 mb-6">
+            <span class="text-orange-500 text-2xl font-bold">InCred</span>
+            <span class="text-white text-xl font-light">finance</span>
+          </div>
+          <h1 class="text-white text-2xl font-semibold mb-2">Welcome Back</h1>
+          <p class="text-blue-100 text-sm">Enter your mobile number to continue</p>
+        </div>
+
+        <div class="glassmorphic rounded-xl p-6 mb-6">
+          <div class="mb-4">
+            <label class="block text-white text-sm font-medium mb-2">Mobile Number</label>
+            <div class="relative">
+              <input type="tel" id="mobile-input" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Enter your mobile number" maxlength="10">
+              <i class="fas fa-mobile-alt absolute right-3 top-3.5 text-white/60"></i>
+            </div>
+          </div>
+          <button onclick="showOTPVerification()" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold btn-3d">
+            Send OTP
+          </button>
+        </div>
+
+        <div class="text-center">
+          <p class="text-blue-100 text-xs">By continuing, you agree to our <span class="text-orange-300">Terms & Conditions</span></p>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: LoginHeader -->
+    </div>
+
+    <!-- OTP Verification Page -->
+    <div id="otp-page" class="page min-h-screen bg-gradient-to-br from-blue-600 to-blue-800 flex flex-col">
+      <!-- @COMPONENT: OTPVerification -->
+      <div class="flex items-center justify-between p-4 mb-6">
+        <button onclick="showLogin()" class="text-white p-2">
+          <i class="fas fa-arrow-left text-lg"></i>
+        </button>
+        <h2 class="text-white font-semibold">Verify Mobile Number</h2>
+        <div></div>
+      </div>
+
+      <div class="flex-1 flex flex-col justify-center px-6">
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-mobile-alt text-orange-500 text-2xl"></i>
+          </div>
+          <h3 class="text-white text-xl font-semibold mb-2">Enter OTP</h3>
+          <p class="text-blue-100 text-sm">We've sent a 4-digit code to <span id="mobile-display" class="font-medium">+91-XXXXXXXXXX</span></p>
+        </div>
+
+        <div class="glassmorphic rounded-xl p-6 mb-6">
+          <div class="flex justify-center gap-3 mb-6">
+            <input type="text" class="otp-input bg-white/20 text-white text-center" maxlength="1" data-index="0">
+            <input type="text" class="otp-input bg-white/20 text-white text-center" maxlength="1" data-index="1">
+            <input type="text" class="otp-input bg-white/20 text-white text-center" maxlength="1" data-index="2">
+            <input type="text" class="otp-input bg-white/20 text-white text-center" maxlength="1" data-index="3">
+          </div>
+          
+          <button onclick="verifyOTP()" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold btn-3d mb-4">
+            Verify & Continue
+          </button>
+          
+          <div class="text-center">
+            <p class="text-blue-100 text-sm">Didn't receive code? 
+              <button class="text-orange-300 font-medium ml-1">Resend OTP</button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: OTPVerification -->
+    </div>
+
+    <!-- Home Dashboard Page -->
+    <div id="home-page" class="page min-h-screen bg-gray-50 pb-20">
+      <!-- @COMPONENT: HomeHeader -->
+      <div class="bg-blue-600 pt-12 pb-6 px-4 rounded-b-3xl relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold text-sm">JD</span>
+              </div>
+              <div>
+                <p class="text-white text-sm opacity-90">Welcome back,</p>
+                <p class="text-white font-semibold" data-bind="user.name">Joshua J</p>
+              </div>
+            </div>
+            <button onclick="showNotifications()" class="relative p-2">
+              <i class="fas fa-bell text-white text-lg"></i>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full text-white text-xs flex items-center justify-center">3</span>
+            </button>
+          </div>
+
+          <div class="glassmorphic rounded-xl p-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-white/80 text-sm">Credit Score</p>
+                <p class="text-white text-2xl font-bold">750</p>
+                <p class="text-green-300 text-xs">Excellent</p>
+              </div>
+              <div class="w-16 h-16 rounded-full border-4 border-green-400 flex items-center justify-center">
+                <span class="text-white text-sm font-bold">750</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: HomeHeader -->
+
+      <!-- Quick Actions -->
+      <!-- @COMPONENT: QuickActions -->
+      <div class="px-4 -mt-6 relative z-20 mb-6">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="card-3d bg-white rounded-xl p-4 text-center glassmorphic-orange">
+            <button onclick="showLoanApplication()" class="w-full">
+              <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-plus text-orange-600 text-lg"></i>
+              </div>
+              <p class="text-gray-800 font-semibold text-sm">Apply for Loan</p>
+              <p class="text-gray-600 text-xs">Get instant approval</p>
+            </button>
+          </div>
+          
+          <div class="card-3d bg-white rounded-xl p-4 text-center">
+            <button onclick="showEMICalculator()" class="w-full">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-calculator text-blue-600 text-lg"></i>
+              </div>
+              <p class="text-gray-800 font-semibold text-sm">EMI Calculator</p>
+              <p class="text-gray-600 text-xs">Plan your budget</p>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: QuickActions -->
+
+      <!-- Active Loans -->
+      <!-- @COMPONENT: ActiveLoans -->
+      <div class="px-4 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-gray-800 font-semibold text-lg">Active Loans</h3>
+          <button class="text-orange-600 text-sm font-medium">View All</button>
+        </div>
+        
+        <div class="loan-card rounded-xl p-4 mb-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                <i class="fas fa-home text-white"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800">Personal Loan</p>
+                <p class="text-gray-600 text-xs">PL-2024-001</p>
+              </div>
+            </div>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4 mb-3">
+            <div>
+              <p class="text-gray-600 text-xs">Loan Amount</p>
+              <p class="font-bold text-gray-800">₹5,00,000</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-xs">Next EMI</p>
+              <p class="font-bold text-gray-800">₹15,420</p>
+            </div>
+          </div>
+          
+          <div class="progress-bar rounded-full mb-2" style="--progress: 35%"></div>
+          <div class="flex justify-between text-xs">
+            <span class="text-gray-600">35% Paid</span>
+            <span class="text-gray-600">Due: 15 Jan 2025</span>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: ActiveLoans -->
+
+      <!-- Financial Insights -->
+      <!-- @COMPONENT: FinancialInsights -->
+      <div class="px-4 mb-6">
+        <h3 class="text-gray-800 font-semibold text-lg mb-4">Financial Insights</h3>
+        
+        <div class="grid grid-cols-3 gap-3">
+          <div class="stat-card rounded-lg p-3 text-center">
+            <i class="fas fa-chart-line text-green-600 text-lg mb-2"></i>
+            <p class="text-gray-800 font-bold text-sm">₹2.3L</p>
+            <p class="text-gray-600 text-xs">Total Paid</p>
+          </div>
+          
+          <div class="stat-card rounded-lg p-3 text-center">
+            <i class="fas fa-wallet text-blue-600 text-lg mb-2"></i>
+            <p class="text-gray-800 font-bold text-sm">₹2.7L</p>
+            <p class="text-gray-600 text-xs">Outstanding</p>
+          </div>
+          
+          <div class="stat-card rounded-lg p-3 text-center">
+            <i class="fas fa-clock text-orange-600 text-lg mb-2"></i>
+            <p class="text-gray-800 font-bold text-sm">18</p>
+            <p class="text-gray-600 text-xs">Months Left</p>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: FinancialInsights -->
+
+      <!-- Recent Activity -->
+      <!-- @COMPONENT: RecentActivity -->
+      <div class="px-4 mb-6">
+        <h3 class="text-gray-800 font-semibold text-lg mb-4">Recent Activity</h3>
+        
+        <div class="bg-white rounded-xl p-4 card-3d">
+          <div class="flex items-center justify-between py-3 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-green-600 text-sm"></i>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800 text-sm">EMI Payment</p>
+                <p class="text-gray-600 text-xs">Jan 15, 2025</p>
+              </div>
+            </div>
+            <span class="text-green-600 font-semibold text-sm">-₹15,420</span>
+          </div>
+          
+          <div class="flex items-center justify-between py-3 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-file-alt text-blue-600 text-sm"></i>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800 text-sm">Document Verified</p>
+                <p class="text-gray-600 text-xs">Jan 10, 2025</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          </div>
+          
+          <div class="flex items-center justify-between py-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-handshake text-orange-600 text-sm"></i>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800 text-sm">Loan Approved</p>
+                <p class="text-gray-600 text-xs">Dec 28, 2024</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: RecentActivity -->
+    </div>
+
+    <!-- Loan Application Page -->
+    <div id="loan-application-page" class="page min-h-screen bg-gray-50">
+      <!-- @COMPONENT: LoanApplicationHeader -->
+      <div class="bg-blue-600 pt-12 pb-6 px-4">
+        <div class="flex items-center gap-4 mb-4">
+          <button onclick="showHome()" class="text-white p-2">
+            <i class="fas fa-arrow-left text-lg"></i>
+          </button>
+          <div>
+            <h2 class="text-white font-semibold text-lg">Personal Loan</h2>
+            <p class="text-blue-100 text-sm">Complete your application</p>
+          </div>
+        </div>
+        
+        <div class="progress-bar" style="--progress: 33%"></div>
+        <div class="flex justify-between text-xs text-blue-100 mt-2">
+          <span>Login info</span>
+          <span>Basic details</span>
+          <span>Get offer</span>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: LoanApplicationHeader -->
+
+      <div class="px-4 py-6">
+        <!-- @COMPONENT: LoanApplicationForm -->
+        <div class="bg-white rounded-xl p-6 card-3d mb-6">
+          <h3 class="font-semibold text-gray-800 mb-4">Enter details to check your eligibility</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Marital status</label>
+              <div class="relative">
+                <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none bg-white">
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Divorced</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-3 top-3.5 text-gray-400 text-sm pointer-events-none"></i>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Current residence type</label>
+              <div class="relative">
+                <select class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none bg-white">
+                  <option>Owned by parents</option>
+                  <option>Self owned</option>
+                  <option>Rented</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-3 top-3.5 text-gray-400 text-sm pointer-events-none"></i>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Date of birth</label>
+              <div class="grid grid-cols-2 gap-3">
+                <input type="text" placeholder="DD" class="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                <input type="text" placeholder="MM" class="px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              </div>
+              <input type="text" placeholder="YYYY" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent mt-3">
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Gender</label>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="gender" value="female" class="w-4 h-4 text-orange-600 focus:ring-orange-500">
+                  <span class="text-gray-700 text-sm">Female</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="gender" value="male" class="w-4 h-4 text-orange-600 focus:ring-orange-500">
+                  <span class="text-gray-700 text-sm">Male</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="gender" value="other" class="w-4 h-4 text-orange-600 focus:ring-orange-500">
+                  <span class="text-gray-700 text-sm">Transgender</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Pincode</label>
+              <input type="text" placeholder="678004" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              <p class="text-green-600 text-xs mt-1"><i class="fas fa-check mr-1"></i>Verified Pincode</p>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">PAN card number</label>
+              <input type="text" placeholder="ABCDE1234F" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+              <p class="text-green-600 text-xs mt-1"><i class="fas fa-check mr-1"></i>Verified</p>
+            </div>
+          </div>
+        </div>
+        <!-- @END_COMPONENT: LoanApplicationForm -->
+
+        <button onclick="proceedToOffer()" class="w-full bg-primary text-primary-foreground py-4 rounded-lg font-semibold btn-3d">
+          Proceed
+        </button>
+      </div>
+    </div>
+
+    <!-- EMI Calculator Page -->
+    <div id="emi-calculator-page" class="page min-h-screen bg-gray-50">
+      <!-- @COMPONENT: EMICalculatorHeader -->
+      <div class="bg-blue-600 pt-12 pb-6 px-4">
+        <div class="flex items-center gap-4 mb-4">
+          <button onclick="showHome()" class="text-white p-2">
+            <i class="fas fa-arrow-left text-lg"></i>
+          </button>
+          <div>
+            <h2 class="text-white font-semibold text-lg">EMI Calculator</h2>
+            <p class="text-blue-100 text-sm">Calculate your monthly payments</p>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: EMICalculatorHeader -->
+
+      <div class="px-4 py-6">
+        <!-- @COMPONENT: EMICalculatorForm -->
+        <div class="bg-white rounded-xl p-6 card-3d mb-6">
+          <div class="space-y-6">
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Loan Amount (₹)</label>
+              <input type="range" id="loan-amount-slider" min="50000" max="5000000" value="500000" class="w-full accent-orange-500">
+              <div class="flex justify-between text-sm text-gray-600 mt-1">
+                <span>₹50K</span>
+                <span id="loan-amount-display" class="font-bold text-orange-600">₹5,00,000</span>
+                <span>₹50L</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Interest Rate (%)</label>
+              <input type="range" id="interest-rate-slider" min="8" max="25" value="12" step="0.1" class="w-full accent-orange-500">
+              <div class="flex justify-between text-sm text-gray-600 mt-1">
+                <span>8%</span>
+                <span id="interest-rate-display" class="font-bold text-orange-600">12%</span>
+                <span>25%</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 text-sm font-medium mb-2">Loan Tenure (Years)</label>
+              <input type="range" id="tenure-slider" min="1" max="7" value="3" class="w-full accent-orange-500">
+              <div class="flex justify-between text-sm text-gray-600 mt-1">
+                <span>1 Yr</span>
+                <span id="tenure-display" class="font-bold text-orange-600">3 Years</span>
+                <span>7 Yrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- @END_COMPONENT: EMICalculatorForm -->
+
+        <!-- @COMPONENT: EMIResults -->
+        <div class="glassmorphic-orange rounded-xl p-6 mb-6">
+          <div class="text-center mb-4">
+            <p class="text-gray-700 text-sm mb-2">Monthly EMI</p>
+            <p class="text-3xl font-bold text-orange-600" id="emi-amount">₹15,420</p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center">
+              <p class="text-gray-600 text-xs">Total Interest</p>
+              <p class="font-bold text-gray-800" id="total-interest">₹55,128</p>
+            </div>
+            <div class="text-center">
+              <p class="text-gray-600 text-xs">Total Amount</p>
+              <p class="font-bold text-gray-800" id="total-amount">₹5,55,128</p>
+            </div>
+          </div>
+        </div>
+        <!-- @END_COMPONENT: EMIResults -->
+
+        <button onclick="showLoanApplication()" class="w-full bg-primary text-primary-foreground py-4 rounded-lg font-semibold btn-3d">
+          Apply for This Loan
+        </button>
+      </div>
+    </div>
+
+    <!-- My Loans Page -->
+    <div id="loans-page" class="page min-h-screen bg-gray-50 pb-20">
+      <!-- @COMPONENT: MyLoansHeader -->
+      <div class="bg-blue-600 pt-12 pb-6 px-4">
+        <h2 class="text-white font-semibold text-xl">My Loans</h2>
+        <p class="text-blue-100 text-sm">Track all your loan applications</p>
+      </div>
+      <!-- @END_COMPONENT: MyLoansHeader -->
+
+      <div class="px-4 py-6">
+        <!-- @COMPONENT: LoanStatusCards -->
+        <div class="space-y-4">
+          <!-- Active Loan -->
+          <div class="loan-card rounded-xl p-5">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-home text-white text-lg"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-800">Personal Loan</p>
+                  <p class="text-gray-600 text-sm">Application #PL-2024-001</p>
+                </div>
+              </div>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Active</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <p class="text-gray-600 text-xs">Loan Amount</p>
+                <p class="font-bold text-gray-800 text-lg">₹5,00,000</p>
+              </div>
+              <div>
+                <p class="text-gray-600 text-xs">Monthly EMI</p>
+                <p class="font-bold text-gray-800 text-lg">₹15,420</p>
+              </div>
+              <div>
+                <p class="text-gray-600 text-xs">Interest Rate</p>
+                <p class="font-bold text-gray-800">12% p.a.</p>
+              </div>
+              <div>
+                <p class="text-gray-600 text-xs">Tenure</p>
+                <p class="font-bold text-gray-800">36 months</p>
+              </div>
+            </div>
+            
+            <div class="progress-bar rounded-full mb-2" style="--progress: 35%"></div>
+            <div class="flex justify-between text-xs mb-4">
+              <span class="text-gray-600">₹1,75,000 paid</span>
+              <span class="text-gray-600">₹3,25,000 remaining</span>
+            </div>
+            
+            <div class="flex gap-3">
+              <button class="flex-1 bg-orange-100 text-orange-600 py-3 rounded-lg font-medium text-sm">
+                <i class="fas fa-credit-card mr-2"></i>Pay EMI
+              </button>
+              <button class="flex-1 bg-blue-100 text-blue-600 py-3 rounded-lg font-medium text-sm">
+                <i class="fas fa-file-alt mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Pending Application -->
+          <div class="bg-white rounded-xl p-5 card-3d">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-car text-white text-lg"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-800">Vehicle Loan</p>
+                  <p class="text-gray-600 text-sm">Application #VL-2024-002</p>
+                </div>
+              </div>
+              <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">Processing</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <p class="text-gray-600 text-xs">Requested Amount</p>
+                <p class="font-bold text-gray-800 text-lg">₹8,00,000</p>
+              </div>
+              <div>
+                <p class="text-gray-600 text-xs">Applied On</p>
+                <p class="font-bold text-gray-800">Jan 20, 2025</p>
+              </div>
+            </div>
+            
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-clock text-yellow-600"></i>
+                <p class="text-yellow-800 text-sm font-medium">Document verification in progress</p>
+              </div>
+              <p class="text-yellow-700 text-xs mt-1">Expected completion: 2-3 business days</p>
+            </div>
+            
+            <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium text-sm btn-3d">
+              <i class="fas fa-upload mr-2"></i>Upload Documents
+            </button>
+          </div>
+        </div>
+        <!-- @END_COMPONENT: LoanStatusCards -->
+      </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profile-page" class="page min-h-screen bg-gray-50 pb-20">
+      <!-- @COMPONENT: ProfileHeader -->
+      <div class="bg-blue-600 pt-12 pb-8 px-4">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-white font-bold text-2xl">JD</span>
+          </div>
+          <h2 class="text-white font-semibold text-xl" data-bind="user.name">Joshua J Kanatt</h2>
+          <p class="text-blue-100 text-sm" data-bind="user.phone">+91-8547258015</p>
+          <div class="flex items-center justify-center gap-2 mt-2">
+            <i class="fas fa-shield-alt text-green-400 text-sm"></i>
+            <span class="text-green-300 text-xs">Verified Customer</span>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: ProfileHeader -->
+
+      <div class="px-4 py-6">
+        <!-- @COMPONENT: ProfileSections -->
+        <!-- Account Section -->
+        <div class="bg-white rounded-xl p-5 card-3d mb-4">
+          <div class="flex items-center justify-between py-4 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-user text-orange-600"></i>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">InCred user</p>
+                <p class="text-gray-600 text-sm" data-bind="user.id">8547258015</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+          </div>
+        </div>
+
+        <!-- Bookmarks Section -->
+        <div class="bg-white rounded-xl p-5 card-3d mb-4">
+          <h3 class="font-semibold text-gray-800 mb-4">Bookmarks</h3>
+          <div class="flex items-center justify-between py-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-bookmark text-blue-600"></i>
+              </div>
+              <p class="font-medium text-gray-800">Read bookmarked articles</p>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+          </div>
+        </div>
+
+        <!-- General Settings -->
+        <div class="bg-white rounded-xl p-5 card-3d mb-4">
+          <h3 class="font-semibold text-gray-800 mb-4">General Settings</h3>
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <i class="fab fa-whatsapp text-green-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">WhatsApp notification</p>
+                  <p class="text-gray-600 text-sm">Get notification on WhatsApp</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer">
+                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-globe text-purple-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">Language</p>
+                  <p class="text-gray-600 text-sm">Change app language</p>
+                </div>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Section -->
+        <div class="bg-white rounded-xl p-5 card-3d mb-4">
+          <h3 class="font-semibold text-gray-800 mb-4">Security</h3>
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-lock text-red-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">Pin login</p>
+                  <p class="text-gray-600 text-sm">Enable/Disable pin</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer">
+                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-key text-blue-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">Change security pin</p>
+                  <p class="text-gray-600 text-sm">Change the 4 digit security pin</p>
+                </div>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Others Section -->
+        <div class="bg-white rounded-xl p-5 card-3d">
+          <h3 class="font-semibold text-gray-800 mb-4">Others</h3>
+          
+          <div class="space-y-1">
+            <div class="flex items-center justify-between py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-file-contract text-gray-600"></i>
+                </div>
+                <p class="font-medium text-gray-800">Terms & Conditions</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-shield-alt text-gray-600"></i>
+                </div>
+                <p class="font-medium text-gray-800">Privacy Policy</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-headset text-gray-600"></i>
+                </div>
+                <p class="font-medium text-gray-800">Customer Support</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between py-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-sign-out-alt text-red-600"></i>
+                </div>
+                <p class="font-medium text-gray-800">Logout</p>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+        <!-- @END_COMPONENT: ProfileSections -->
+      </div>
+    </div>
+
+    <!-- Notifications Page -->
+    <div id="notifications-page" class="page min-h-screen bg-gray-50 pb-20">
+      <!-- @COMPONENT: NotificationsHeader -->
+      <div class="bg-blue-600 pt-12 pb-6 px-4">
+        <div class="flex items-center gap-4">
+          <button onclick="showHome()" class="text-white p-2">
+            <i class="fas fa-arrow-left text-lg"></i>
+          </button>
+          <div>
+            <h2 class="text-white font-semibold text-xl">Notifications</h2>
+            <p class="text-blue-100 text-sm">Stay updated with your loans</p>
+          </div>
+        </div>
+      </div>
+      <!-- @END_COMPONENT: NotificationsHeader -->
+
+      <div class="px-4 py-6">
+        <!-- @COMPONENT: NotificationsList -->
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-4 card-3d border-l-4 border-l-orange-500">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check-circle text-orange-600"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium text-gray-800 text-sm">EMI Payment Successful</p>
+                <p class="text-gray-600 text-xs mt-1">Your EMI of ₹15,420 has been successfully processed for loan PL-2024-001</p>
+                <p class="text-gray-500 text-xs mt-2">2 hours ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-4 card-3d border-l-4 border-l-blue-500">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-file-alt text-blue-600"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium text-gray-800 text-sm">Document Verification</p>
+                <p class="text-gray-600 text-xs mt-1">Your documents for vehicle loan application have been verified successfully</p>
+                <p class="text-gray-500 text-xs mt-2">1 day ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-4 card-3d border-l-4 border-l-yellow-500">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-exclamation-triangle text-yellow-600"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium text-gray-800 text-sm">EMI Due Reminder</p>
+                <p class="text-gray-600 text-xs mt-1">Your next EMI of ₹15,420 is due on January 15, 2025</p>
+                <p class="text-gray-500 text-xs mt-2">3 days ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- @END_COMPONENT: NotificationsList -->
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <!-- @COMPONENT: BottomNavigation -->
+    <div class="bottom-nav">
+      <div class="flex">
+        <button onclick="showHome()" class="nav-item active flex-1 flex flex-col items-center py-3 text-xs" data-page="home">
+          <i class="fas fa-home text-lg mb-1"></i>
+          <span>Home</span>
+        </button>
+        
+        <button onclick="showLoans()" class="nav-item flex-1 flex flex-col items-center py-3 text-xs text-gray-600" data-page="loans">
+          <i class="fas fa-chart-line text-lg mb-1"></i>
+          <span>My Loans</span>
+        </button>
+        
+        <button onclick="showProfile()" class="nav-item flex-1 flex flex-col items-center py-3 text-xs text-gray-600" data-page="profile">
+          <i class="fas fa-user text-lg mb-1"></i>
+          <span>Profile</span>
+        </button>
+      </div>
+    </div>
+    <!-- @END_COMPONENT: BottomNavigation -->
+
+    <!-- OTP Bottom Sheet Modal -->
+    <div id="otp-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+      <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 transform translate-y-full transition-transform duration-300" id="otp-sheet">
+        <!-- @COMPONENT: OTPModal -->
+        <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-6"></div>
+        
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-mobile-alt text-orange-600 text-xl"></i>
+          </div>
+          <h3 class="text-gray-800 font-semibold text-xl mb-2">Verify Mobile Number</h3>
+          <p class="text-gray-600 text-sm">Enter the OTP sent to <span class="font-medium">+91-8547258015</span></p>
+        </div>
+
+        <div class="flex justify-center gap-3 mb-6">
+          <input type="text" class="otp-input" maxlength="1" data-index="0">
+          <input type="text" class="otp-input" maxlength="1" data-index="1">
+          <input type="text" class="otp-input" maxlength="1" data-index="2">
+          <input type="text" class="otp-input" maxlength="1" data-index="3">
+        </div>
+
+        <button onclick="verifyModalOTP()" class="w-full bg-primary text-primary-foreground py-4 rounded-lg font-semibold btn-3d mb-4">
+          Verify & Continue
+        </button>
+
+        <div class="text-center">
+          <p class="text-gray-600 text-sm">Didn't receive code? 
+            <button class="text-orange-600 font-medium ml-1">Resend OTP</button>
+          </p>
+        </div>
+        <!-- @END_COMPONENT: OTPModal -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Page Navigation
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+      
+      // Update bottom navigation
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      const navMap = {
+        'home-page': 'home',
+        'loans-page': 'loans', 
+        'profile-page': 'profile'
+      };
+      
+      if (navMap[pageId]) {
+        document.querySelector(`[data-page="${navMap[pageId]}"]`).classList.add('active');
+      }
+    }
+
+    function showLogin() {
+      showPage('login-page');
+    }
+
+    function showOTPVerification() {
+      const mobileInput = document.getElementById('mobile-input').value;
+      if (mobileInput) {
+        document.getElementById('mobile-display').textContent = `+91-${mobileInput}`;
+        showPage('otp-page');
+        // Focus first OTP input
+        setTimeout(() => {
+          document.querySelector('.otp-input').focus();
+        }, 300);
+      }
+    }
+
+    function showHome() {
+      showPage('home-page');
+    }
+
+    function showLoans() {
+      showPage('loans-page');
+    }
+
+    function showProfile() {
+      showPage('profile-page');
+    }
+
+    function showLoanApplication() {
+      showOTPModal();
+    }
+
+    function showEMICalculator() {
+      showPage('emi-calculator-page');
+    }
+
+    function showNotifications() {
+      showPage('notifications-page');
+    }
+
+    function verifyOTP() {
+      // TODO: Implement OTP verification logic
+      showHome();
+    }
+
+    // OTP Input Management
+    document.addEventListener('DOMContentLoaded', function() {
+      const otpInputs = document.querySelectorAll('.otp-input');
+      
+      otpInputs.forEach((input, index) => {
+        input.addEventListener('input', function(e) {
+          if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          }
+          
+          if (e.target.value.length === 0 && index > 0) {
+            otpInputs[index - 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
+            otpInputs[index - 1].focus();
+          }
+        });
+      });
+
+      // EMI Calculator Logic
+      const loanAmountSlider = document.getElementById('loan-amount-slider');
+      const interestRateSlider = document.getElementById('interest-rate-slider');
+      const tenureSlider = document.getElementById('tenure-slider');
+
+      function updateEMI() {
+        const principal = parseInt(loanAmountSlider?.value || 500000);
+        const rate = parseFloat(interestRateSlider?.value || 12) / 100 / 12;
+        const tenure = parseInt(tenureSlider?.value || 3) * 12;
+
+        const emi = principal * rate * Math.pow(1 + rate, tenure) / (Math.pow(1 + rate, tenure) - 1);
+        const totalAmount = emi * tenure;
+        const totalInterest = totalAmount - principal;
+
+        if (document.getElementById('loan-amount-display')) {
+          document.getElementById('loan-amount-display').textContent = `₹${(principal/100000).toFixed(1)}L`;
+          document.getElementById('interest-rate-display').textContent = `${interestRateSlider.value}%`;
+          document.getElementById('tenure-display').textContent = `${tenureSlider.value} Years`;
+          document.getElementById('emi-amount').textContent = `₹${Math.round(emi).toLocaleString()}`;
+          document.getElementById('total-interest').textContent = `₹${Math.round(totalInterest).toLocaleString()}`;
+          document.getElementById('total-amount').textContent = `₹${Math.round(totalAmount).toLocaleString()}`;
+        }
+      }
+
+      if (loanAmountSlider) {
+        loanAmountSlider.addEventListener('input', updateEMI);
+        interestRateSlider.addEventListener('input', updateEMI);
+        tenureSlider.addEventListener('input', updateEMI);
+        updateEMI();
+      }
+    });
+
+    // OTP Modal Functions
+    function showOTPModal() {
+      const modal = document.getElementById('otp-modal');
+      const sheet = document.getElementById('otp-sheet');
+      
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        sheet.style.transform = 'translateY(0)';
+      }, 10);
+      
+      // Focus first OTP input in modal
+      setTimeout(() => {
+        modal.querySelector('.otp-input').focus();
+      }, 300);
+    }
+
+    function hideOTPModal() {
+      const modal = document.getElementById('otp-modal');
+      const sheet = document.getElementById('otp-sheet');
+      
+      sheet.style.transform = 'translateY(100%)';
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    function verifyModalOTP() {
+      // TODO: Implement OTP verification logic
+      hideOTPModal();
+      showPage('loan-application-page');
+    }
+
+    function proceedToOffer() {
+      showOTPModal();
+    }
+
+    // Click outside modal to close
+    document.getElementById('otp-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        hideOTPModal();
+      }
+    });
+
+    // Auto-focus and navigation for modal OTP inputs
+    document.addEventListener('DOMContentLoaded', function() {
+      const modalOtpInputs = document.querySelectorAll('#otp-modal .otp-input');
+      
+      modalOtpInputs.forEach((input, index) => {
+        input.addEventListener('input', function(e) {
+          if (e.target.value.length === 1 && index < modalOtpInputs.length - 1) {
+            modalOtpInputs[index + 1].focus();
+          }
+          
+          if (e.target.value.length === 0 && index > 0) {
+            modalOtpInputs[index - 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
+            modalOtpInputs[index - 1].focus();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
